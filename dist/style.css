@@ -1,55 +1,17 @@
 @font-face {
-  font-family: 'Quotus Bold';
-  font-weight: bold;
-  font-style: normal;
-  src: url("./fonts/Quotus-Bold.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'Quotus Normal';
-  font-weight: 400;
-  font-style: normal;
-  src: url("./fonts/Quotus-Bold.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'Quotus Thin';
-  font-weight: 400;
-  font-style: normal;
-  src: url("./fonts/Quotus-Thin.ttf") format("truetype"); }
-
-/* latin */
-@font-face {
-  font-family: 'Roboto-Light';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmSU5fBBc4.woff2) format("woff2"); }
-
-/* latin */
-@font-face {
-  font-family: 'Roboto-Regular';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxK.woff2) format("woff2"); }
-
-/* latin */
-@font-face {
-  font-family: 'Roboto-Medium';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmEU9fBBc4.woff2) format("woff2"); }
-
-/* latin */
-@font-face {
-  font-family: 'Roboto-Bold';
-  font-style: normal;
+  font-family: 'Gotham Pro Medium';
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff2) format("woff2"); }
+  font-style: normal;
+  src: url("./fonts/GothaProMed.otf") format("truetype"); }
+
+@font-face {
+  font-family: 'Gotham Pro Regular';
+  font-weight: 400;
+  font-style: normal;
+  src: url("./fonts/GothaProReg.otf") format("truetype"); }
 
 html {
   font-size: 10px; }
-
-@media screen and (max-width: 1400px) {
-  html {
-    font-size: 9px; } }
 
 a,
 button {
@@ -57,7 +19,7 @@ button {
 
 a {
   text-decoration: none;
-  color: #242424; }
+  color: linear-gradient(-269deg, #c77c1f 0%, #ebd49d 67%, #cf8f3a 94%, #cf8f3a 100%); }
 
 ul {
   margin: 0;
@@ -73,19 +35,21 @@ img {
 *,
 *::after,
 *::before {
-  box-sizing: border-box;
-  color: #242424; }
+  box-sizing: border-box; }
 
 body {
-  width: 100%; }
+  width: 100%;
+  background-image: url("./img/background.png");
+  background-repeat: no-repeat;
+  background-position: 51% 56%;
+  background-origin: content-box;
+  height: 100vh; }
 
-.cont {
-  width: 134rem;
-  margin: 0 auto; }
-
-@media screen and (max-width: 1500px) {
-  .cont {
-    width: auto; } }
+.container {
+  max-width: 1500px;
+  margin: auto;
+  height: 100%;
+  padding-top: 47px; }
 
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -387,461 +351,55 @@ template {
   display: none; }
 
 .header {
-  background-image: url("./img/mountain_back.jpg");
-  height: 108rem;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  position: relative; }
-  .header::before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    background-position: center;
-    position: absolute;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url("./img/mountain_front_big.png"); }
-  .header .logo-and-additional {
-    display: flex;
-    padding-top: 2.3rem;
-    align-items: center;
-    position: relative; }
-    .header .logo-and-additional .logo {
-      display: table;
-      margin: 0 auto; }
-    .header .logo-and-additional .additional {
-      position: absolute;
-      top: 6rem;
-      right: 9rem; }
-  .header .search {
-    background-image: url("../../img/search.png");
-    background-repeat: no-repeat;
-    height: 4.8rem;
-    width: 4.6rem;
-    display: inline-block;
-    margin-right: 6.2rem;
-    background-size: cover; }
-  .header .bucket {
-    background-image: url("../../img/shopping-cart.png");
-    display: inline-block;
-    background-size: cover;
-    width: 4.8rem;
-    height: 4.3rem;
-    background-repeat: no-repeat; }
-  .header nav {
-    margin: 6.3rem auto 6rem; }
-    .header nav .menu {
-      display: flex;
-      justify-content: center; }
-      .header nav .menu .menu-item {
-        color: #242424;
-        font-family: "Quotus Bold";
-        text-transform: uppercase;
-        font-size: 2.3rem;
-        line-height: 4.233rem;
-        letter-spacing: .414px;
-        margin-right: 12rem; }
-        .header nav .menu .menu-item:last-child {
-          margin-right: 0; }
-  .header .main-subtitle {
-    font-family: "Quotus Thin";
-    font-size: 3.5rem;
-    color: #000000;
-    font-weight: bold;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: .63rem; }
-  .header .main-title {
-    font-family: Quotus Normal;
-    font-size: 17.5rem;
-    color: #fff;
-    line-height: 4.65rem;
-    text-transform: uppercase;
-    letter-spacing: .636rem;
-    text-align: center;
-    margin-top: 10rem;
-    user-select: none; }
-  .header .people {
-    position: absolute;
-    top: 25.3rem;
-    right: 0;
-    height: 100%; }
-    .header .people img {
-      max-height: 100%; }
-  @media screen and (max-width: 1500px) {
-    .header .people {
-      max-height: 90rem; } }
-
-.main {
-  position: relative; }
-  .main .store {
-    max-width: 72rem;
-    margin-left: 23rem; }
-    .main .store .store-title {
-      font-family: 'Quotus Normal';
-      font-size: 8rem;
-      line-height: 3.44rem;
-      letter-spacing: .196rem; }
-    .main .store .sub-title {
-      font-size: 8rem;
-      line-height: 4.527rem;
-      text-transform: uppercase;
-      letter-spacing: .15rem;
-      font-family: Quotus Thin; }
-    .main .store .store-content {
-      color: #272626;
-      font-family: 'Roboto-Light';
-      font-size: 2.1rem;
-      line-height: 4.233rem;
-      letter-spacing: .042rem;
-      margin-top: 6rem; }
-    .main .store .link-view-all {
-      margin-top: 6rem;
-      display: inline-block;
-      box-shadow: 0 0.4rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
-      border-radius: 4rem;
-      background-color: #3acdd5;
-      padding: 3rem 8rem;
-      color: #fff;
-      line-height: 2.889rem;
-      text-transform: uppercase;
-      font-size: 3.1rem;
-      font-family: 'Roboto-Bold'; }
-    @media screen and (max-width: 1500px) {
-      .main .store .link-view-all {
-        padding: 2rem 7rem; } }
-  .main .arrivals {
-    margin-top: 20rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center; }
-    .main .arrivals .title-arrivals {
-      font-family: 'Quotus Thin';
-      font-size: 6.8rem;
-      font-weight: bold;
-      line-height: 4.618rem;
-      text-transform: uppercase;
-      letter-spacing: .124rem; }
-    .main .arrivals .subtitle-arrivals {
-      font-family: 'Roboto-Regular';
+  display: flex;
+  align-items: center;
+  margin-bottom: 61px; }
+  .header .menu {
+    margin-left: auto;
+    display: flex; }
+    .header .menu .menu-item a {
       font-size: 2.4rem;
-      line-height: 4.233rem;
-      letter-spacing: .048rem;
-      max-width: 83rem;
-      text-align: center; }
-    .main .arrivals .arrivals-content {
-      margin-top: 5.4rem;
-      text-align: center; }
-      .main .arrivals .arrivals-content input[type='radio'] {
-        display: none; }
-      .main .arrivals .arrivals-content label {
-        font-family: 'Roboto-Regular';
-        font-size: 3.2rem;
-        line-height: 4.233rem;
-        letter-spacing: .064rem;
-        color: #3acdd5;
-        cursor: pointer;
-        user-select: none; }
-        .main .arrivals .arrivals-content label.popular {
-          margin-right: 20rem; }
-      .main .arrivals .arrivals-content .merchandise-one {
-        margin-top: 5.5rem;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 15px;
-        grid-row-gap: 5rem;
-        grid-column-gap: 10rem;
-        align-items: center; }
-        .main .arrivals .arrivals-content .merchandise-one .merchandise-one-item {
-          font-family: 'Roboto-Medium';
-          text-align: center;
-          font-size: 1.4rem;
-          line-height: 2.603rem;
-          display: flex;
-          flex-direction: column;
-          align-content: center;
-          align-items: center;
-          height: 57rem;
-          justify-content: space-around; }
-          .main .arrivals .arrivals-content .merchandise-one .merchandise-one-item .merchandise-one-item-image {
-            height: 45rem; }
-            .main .arrivals .arrivals-content .merchandise-one .merchandise-one-item .merchandise-one-item-image img {
-              max-width: none;
-              max-height: 100%; }
-          .main .arrivals .arrivals-content .merchandise-one .merchandise-one-item .merchandise-one-item-description {
-            width: 32rem; }
-          .main .arrivals .arrivals-content .merchandise-one .merchandise-one-item div.flex span {
-            font-size: 2rem;
-            font-family: 'Roboto-Bold';
-            margin-right: 2rem; }
-        .main .arrivals .arrivals-content .merchandise-one .flex {
-          display: flex; }
-      @media screen and (max-width: 1700px) {
-        .main .arrivals .arrivals-content .merchandise-one {
-          grid-template-columns: 1fr 1fr;
-          padding: 10px; }
-          .main .arrivals .arrivals-content .merchandise-one .merchandise-one-item img {
-            max-width: 100%;
-            max-height: auto; } }
-    .main .arrivals .camps-title {
-      font-family: 'Quotus Thin';
-      font-size: 6rem;
-      font-weight: bold;
-      text-transform: uppercase; }
-    .main .arrivals .camps-subtitle {
-      font-family: 'Roboto-Regular';
-      font-size: 2.4rem;
-      line-height: 4.233rem;
-      letter-spacing: 0.048rem;
-      max-width: 83rem;
-      text-align: center;
-      margin-bottom: 5.4rem; }
-    .main .arrivals input[type="radio"] {
-      display: none; }
-    .main .arrivals label {
-      font-family: 'Roboto-Regular';
-      font-size: 3.2rem;
-      line-height: 4.233rem;
-      letter-spacing: .064rem;
-      color: #3acdd5;
-      cursor: pointer;
-      user-select: none; }
-      .main .arrivals label.popular {
-        margin-right: 20rem; }
-    .main .arrivals .camps-content {
-      display: flex;
-      width: 100%;
-      margin-top: 13rem;
-      flex-wrap: wrap;
-      justify-content: space-around; }
-      .main .arrivals .camps-content .camps-conten-item {
-        display: flex;
-        flex-direction: column;
-        align-content: center;
-        align-items: center;
-        font-family: 'Roboto-Medium';
-        text-align: center;
-        font-size: 1.4rem;
-        line-height: 2.603rem;
-        justify-content: space-between;
-        padding: 1.5rem;
-        max-width: 41.5rem; }
-        .main .arrivals .camps-content .camps-conten-item .camps-conten-item-image {
-          height: 25rem; }
-        .main .arrivals .camps-content .camps-conten-item .merchandise-one-item-description {
-          max-width: 30rem; }
-        .main .arrivals .camps-content .camps-conten-item div.flex {
-          display: flex; }
-          .main .arrivals .camps-content .camps-conten-item div.flex span {
-            font-size: 2rem;
-            font-family: 'Roboto-Bold';
-            margin-right: 2rem; }
-    .main .arrivals .round-link {
-      border-radius: 4rem;
-      box-shadow: 0 0.4rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
-      background-color: #3acdd5;
-      padding: 3rem 8rem;
-      font-size: 2.603rem;
-      color: white;
-      margin-top: 5rem;
-      font-family: 'Roboto-Medium'; }
-      @media (max-width: 1500px) {
-        .main .arrivals .round-link {
-          padding: 2rem 7rem; } }
-  .main .camera-title {
-    font-family: 'Quotus Thin';
-    font-size: 6.2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-top: 13rem; }
-  .main .camera-subtitle {
-    font-family: 'Roboto-Regular';
-    font-size: 2.4rem;
-    line-height: 4.233rem;
-    letter-spacing: 0.048rem;
-    max-width: 83rem;
-    text-align: center; }
-  .main .camera-content {
-    display: flex;
-    width: 100%;
-    margin-top: 13rem;
-    justify-content: space-around;
-    flex-wrap: wrap; }
-    .main .camera-content .camera-content-item {
-      display: flex;
-      flex-direction: column;
-      align-content: center;
-      align-items: center;
-      font-family: 'Roboto-Medium';
-      text-align: center;
-      font-size: 1.4rem;
-      line-height: 2.603rem;
-      justify-content: space-between;
-      max-width: 32.5rem;
-      padding: 1.5rem; }
-      .main .camera-content .camera-content-item .camera-content-item-image {
-        height: 58rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center; }
-      .main .camera-content .camera-content-item .camera-content-item-description {
-        max-width: 30rem;
-        height: 10%;
-        margin-bottom: 1rem; }
-      .main .camera-content .camera-content-item div.flex {
-        display: flex; }
-        .main .camera-content .camera-content-item div.flex span {
-          font-size: 2rem;
-          font-family: 'Roboto-Bold';
-          margin-right: 2rem; }
-  .main .lens-title {
-    font-family: 'Quotus Thin';
-    font-size: 6.2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-top: 13rem; }
-  .main .lens-subtitle {
-    font-family: 'Roboto-Regular';
-    font-size: 2.4rem;
-    line-height: 4.233rem;
-    letter-spacing: 0.048rem;
-    max-width: 83rem;
-    text-align: center; }
-  .main .lens-content {
-    display: flex;
-    width: 100%;
-    margin-top: 13rem;
-    justify-content: space-around;
-    width: 100%;
-    flex-wrap: wrap; }
-    .main .lens-content .lens-content-item {
-      display: flex;
-      flex-direction: column;
-      align-content: center;
-      align-items: center;
-      font-family: 'Roboto-Medium';
-      text-align: center;
-      font-size: 1.4rem;
-      line-height: 2.603rem;
-      justify-content: flex-end;
-      max-width: 51.5rem;
-      padding: 1.5rem;
-      margin-bottom: 5rem; }
-      .main .lens-content .lens-content-item .lens-content-image {
-        margin-bottom: 6rem; }
-      .main .lens-content .lens-content-item div.flex {
-        display: flex; }
-        .main .lens-content .lens-content-item div.flex span {
-          font-size: 2rem;
-          font-family: 'Roboto-Bold';
-          margin-right: 2rem; }
-      .main .lens-content .lens-content-item:nth-child(3) {
-        max-width: 90rem;
-        width: auto; }
-        .main .lens-content .lens-content-item:nth-child(3) .desc-w-100 {
-          width: 100%; }
+      font-family: 'Gotham Pro Medium';
+      background-image: linear-gradient(-269deg, #c77c1f 0%, #ebd49d 67%, #cf8f3a 94%, #cf8f3a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: #b9993e; }
+    .header .menu .menu-item:first-child {
+      margin-right: 55px; }
 
-.container {
-  background-image: url("./img/Back.png"); }
-
-.subscription {
-  background-image: url("./img/mountaing image.jpg");
-  height: 100vh;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 120rem; }
-  @media (min-width: 1990px) {
-    .subscription {
-      height: 100vh; } }
-  .subscription .feature {
-    padding: 48.5rem 23rem; }
-    .subscription .feature .feature-title {
-      font-family: 'Quotus Bold';
-      color: white;
-      line-height: 3.348rem;
-      font-size: 5.5rem; }
-    .subscription .feature .feature-subtitle {
-      font-family: 'Quotus Thin';
-      font-size: 5.1rem;
-      font-weight: bold;
-      line-height: 3.348rem;
-      text-transform: uppercase;
+.main .dream-board {
+  max-width: 550px; }
+  .main .dream-board .create-your-board {
+    font-size: 6rem;
+    font-family: 'Gotham Pro Medium';
+    background-image: linear-gradient(-269deg, #c77c1f 0%, #ebd49d 67%, #cf8f3a 94%, #cf8f3a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #b9993e;
+    line-height: 68.18px; }
+  .main .dream-board .dream-description {
+    font-size: 2.1rem;
+    max-width: 400px;
+    font-family: 'Gotham Pro Medium';
+    line-height: 25.94px;
+    margin-bottom: 72px;
+    color: white; }
+    .main .dream-board .dream-description .your-dream {
+      font-family: 'Gotham Pro Regular'; }
+      .main .dream-board .dream-description .your-dream .unique {
+        color: #b9993e; }
+    .main .dream-board .dream-description .change-world {
+      font-family: 'Gotham Pro Regular'; }
+  .main .dream-board .dream-install-board {
+    font-family: 'Gotham Pro Regular';
+    font-size: 2.1rem;
+    line-height: 20.83px; }
+    .main .dream-board .dream-install-board .desc {
       color: white; }
-    .subscription .feature .feature-description {
-      font-family: 'Roboto-Medium';
-      font-size: 1.7rem;
-      color: white;
-      line-height: 3.033rem;
-      margin-top: 6rem;
-      max-width: 64rem; }
-    .subscription .feature form.flex {
-      display: flex;
-      margin-top: 5rem; }
-      .subscription .feature form.flex input {
-        border-radius: 4rem;
-        padding: 3rem 8rem;
-        background: white;
-        border: none;
-        margin-right: 3rem;
-        font-family: 'Roboto-Medium';
-        color: gray;
-        font-size: 2rem; }
-      @media screen and (max-width: 1500px) {
-        .subscription .feature form.flex input {
-          padding: 1rem 8rem;
-          font-size: 1.8rem; } }
-      .subscription .feature form.flex button {
-        padding: 3rem 8rem;
-        background: #3acdd5;
-        border: none;
-        border-radius: 4rem;
-        color: white;
-        font-family: 'Roboto-Medium';
-        font-size: 2.5rem;
-        padding: 1.5rem 6rem; }
-      @media screen and (max-width: 1500px) {
-        .subscription .feature form.flex button {
-          font-size: 2rem; } }
-
-.footer {
-  margin-top: 30rem; }
-  .footer .menu {
-    display: flex;
-    justify-content: space-around; }
-    .footer .menu .menu-item {
-      display: flex;
-      flex-direction: column;
-      font-family: 'Roboto-Regular';
-      font-size: 3rem;
-      letter-spacing: .103px;
-      line-height: 6.457rem; }
-      .footer .menu .menu-item div:nth-child(1) {
-        font-size: 4.2rem;
-        font-family: Quotus Bold; }
-    @media screen and (max-width: 1400px) {
-      .footer .menu .menu-item {
-        font-size: 2.5rem; } }
-  .footer .social {
-    margin-top: 20rem;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 3rem; }
-    .footer .social button {
-      border: none;
-      background: none;
-      margin-right: .5rem; }
-      @media screen and (max-width: 1500px) {
-        .footer .social button img {
-          height: 5rem; } }
-
-.opa {
-  color: red; }
-
-@media screen and (max-width: 1500px) {
-  .footer {
-    padding: 0 10rem; } }
+    .main .dream-board .dream-install-board .dream {
+      color: #b9993e; }
 
 @media (max-width: 1300px) {
   html {
