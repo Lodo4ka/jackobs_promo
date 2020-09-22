@@ -5,25 +5,11 @@
      max-width: 550px;
      margin-right: 65px;
      .create-your-board {
-        font-size: 6rem;
-        font-family: 'Gotham Pro Bold';
-        background-image: linear-gradient(-269deg, #c77c1f 0%, #ebd49d 67%, #cf8f3a 94%, #cf8f3a 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        color: #b9993e; 
-        line-height: 68.18px;
-        position: relative;
-
-        &::before {
-          content: '';
-          position: absolute;
-          background-image: url('./img/light.png');
-          width: 104px;
-          height: 104px;
-          top: -43px;
-          left: 124px;
-        }
+        background-image: url('./img/3-layers.png');
+        width: 513px;
+        height: 169px;
+        mix-blend-mode: screen;
+        margin-bottom: 70px;
      }
      .dream-description {
       font-size: 2.1rem;
@@ -53,6 +39,18 @@
       }
       .change-world {
         font-family: 'Gotham Pro Regular';
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          background-image: url('./img/arrow_small.png');
+          height: 87px;
+          width: 45px;
+          background-repeat: no-repeat;
+          left: -85px;
+          top: 11px;
+        }
       }
      }
 
@@ -82,6 +80,18 @@
       .dream {
         font-family: 'Gotham Pro Bold';
         color: #b9993e;
+        
+        &.star::before {
+          position: relative;
+          content: '';
+          position: absolute;
+          background-image: url('./img/arrow_medium.png');
+          height: 112px;
+          width: 54px;
+          bottom: 161px;
+          left: 113px;
+          background-repeat: no-repeat;
+        }
       }
      }
      .download-dream {
@@ -128,6 +138,17 @@
       position: relative;
       padding: 50px;
 
+      &::before {
+        content: '';
+        position: absolute;
+        background-image: url('./img/left-light.png');
+        width: 466px;
+        height: 377px;
+        mix-blend-mode: color-dodge;
+        bottom: -149px;
+        left: -180px;
+      }
+      
       &::after {
         content: '';
         min-width: 80px;
@@ -147,6 +168,7 @@
         font-weight: 700;
         text-transform: uppercase;
         text-align: center;
+        position: relative;
 
         &::before {
           content: '|';
@@ -155,10 +177,32 @@
           color: #ddc27a;
           margin-right: 9px;
         }
+
+        &::after {
+          content: '';
+          position: absolute;
+          background-image: url('./img/right-light.png');
+          width: 466px;
+          height: 377px;
+          mix-blend-mode: color-dodge;
+          right: -229px;
+          top: -170px;
+        }
       }
 
       .photo-board-dasboard-photos {
         position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          background-image: url('./img/left-stars.png');
+          width: 1131px;
+          height: 797px;
+          mix-blend-mode: screen;
+          top: -184px;
+          left: -72px;
+        }
 
         & > div {
           position: absolute;

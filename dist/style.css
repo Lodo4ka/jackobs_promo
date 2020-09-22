@@ -49,7 +49,8 @@ body {
   background-repeat: no-repeat;
   background-position: 51% 56%;
   background-origin: content-box;
-  height: 100vh; }
+  height: 100vh;
+  overflow-x: hidden; }
 
 .container {
   max-width: 1500px;
@@ -384,23 +385,11 @@ template {
     max-width: 550px;
     margin-right: 65px; }
     .main .dream-board .create-your-board {
-      font-size: 6rem;
-      font-family: 'Gotham Pro Bold';
-      background-image: linear-gradient(-269deg, #c77c1f 0%, #ebd49d 67%, #cf8f3a 94%, #cf8f3a 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      color: #b9993e;
-      line-height: 68.18px;
-      position: relative; }
-      .main .dream-board .create-your-board::before {
-        content: '';
-        position: absolute;
-        background-image: url("./img/light.png");
-        width: 104px;
-        height: 104px;
-        top: -43px;
-        left: 124px; }
+      background-image: url("./img/3-layers.png");
+      width: 513px;
+      height: 169px;
+      mix-blend-mode: screen;
+      margin-bottom: 70px; }
     .main .dream-board .dream-description {
       font-size: 2.1rem;
       max-width: 400px;
@@ -422,7 +411,17 @@ template {
         .main .dream-board .dream-description .your-dream .unique {
           color: #b9993e; }
       .main .dream-board .dream-description .change-world {
-        font-family: 'Gotham Pro Regular'; }
+        font-family: 'Gotham Pro Regular';
+        position: relative; }
+        .main .dream-board .dream-description .change-world::before {
+          content: '';
+          position: absolute;
+          background-image: url("./img/arrow_small.png");
+          height: 87px;
+          width: 45px;
+          background-repeat: no-repeat;
+          left: -85px;
+          top: 11px; }
     .main .dream-board .dream-install-board {
       font-family: 'Gotham Pro Regular';
       font-size: 2.1rem;
@@ -443,6 +442,16 @@ template {
       .main .dream-board .dream-install-board .dream {
         font-family: 'Gotham Pro Bold';
         color: #b9993e; }
+        .main .dream-board .dream-install-board .dream.star::before {
+          position: relative;
+          content: '';
+          position: absolute;
+          background-image: url("./img/arrow_medium.png");
+          height: 112px;
+          width: 54px;
+          bottom: 161px;
+          left: 113px;
+          background-repeat: no-repeat; }
     .main .dream-board .download-dream {
       background-image: url("./img/download.png");
       background-color: transparent;
@@ -474,6 +483,15 @@ template {
       background-image: url("./img/photo-border.png");
       position: relative;
       padding: 50px; }
+      .main .photo-board .photo-board-dasboard::before {
+        content: '';
+        position: absolute;
+        background-image: url("./img/left-light.png");
+        width: 466px;
+        height: 377px;
+        mix-blend-mode: color-dodge;
+        bottom: -149px;
+        left: -180px; }
       .main .photo-board .photo-board-dasboard::after {
         content: '';
         min-width: 80px;
@@ -490,15 +508,34 @@ template {
         font-size: 32px;
         font-weight: 700;
         text-transform: uppercase;
-        text-align: center; }
+        text-align: center;
+        position: relative; }
         .main .photo-board .photo-board-dasboard .photo-board-dasboard-label::before {
           content: '|';
           width: 4px;
           height: 37px;
           color: #ddc27a;
           margin-right: 9px; }
+        .main .photo-board .photo-board-dasboard .photo-board-dasboard-label::after {
+          content: '';
+          position: absolute;
+          background-image: url("./img/right-light.png");
+          width: 466px;
+          height: 377px;
+          mix-blend-mode: color-dodge;
+          right: -229px;
+          top: -170px; }
       .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos {
         position: relative; }
+        .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos::before {
+          content: '';
+          position: absolute;
+          background-image: url("./img/left-stars.png");
+          width: 1131px;
+          height: 797px;
+          mix-blend-mode: screen;
+          top: -184px;
+          left: -72px; }
         .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos > div {
           position: absolute; }
         .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .health {
