@@ -63,7 +63,7 @@ gulp.task('copy:fonts', function() {
  *  Скрипты из папки vendor добавляются в первую очередь
  */
 gulp.task('javascript', function () {
-	return gulp.src('src/scripts/vendor/**/*.js', 'src/scripts/**/*.js')
+	return gulp.src()
 	.pipe(plumber())
 	.pipe(gulpif(true, sourcemaps.init()))
 	.pipe(gulpif(true, babel({
@@ -78,11 +78,25 @@ gulp.task('javascript', function () {
 	}));
 });
 
+gulp.task('javascript-vendor', function () {
+	return gulp.src('src/scripts/**/*.js')
+	.pipe(plumber())
+	.pipe(sourcemaps.init())
+	.pipe(babel({
+		presets: ['@babel/preset-env']
+    }))
+    .pipe(concat('script.min.js'))
+	.pipe(sourcemaps.write('.'))
+	.pipe(gulp.dest('dist/js'))
+});
+
 gulp.task('watch', function() {
     gulp.watch('src/scss/**/*.scss', gulp.series('styles'))
+    gulp.watch('src/scripts/vendor/**/*.js', gulp.series('javascript-vendor'))
+    gulp.watch('src/scripts/vendor/**/*.js', gulp.series('javascript'))
     gulp.watch('src/pug/*.pug', gulp.series('pug'))
     gulp.watch('src/img/*', gulp.series('copy:img'))
-    gulp.watch(['src/scss/**/*.scss', 'src/pug/index.pug', 'src/img/**/*.{png,jpg,jpeg,gif,svg}']).on('change', bs.reload)
+    gulp.watch(['src/scss/**/*.scss', 'src/pug/index.pug', 'src/img/**/*.{png,jpg,jpeg,gif,svg}', 'src/scripts/**/*.js']).on('change', bs.reload)
 })
 
 gulp.task('bs', function() {
