@@ -1,15 +1,29 @@
  .main {
+   display: flex;
+
    .dream-board {
      max-width: 550px;
+     margin-right: 65px;
      .create-your-board {
         font-size: 6rem;
-        font-family: 'Gotham Pro Medium';
+        font-family: 'Gotham Pro Bold';
         background-image: linear-gradient(-269deg, #c77c1f 0%, #ebd49d 67%, #cf8f3a 94%, #cf8f3a 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
         color: #b9993e; 
         line-height: 68.18px;
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          background-image: url('./img/light.png');
+          width: 104px;
+          height: 104px;
+          top: -43px;
+          left: 124px;
+        }
      }
      .dream-description {
       font-size: 2.1rem;
@@ -18,8 +32,21 @@
       line-height: 25.94px;
       margin-bottom: 72px;
       color: white;
+      position: relative;
+
       .your-dream {
-        font-family: 'Gotham Pro Regular';
+        font-family: 'Gotham Pro Bold';
+
+        &::before {
+          content: '';
+          position: absolute;
+          background-image: url('./img/star.png');
+          height: 30px;
+          width: 29px;
+          left: -38px;
+          top: -9px;
+        }
+
         .unique {
           color: #b9993e; 
         }
@@ -33,14 +60,146 @@
       font-family: 'Gotham Pro Regular';
       font-size: 2.1rem;
       line-height: 20.83px;
+      margin-bottom: 32px;
 
       .desc {
         color: white;
+        
+        &.star {
+          position: relative;
+          &::before {
+            content: '';
+            position: absolute;
+            background-image: url('./img/star.png');
+            height: 30px;
+            width: 29px;
+            left: -38px;
+            top: -9px;
+          }
+        }      
       }
 
       .dream {
+        font-family: 'Gotham Pro Bold';
         color: #b9993e;
       }
      }
+     .download-dream {
+        background-image: url('./img/download.png');
+        background-color: transparent;
+        min-width: 300px;
+        height: 80px;
+     }
+   }
+
+   .photo-board {
+     margin-bottom: 25px;
+    .photo-board-btns {
+      display: flex;
+
+      .photo-board-btn-change-back {
+        min-width: 210px;
+        height: 69px;
+        background-image: url('./img/change-background.png');
+      }
+
+      .photo-board-btn-paste-text {
+        min-width: 210px;
+        height: 69px;
+        background-image: url('./img/paste-text.png');
+      }
+      
+      .photo-board-btn-add-smile {
+        min-width: 210px;
+        height: 69px;
+        background-image: url('./img/add-smile.png');
+      }
+      .photo-board-btn-bucket {
+        min-width: 210px;
+        height: 69px;
+        background-image: url('./img/bucket.png');
+      }
+    }
+
+    .photo-board-dasboard {
+      min-width: 1024px;
+      height: 650px;
+      background-image: url('./img/photo-border.png');
+      position: relative;
+      padding: 50px;
+
+      &::after {
+        content: '';
+        min-width: 80px;
+        min-height: 45px;
+        position: absolute;
+        background-image: url('./img/Jacobs_logo.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        bottom: 30px;
+        right: 25px;
+      }
+
+      .photo-board-dasboard-label {
+        font-family: 'Gotham Pro Bold';
+        color: #ffffff;
+        font-size: 32px;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;
+
+        &::before {
+          content: '|';
+          width: 4px;
+          height: 37px;
+          color: #ddc27a;
+          margin-right: 9px;
+        }
+      }
+
+      .photo-board-dasboard-photos {
+        position: relative;
+
+        & > div {
+          position: absolute;
+        }
+        
+        .health {
+          right: 290px;
+          z-index: 100;
+          top: -11px;
+        }
+
+        .love {
+          right: 73px;
+          z-index: 1000;
+        }
+
+        .hobbies {
+          top: 300px;
+          left: 138px;
+        }
+
+        .family {
+          top: 160px;
+          z-index: 1000;
+          left: 170px;
+        }
+
+        .travel {
+          top: 257px;
+          z-index: 1000;
+          right: 32px;
+        }
+
+        .love {
+          right: 76px;
+        }
+
+        .money {
+          left: 85px;
+        }
+      }
+    }
    }
  }
