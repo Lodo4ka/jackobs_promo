@@ -11,19 +11,19 @@ const uglify = require('gulp-uglify');
 const babel = require('gulp-babel');
 const browserSync = require('browser-sync');
 
-gulp.task('pug', function() {
-    return gulp.src('src/pug/index.pug')
-        .pipe(plumber({
-            errorHandler: notify.onError(function(err) {
-                return {
-                    title: "Markup",
-                    message: err.message
-                };
-            })
-        }))
-        .pipe(pug({ pretty: true }))
-        .pipe(gulp.dest('dist'))
-})
+// gulp.task('pug', function() {
+//     return gulp.src('src/pug/index.pug')
+//         .pipe(plumber({
+//             errorHandler: notify.onError(function(err) {
+//                 return {
+//                     title: "Markup",
+//                     message: err.message
+//                 };
+//             })
+//         }))
+//         .pipe(pug({ pretty: true }))
+//         .pipe(gulp.dest('dist'))
+// })
 
 gulp.task('styles', function() {
     return gulp.src('src/scss/style.scss')
@@ -49,6 +49,11 @@ gulp.task('copy:img', function() {
 gulp.task('copy:fonts', function() {
     return gulp.src('src/fonts/*')
         .pipe(gulp.dest('dist/fonts'))
+})
+
+gulp.task('copy:html', function() {
+    return gulp.src('src/index.html')
+        .pipe(gulp.dest('dist'))
 })
 
 /**
@@ -88,9 +93,9 @@ gulp.task('watch', function() {
     gulp.watch('src/scss/**/*.scss', gulp.series('styles'))
     gulp.watch('src/vendorScripts/**/*.js', gulp.series('javascript-vendor'))
     gulp.watch('src/scripts/**/*.js', gulp.series('javascript'))
-    gulp.watch('src/pug/*.pug', gulp.series('pug'))
     gulp.watch('src/img/*', gulp.series('copy:img'))
-    gulp.watch(['src/scss/**/*.scss', 'src/pug/index.pug', 'src/img/**/*.{png,jpg,jpeg,gif,svg}', 'src/scripts/**/*.js']).on('change', bs.reload)
+    gulp.watch('src/*.html', gulp.series('copy:html'))
+    gulp.watch(['src/scss/**/*.scss', 'src/*.html','src/img/**/*.{png,jpg,jpeg,gif,svg}', 'src/scripts/**/*.js']).on('change', bs.reload)
 })
 // , 'src/scripts/**/*.js'
 gulp.task('bs', function() {
@@ -102,6 +107,6 @@ gulp.task('bs', function() {
 });
 
 gulp.task('default', gulp.parallel(
-    gulp.series('styles', 'pug', 'copy:img', 'copy:fonts', 'watch'),
+    gulp.series('styles', 'copy:html', 'copy:img', 'copy:fonts', 'watch'),
     'bs'
 ))
