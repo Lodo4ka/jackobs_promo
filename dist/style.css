@@ -49,7 +49,6 @@ body {
   background-repeat: no-repeat;
   background-position: 51% 56%;
   background-origin: content-box;
-  height: 100vh;
   overflow-x: hidden; }
 
 .container {
@@ -441,16 +440,16 @@ template {
             top: -9px; }
       .main .dream-board .dream-install-board .dream {
         font-family: 'Gotham Pro Bold';
-        color: #b9993e; }
+        color: #b9993e;
+        position: relative; }
         .main .dream-board .dream-install-board .dream.star::before {
-          position: relative;
           content: '';
           position: absolute;
           background-image: url("./img/arrow_medium.png");
           height: 112px;
           width: 54px;
-          bottom: 161px;
-          left: 113px;
+          bottom: -69px;
+          left: -89px;
           background-repeat: no-repeat; }
     .main .dream-board .download-dream {
       background-image: url("./img/download.png");
@@ -565,7 +564,10 @@ template {
   display: block;
   background-image: url("./img/floor.png");
   width: 100%;
-  height: 34px; }
+  height: 34px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; }
 
 @media (max-width: 1300px) {
   html {

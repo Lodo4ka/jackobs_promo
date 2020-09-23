@@ -80,16 +80,16 @@
       .dream {
         font-family: 'Gotham Pro Bold';
         color: #b9993e;
+        position: relative;
         
         &.star::before {
-          position: relative;
           content: '';
           position: absolute;
           background-image: url('./img/arrow_medium.png');
           height: 112px;
           width: 54px;
-          bottom: 161px;
-          left: 113px;
+          bottom: -69px;
+          left: -89px;
           background-repeat: no-repeat;
         }
       }
