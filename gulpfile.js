@@ -43,6 +43,7 @@ gulp.task('styles', function() {
 gulp.task('copy:img', function() {
     return gulp.src('src/img/**/*.{png,jpg,jpeg,gif,svg}')
         .pipe(gulp.dest('dist/img'))
+        .pipe(gulp.dest('dist/lib/img'))
 })
 
 gulp.task('copy:fonts', function() {
@@ -69,7 +70,10 @@ gulp.task('javascript', function () {
 });
 
 gulp.task('javascript-vendor', function () {
-	return gulp.src('src/scripts/vendor/**/*.js')
+    // 'src/vendorScripts/jquery-3.5.1.js',
+    return gulp.src('src/vendorScripts/config.js',
+    'src/vendorScripts/util.js', 'src/vendorScripts/jquery.emojiarea.js',
+    'src/vendorScripts/emoji-picker.js')
 	.pipe(plumber())
 	.pipe(sourcemaps.init())
 	.pipe(babel({
@@ -82,11 +86,11 @@ gulp.task('javascript-vendor', function () {
 
 gulp.task('watch', function() {
     gulp.watch('src/scss/**/*.scss', gulp.series('styles'))
-    gulp.watch('src/scripts/vendor/**/*.js', gulp.series('javascript-vendor'))
+    gulp.watch('src/vendorScripts/**/*.js', gulp.series('javascript-vendor'))
     gulp.watch('src/scripts/**/*.js', gulp.series('javascript'))
     gulp.watch('src/pug/*.pug', gulp.series('pug'))
     gulp.watch('src/img/*', gulp.series('copy:img'))
-    gulp.watch(['src/scss/**/*.scss', 'src/pug/index.pug', 'src/img/**/*.{png,jpg,jpeg,gif,svg}']).on('change', bs.reload)
+    gulp.watch(['src/scss/**/*.scss', 'src/pug/index.pug', 'src/img/**/*.{png,jpg,jpeg,gif,svg}', 'src/scripts/**/*.js']).on('change', bs.reload)
 })
 // , 'src/scripts/**/*.js'
 gulp.task('bs', function() {

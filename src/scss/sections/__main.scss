@@ -107,6 +107,11 @@
     .photo-board-btns {
       display: flex;
 
+      & > li {
+        display: block;
+        cursor: pointer;
+      }
+
       .photo-board-btn-change-back {
         min-width: 210px;
         height: 69px;
@@ -161,22 +166,16 @@
         right: 25px;
       }
 
-      .photo-board-dasboard-label {
+      .photo-board-dasboard-input {
         font-family: 'Gotham Pro Bold';
         color: #ffffff;
         font-size: 32px;
         font-weight: 700;
-        text-transform: uppercase;
-        text-align: center;
+        right: -250px;
         position: relative;
-
-        &::before {
-          content: '|';
-          width: 4px;
-          height: 37px;
-          color: #ddc27a;
-          margin-right: 9px;
-        }
+        z-index: 1000;
+        background-color: transparent;
+        border: none;
 
         &::after {
           content: '';
@@ -192,6 +191,7 @@
 
       .photo-board-dasboard-photos {
         position: relative;
+        bottom: -50px;
 
         &::before {
           content: '';
