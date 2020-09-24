@@ -142,6 +142,93 @@
       background-image: url('./img/photo-border.png');
       position: relative;
       padding: 50px;
+      overflow: hidden;
+
+      .modal-add-photo {
+        position: absolute; /* Sit on top of the page content */
+        display: none; /* Hidden by default */
+        width: 100%; /* Full width (cover the whole page) */
+        height: 100%; /* Full height (cover the whole page) */
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+        z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+        cursor: pointer; /* Add a pointer on hover */
+      }
+
+      .add-photo-interface {
+        position: absolute;
+        width: 100%; /* Full width (cover the whole page) */
+        height: 100%; /* Full height (cover the whole page) */
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        
+        .download-photo {
+          width: 143px;
+          height: 143px;
+          border-radius: 10px;
+          background-color: #ffffff;
+          position: absolute;
+          right: 0;
+          color: #000000;
+          font-family: "Gotham Pro Medium";
+          font-size: 12px;
+          font-weight: 500;
+          line-height: 20.83px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          /* Text style for "+" */
+          .plus {
+            font-size: 25px;
+          }
+        }
+
+        .simple-photo-one, .simple-photo-two, .simple-photo-three, .simple-photo-four, .simple-photo-five {
+          width: 143px;
+          height: 143px;
+          border-radius: 10px;
+          background-image: url('http://placekitten.com/g/250/250');
+          position: absolute;
+          background-position: center;
+          background-size: cover;
+        }
+
+        .preview-photo {
+          width: 246px;
+          height: 177px;
+          position: absolute;
+          border: 10px solid white;
+          transform: rotate(-10deg);
+          right: 220px;
+          top: 70px;
+
+          .photo {
+            background-color: black; 
+            background-size: cover; 
+            background-position: center; 
+            width: 100%; 
+            height: 100%; 
+            color: white; 
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            font-family: "Gotham Pro Medium";
+            font-size: 26px;
+            font-weight: 400;
+            line-height: 21.85px;
+          }
+        }
+      }
+
+      
 
       &::before {
         content: '';
@@ -210,38 +297,148 @@
         
         .health {
           right: 290px;
-          z-index: 100;
           top: -11px;
+          width: 245px;
+          height: 335px;
+          border: 10px solid white;
+          transform: rotate(10deg);
+
+          .photo {
+            background-color: black; 
+            background-size: cover; 
+            background-position: center; 
+            width: 100%; 
+            height: 100%; 
+            color: white; 
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            font-family: "Gotham Pro Medium";
+            font-size: 26px;
+            font-weight: 400;
+            line-height: 21.85px;
+          }
         }
 
         .love {
           right: 73px;
-          z-index: 1000;
+          // z-index: 1000;
         }
 
         .hobbies {
           top: 300px;
           left: 138px;
+          width: 389px;
+          height: 172px;
+          border: 10px solid white;
+
+          .photo {
+            background-color: black; 
+            background-size: cover; 
+            background-position: center; 
+            width: 100%; 
+            height: 100%; 
+            color: white; 
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            font-family: "Gotham Pro Medium";
+            font-size: 26px;
+            font-weight: 400;
+            line-height: 21.85px;
+          }
         }
 
         .family {
           top: 160px;
-          z-index: 1000;
           left: 170px;
+          background: url('./img/Vector_Smart_Object_1 copy.png');
+          width: 330px;
+          height: 200px;
+          position: absolute;
+          // z-index: 1000000;
+          overflow: hidden;
+          background-repeat: no-repeat;
         }
 
         .travel {
           top: 257px;
-          z-index: 1000;
+          // z-index: 1000;
           right: 32px;
+
+          .photo {
+            background-color: black; 
+            background-size: cover; 
+            background-position: center; 
+            width: 100%; 
+            height: 100%; 
+            color: white; 
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            font-family: "Gotham Pro Medium";
+            font-size: 26px;
+            font-weight: 400;
+            line-height: 21.85px;
+          }
         }
 
         .love {
           right: 76px;
+          width: 282px;
+          height: 206px;
+          border: 10px solid white;
+          transform: rotate(-7deg);
+
+          .photo {
+            background-color: black; 
+            background-size: cover; 
+            background-position: center; 
+            width: 100%; 
+            height: 100%; 
+            color: white; 
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            font-family: "Gotham Pro Medium";
+            font-size: 26px;
+            font-weight: 400;
+            line-height: 21.85px;
+          }
         }
 
         .money {
           left: 85px;
+          border: 10px solid white;
+          width: 363px;
+          height: 237px;
+          transform: rotate(-7deg);
+
+          .photo {
+            background-color: black; 
+            background-size: cover; 
+            background-position: center; 
+            width: 100%; 
+            height: 100%; 
+            color: white; 
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            font-family: "Gotham Pro Medium";
+            font-size: 26px;
+            font-weight: 400;
+            line-height: 21.85px;
+          }
         }
       }
     }

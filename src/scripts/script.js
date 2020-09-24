@@ -1,13 +1,51 @@
 const btnPasteText = document.querySelector('.photo-board-btn-paste-text');
+const photoDashboard = document.querySelector('.photo-board-dasboard');
 const inputLabel = document.querySelector('.photo-board-dasboard-input');
 const btnAddSmile= document.querySelector('.photo-board-btn-add-smile');
+const inpPhoto= document.querySelector('#inpPhoto');
+const downloadPhoto= document.querySelector('.download-photo');
+const simplePhoto= document.querySelector('.simple-photo-one');
 const boardDashboard = document.querySelector('.photo-board-dasboard');
-const width = boardDashboard.offsetWidth;
-const height = window.offsetHeight;
-
+const previewPhoto = document.querySelector('.preview-photo .photo');
+const modalAddPhoto = document.querySelector('.modal-add-photo');
+const moneyPhoto = document.querySelector('.money');
 
 btnPasteText.addEventListener('click', () => {
     inputLabel.focus();
+})
+
+moneyPhoto.addEventListener('click', () => {
+    modalAddPhoto.style = `
+        display: block;
+    `
+})
+
+inpPhoto.addEventListener('change', function() {
+    const photo = inpPhoto.files[0];
+    
+    if (photo) {
+        const reader = new FileReader();
+        
+        reader.addEventListener('load', function() {
+            previewPhoto.style = `
+                background-image: url(${reader.result});
+            `;
+            previewPhoto.textContent = '';
+        })
+        reader.readAsDataURL(photo);
+    }
+})
+
+downloadPhoto.addEventListener('click', () => {
+    inpPhoto.click()
+})
+
+simplePhoto.addEventListener('click', function() {
+    const backgrpundImage = window.getComputedStyle(simplePhoto).getPropertyValue('background-image');
+    previewPhoto.style = `
+        background-image: ${backgrpundImage};
+    `;
+    previewPhoto.textContent = '';
 })
 
 btnAddSmile.addEventListener('click', () => {
