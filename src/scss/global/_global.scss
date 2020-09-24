@@ -79,3 +79,11 @@ button {
 textarea:focus, button:focus,  input:focus{
   outline: none;
 }
+
+.emoji-wysiwyg-editor {
+  display: none;
+}
+
+.emoji-picker-icon, .emoji-picker {
+  display: none !important;
+}

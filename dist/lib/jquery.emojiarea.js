@@ -18,6 +18,52 @@
  * This file also contains some modifications by Igor Zhukov in order to add
  * custom scrollbars to EmojiMenu See keyword `MODIFICATION` in source code.
  */
+
+function drawImage(imageObj) {
+  var stage = new Konva.Stage({
+    container: 'photo-board-dasboard',
+    width: width,
+    height: height,
+  });
+
+  var layer = new Konva.Layer();
+  // darth vader
+  var darthVaderImg = new Konva.Image({
+    image: imageObj,
+    x: stage.width() / 2 - 200 / 2,
+    y: stage.height() / 2 - 137 / 2,
+    width: 200,
+    height: 137,
+    draggable: true,
+  });
+
+  // add cursor styling
+  darthVaderImg.on('mouseover', function () {
+    document.body.style.cursor = 'pointer';
+  });
+  darthVaderImg.on('mouseout', function () {
+    document.body.style.cursor = 'default';
+  });
+
+  layer.add(darthVaderImg);
+  stage.add(layer);
+}
+
+
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  // var data = ev.dataTransfer.getData("text");
+  // ev.target.appendChild(document.getElementById(data));
+}
+
 (function($, window, document) {
 
   var ELEMENT_NODE = 1;
@@ -263,6 +309,14 @@
     var scaledWidth = (Config.EmojiCategorySpritesheetDimens[category][1] * iconSize);
     var scaledHeight = (Config.EmojiCategorySpritesheetDimens[category][0] * iconSize);
 
+    // var imageObj = new Image();
+    // imageObj.onload = function () {
+    //   drawImage(this);
+    // };
+    // imageObj.src = blankGifPath;
+  
+
+
     var style = 'display:inline-block;';
     style += 'width:' + iconSize + 'px;';
     style += 'height:' + iconSize + 'px;';
@@ -271,7 +325,7 @@
     style += 'background-size:' + scaledWidth + 'px ' + scaledHeight
         + 'px;';
     return '<img src="' + blankGifPath + '" class="img" style="'
-        + style + '" alt="' + util.htmlEntities(name) + '">';
+        + style + '" alt="' + util.htmlEntities(name) + ' draggable="true" ondragstart="drag(event)" ">' ;
   };
 
   $.emojiarea.createIcon = EmojiArea.createIcon;
