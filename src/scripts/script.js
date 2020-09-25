@@ -73,7 +73,11 @@ simplePhoto.addEventListener('click', function(event) {
 
 btnAddSmile.addEventListener('click', () => {
     document.querySelector('.emoji-picker-icon.emoji-picker').click();
-})
+});
+
+html2canvas(document.querySelector(".photo-board-dasboard-photos")).then(canvas => {
+    document.body.appendChild(canvas)
+});
 
 $(function() {
     // Initializes and creates emoji set from sprite sheet
