@@ -390,7 +390,7 @@
             height: 120px;
             transform: rotate(-9deg);
             position: absolute;
-            z-index: 200;
+            // z-index: 200;
 
             .photo {
               background-color: black; 
@@ -417,7 +417,7 @@
             transform: rotate(9deg);
             position: absolute;
             right: 70px;
-            z-index: 2;
+            // z-index: 2;
 
             .photo {
               background-color: black; 
@@ -441,7 +441,7 @@
 
         .travel {
           top: 257px;
-          z-index: 1000;
+          // z-index: 1000;
           right: 32px;
           position: relative;
 

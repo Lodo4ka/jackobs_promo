@@ -697,8 +697,7 @@ template {
             width: 125px;
             height: 120px;
             transform: rotate(-9deg);
-            position: absolute;
-            z-index: 200; }
+            position: absolute; }
             .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .family .left .photo {
               background-color: black;
               background-size: cover;
@@ -721,8 +720,7 @@ template {
             height: 120px;
             transform: rotate(9deg);
             position: absolute;
-            right: 70px;
-            z-index: 2; }
+            right: 70px; }
             .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .family .right .photo {
               background-color: black;
               background-size: cover;
@@ -741,7 +739,6 @@ template {
               line-height: 21.85px; }
         .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .travel {
           top: 257px;
-          z-index: 1000;
           right: 32px;
           position: relative; }
           .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .travel .one {
