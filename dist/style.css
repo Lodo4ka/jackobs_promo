@@ -61,7 +61,7 @@ button {
   border: none; }
 
 textarea:focus, button:focus, input:focus {
-  outline: none; }
+  outline: none !important; }
 
 .emoji-wysiwyg-editor {
   display: none; }
@@ -490,10 +490,34 @@ template {
     .main .photo-board .photo-board-dasboard {
       min-width: 1024px;
       height: 650px;
-      background-image: url("./img/photo-border.png");
-      position: relative;
-      padding: 50px;
-      overflow: hidden; }
+      position: relative; }
+      .main .photo-board .photo-board-dasboard::before {
+        content: '';
+        background-image: url("./img/photo-border.png");
+        position: absolute;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 100%; }
+      .main .photo-board .photo-board-dasboard .emoji-keyboard {
+        max-width: 400px;
+        max-height: 200px;
+        overflow: auto;
+        position: absolute;
+        z-index: 100;
+        top: 0px;
+        background-color: white;
+        right: 300px;
+        text-align: right; }
+        .main .photo-board .photo-board-dasboard .emoji-keyboard-close {
+          cursor: pointer; }
+          .main .photo-board .photo-board-dasboard .emoji-keyboard-close::after {
+            display: inline-block;
+            content: "\00d7";
+            /* This will render the 'X' */
+            font-size: 3rem; }
+        .main .photo-board .photo-board-dasboard .emoji-keyboard img {
+          height: 3rem; }
       .main .photo-board .photo-board-dasboard .modal-add-photo {
         position: absolute;
         /* Sit on top of the page content */
@@ -509,7 +533,7 @@ template {
         bottom: 0;
         background-color: rgba(0, 0, 0, 0.5);
         /* Black background with opacity */
-        z-index: 2;
+        z-index: 100;
         /* Specify a stack order in case you're using a different order for other elements */
         cursor: pointer;
         /* Add a pointer on hover */ }
@@ -588,15 +612,6 @@ template {
             font-size: 26px;
             font-weight: 400;
             line-height: 21.85px; }
-      .main .photo-board .photo-board-dasboard::before {
-        content: '';
-        position: absolute;
-        background-image: url("./img/left-light.png");
-        width: 466px;
-        height: 377px;
-        mix-blend-mode: color-dodge;
-        bottom: -149px;
-        left: -180px; }
       .main .photo-board .photo-board-dasboard::after {
         content: '';
         min-width: 80px;
@@ -628,7 +643,9 @@ template {
           top: -170px; }
       .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos {
         position: relative;
-        bottom: -50px; }
+        bottom: -50px;
+        height: 100%;
+        width: 100%; }
         .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos::before {
           content: '';
           position: absolute;
@@ -637,16 +654,18 @@ template {
           height: 797px;
           mix-blend-mode: screen;
           top: -184px;
-          left: -72px; }
+          left: -72px;
+          z-index: -1; }
         .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos > div {
           position: absolute; }
         .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .health {
-          right: 290px;
-          top: -11px;
+          right: 360px;
+          top: -43px;
           width: 245px;
           height: 335px;
           border: 10px solid white;
-          transform: rotate(10deg); }
+          transform: rotate(10deg);
+          z-index: 1; }
           .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .health .photo {
             background-color: black;
             background-size: cover;
@@ -663,8 +682,6 @@ template {
             font-size: 26px;
             font-weight: 400;
             line-height: 21.85px; }
-        .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .love {
-          right: 73px; }
         .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .hobbies {
           top: 300px;
           left: 138px;
@@ -688,10 +705,11 @@ template {
             font-weight: 400;
             line-height: 21.85px; }
         .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .family {
-          top: 160px;
-          left: 170px;
+          top: 180px;
+          left: 200px;
           width: 300px;
-          height: 183px; }
+          height: 183px;
+          z-index: 10; }
           .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .family .left {
             border: 10px solid white;
             width: 125px;
@@ -738,8 +756,9 @@ template {
               font-weight: 400;
               line-height: 21.85px; }
         .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .travel {
-          top: 257px;
-          right: 32px;
+          top: 230px;
+          z-index: 3;
+          right: 178px;
           position: relative; }
           .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .travel .one {
             width: 120px;
@@ -814,11 +833,12 @@ template {
               font-weight: 400;
               line-height: 21.85px; }
         .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .love {
-          right: 76px;
+          right: 115px;
           width: 282px;
           height: 206px;
           border: 10px solid white;
-          transform: rotate(-7deg); }
+          transform: rotate(-7deg);
+          z-index: 2; }
           .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .love .photo {
             background-color: black;
             background-size: cover;

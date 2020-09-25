@@ -139,10 +139,53 @@
     .photo-board-dasboard {
       min-width: 1024px;
       height: 650px;
-      background-image: url('./img/photo-border.png');
       position: relative;
-      padding: 50px;
-      overflow: hidden;
+
+      &::before {
+        content: '';
+        background-image: url('./img/photo-border.png');
+        position: absolute;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 100%;
+      }
+
+
+      //   content: '';
+      //   position: absolute;
+      //   background-image: url('./img/left-light.png');
+      //   width: 466px;
+      //   height: 377px;
+      //   mix-blend-mode: color-dodge;
+      //   bottom: -149px;
+      //   left: -180px;
+      
+
+      .emoji-keyboard {
+        max-width: 400px;
+        max-height: 200px;
+        overflow: auto;
+        position: absolute;
+        z-index: 100;
+        top: 0px;
+        background-color: white;
+        right: 300px;
+        text-align: right;
+
+        &-close {
+          cursor: pointer;
+          &::after {
+            display: inline-block;
+            content: "\00d7"; /* This will render the 'X' */
+            font-size: 3rem;
+          }
+        }
+
+        img {
+          height: 3rem;
+        }
+      }
 
       .modal-add-photo {
         position: absolute; /* Sit on top of the page content */
@@ -154,7 +197,7 @@
         right: 0;
         bottom: 0;
         background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-        z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+        z-index: 100; /* Specify a stack order in case you're using a different order for other elements */
         cursor: pointer; /* Add a pointer on hover */
       }
 
@@ -254,16 +297,16 @@
 
       
 
-      &::before {
-        content: '';
-        position: absolute;
-        background-image: url('./img/left-light.png');
-        width: 466px;
-        height: 377px;
-        mix-blend-mode: color-dodge;
-        bottom: -149px;
-        left: -180px;
-      }
+      // &::before {
+      //   content: '';
+      //   position: absolute;
+      //   background-image: url('./img/left-light.png');
+      //   width: 466px;
+      //   height: 377px;
+      //   mix-blend-mode: color-dodge;
+      //   bottom: -149px;
+      //   left: -180px;
+      // }
       
       &::after {
         content: '';
@@ -303,6 +346,8 @@
       .photo-board-dasboard-photos {
         position: relative;
         bottom: -50px;
+        height: 100%;
+        width: 100%;
 
         &::before {
           content: '';
@@ -313,6 +358,7 @@
           mix-blend-mode: screen;
           top: -184px;
           left: -72px;
+          z-index: -1;
         }
 
         & > div {
@@ -320,12 +366,13 @@
         }
         
         .health {
-          right: 290px;
-          top: -11px;
+          right: 360px;
+          top: -43px;
           width: 245px;
           height: 335px;
           border: 10px solid white;
           transform: rotate(10deg);
+          z-index: 1;
 
           .photo {
             background-color: black; 
@@ -346,10 +393,6 @@
           }
         }
 
-        .love {
-          right: 73px;
-          // z-index: 1000;
-        }
 
         .hobbies {
           top: 300px;
@@ -378,11 +421,11 @@
         }
 
         .family {
-          top: 160px;
-          left: 170px;
+          top: 180px;
+          left: 200px;
           width: 300px;
           height: 183px;
-          // z-index: 100000;
+          z-index: 10;
 
           .left {
             border: 10px solid white;
@@ -440,9 +483,9 @@
         }
 
         .travel {
-          top: 257px;
-          // z-index: 1000;
-          right: 32px;
+          top: 230px;
+          z-index: 3;
+          right: 178px;
           position: relative;
 
           .one {
@@ -534,11 +577,12 @@
         }
 
         .love {
-          right: 76px;
+          right: 115px;
           width: 282px;
           height: 206px;
           border: 10px solid white;
           transform: rotate(-7deg);
+          z-index: 2;
 
           .photo {
             background-color: black; 
