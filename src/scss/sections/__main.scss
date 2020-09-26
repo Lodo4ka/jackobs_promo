@@ -326,6 +326,8 @@
         font-size: 32px;
         font-weight: 700;
         right: -250px;
+        bottom: -35px;
+        text-align: center;
         position: relative;
         z-index: 1000;
         background-color: transparent;
@@ -345,11 +347,11 @@
 
       .photo-board-dasboard-photos {
         position: relative;
-        bottom: -50px;
+        bottom: -115px;
         height: 100%;
         width: 100%;
 
-        &::before {
+        &.before::before {
           content: '';
           position: absolute;
           background-image: url('./img/left-stars.png');
@@ -372,7 +374,7 @@
           height: 335px;
           border: 10px solid white;
           transform: rotate(10deg);
-          z-index: 1;
+          z-index: 2;
 
           .photo {
             background-color: black; 
@@ -400,6 +402,7 @@
           width: 389px;
           height: 172px;
           border: 10px solid white;
+          z-index: 1;
 
           .photo {
             background-color: black; 
@@ -609,6 +612,7 @@
           width: 363px;
           height: 237px;
           transform: rotate(-7deg);
+          z-index: 1;
 
           .photo {
             background-color: black; 

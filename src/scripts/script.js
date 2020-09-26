@@ -7,7 +7,7 @@ window.onload = function () {
     const photoBucket= document.querySelector('.photo-board-btn-bucket');
     const inpPhoto= document.getElementById('inpPhoto');
     const downloadPhoto= document.querySelector('.download-photo');
-    const downloadDream = document.querySelector('.download-dream');
+    const downloadDream = document.querySelector('body .download-dream');
 
     const simplePhotoOne= document.querySelector('.simple-photo-one');
     const simplePhotoTwo= document.querySelector('.simple-photo-two');
@@ -31,11 +31,12 @@ window.onload = function () {
     const travelThree = document.querySelector('.travel .three');
     const photoBoardDashboard = document.querySelector(".photo-board-dasboard-photos");
 
-    const initBody = document.querySelector('body').outerHTML; 
+    // const initBody = document.querySelector('body').outerHTML; 
 
     let currentNode = null;
 
     btnPasteText.addEventListener('click', () => {
+        inputLabel.style.display = 'block'
         inputLabel.focus();
     })
 
@@ -121,7 +122,9 @@ window.onload = function () {
     })
 
     const searchOpaAndDelete = () => {
-        Array.from(photoDashboard.children).filter(child => !child.classList.contains('opa')).forEach(child => photoDashboard.append(child))
+        Array.from(photoDashboard.children)
+        .filter(child => !child.classList.contains('opa'))
+        .forEach(child => photoDashboard.append(child))
     }
 
     inpPhoto.addEventListener('change', function() {
@@ -140,7 +143,6 @@ window.onload = function () {
                         top: 20px;
                         right: 15px;
                         background-image: url(${reader.result});
-                        opacity: 0.5;
                         background-repeat: no-repeat;
                         background-size: cover;
                     `
@@ -171,7 +173,6 @@ window.onload = function () {
                 top: 20px;
                 right: 15px;
                 background-image: ${backgrpundImage};
-                opacity: 0.5;
                 background-repeat: no-repeat;
                 background-size: cover;
             `
@@ -195,7 +196,6 @@ window.onload = function () {
                 top: 20px;
                 right: 15px;
                 background-image: ${backgrpundImage};
-                opacity: 0.5;
                 background-repeat: no-repeat;
                 background-size: cover;
             `
@@ -208,7 +208,8 @@ window.onload = function () {
     });
 
     simplePhotoThree.addEventListener('click', function() {
-        const backgrpundImage = window.getComputedStyle(simplePhotoThree).getPropertyValue('background-image');
+        const backgrpundImage = window.getComputedStyle(simplePhotoThree)
+            .getPropertyValue('background-image');
         if (currentNode.className === "photo-board-dasboard") {
             const div = document.createElement('div');
             searchOpaAndDelete();
@@ -219,7 +220,6 @@ window.onload = function () {
                 top: 20px;
                 right: 15px;
                 background-image: ${backgrpundImage};
-                opacity: 0.5;
                 background-repeat: no-repeat;
                 background-size: cover;
             `
@@ -232,7 +232,8 @@ window.onload = function () {
     });
 
     simplePhotoFour.addEventListener('click', function() {
-        const backgrpundImage = window.getComputedStyle(simplePhotoFour).getPropertyValue('background-image');
+        const backgrpundImage = window.getComputedStyle(simplePhotoFour)
+            .getPropertyValue('background-image');
         if (currentNode.className === "photo-board-dasboard") {
             const div = document.createElement('div');
             searchOpaAndDelete();
@@ -243,7 +244,6 @@ window.onload = function () {
                 top: 20px;
                 right: 15px;
                 background-image: ${backgrpundImage};
-                opacity: 0.5;
                 background-repeat: no-repeat;
                 background-size: cover;
             `
@@ -256,7 +256,8 @@ window.onload = function () {
     });
 
     simplePhotoFive.addEventListener('click', function() {
-        const backgrpundImage = window.getComputedStyle(simplePhotoFive).getPropertyValue('background-image');
+        const backgrpundImage = window.getComputedStyle(simplePhotoFive)
+        .getPropertyValue('background-image');
         if (currentNode.className === "photo-board-dasboard") {
             const div = document.createElement('div');
             searchOpaAndDelete();
@@ -267,7 +268,6 @@ window.onload = function () {
                 top: 20px;
                 right: 15px;
                 background-image: ${backgrpundImage};
-                opacity: 0.5;
                 background-repeat: no-repeat;
                 background-size: cover;
             `;
@@ -298,18 +298,18 @@ window.onload = function () {
     ],
     // enable autoScroll
     autoScroll: true,
-
     listeners: {
         start(e) {
             // emojiKeyboard.style.maxWidth =
             const element = e.target;
             element.style.maxHeight = '3rem';
-            photoBoardDashboard.classList.add('draggable')
+            element.style.zIndex = '1000';
+            element.style.position = 'absolute';
+            photoBoardDashboard.classList.add('draggable');
+            photoBoardDashboard.classList.add('emoji');
             photoBoardDashboard.appendChild(element); 
-            // call this function on every dragmove event
         },
         move: dragMoveListener,
-
         // call this function on every dragend event
         end (event) {
             emojiKeyboard.style.display = 'none';
@@ -338,33 +338,36 @@ window.onload = function () {
     window.dragMoveListener = dragMoveListener
 
     downloadDream.addEventListener('click', () => {
-    html2canvas(photoBoardDashboard, {
-        useCORS: true,
-		allowTaint: false,
-		logging: false
-    })
-    .then(canvas => {
-        saveAs(canvas.toDataURL(), 'screen.png')
-    });
-
-    function saveAs(uri, filename) {
-        var link = document.createElement('a');
-        if (typeof link.download === 'string') {
-          link.href = uri;
-          link.download = filename;
+        html2canvas(photoBoardDashboard, {
+            ignoreElements: (element) => {
+               if(element.classList.contains('before')) {
+                   return element.classList.remove('before')
+               }
+            },
+            imageTimeout: 0,
+        })
+        .then(canvas => {
+            saveAs(canvas.toDataURL(), 'screen.png')
+        });
     
-          //Firefox requires the link to be in the body
-          document.body.appendChild(link);
-    
-          //simulate click
-          link.click();
-    
-          //remove the link when done
-          document.body.removeChild(link);
-        } else {
-          window.open(uri);
+        function saveAs(uri, filename) {
+            var link = document.createElement('a');
+            if (typeof link.download === 'string') {
+            link.href = uri;
+            link.download = filename;
+        
+            //Firefox requires the link to be in the body
+            document.body.appendChild(link);
+        
+            //simulate click
+            link.click();
+        
+            //remove the link when done
+            document.body.removeChild(link);
+            } else {
+            window.open(uri);
+            }
         }
-      }
     })
 
     changeBAckgoundBtn.addEventListener('click', () => {
@@ -374,11 +377,13 @@ window.onload = function () {
         currentNode = photoDashboard;
     });
 
-    photoBucket.addEventListener('click', () => {
-        document.body.outerHTML = initBody;
-    })
-
     emojiKeyboardClose.addEventListener('click', () => {
         emojiKeyboard.style.display = 'none';
-    })
+    })   
+
+    photoBucket.addEventListener('click', () => {
+        Array.from(photoBoardDashboard.children)
+            .filter(child => (!child.classList.contains('emoji')))
+            .forEach(child => photoBoardDashboard.append(child))
+    });
 }
