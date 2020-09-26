@@ -34,6 +34,25 @@ window.onload = function () {
     // const initBody = document.querySelector('body').outerHTML; 
 
     let currentNode = null;
+    
+    const generateNodeInitial = (text) => {
+        const divPhoto = document.createElement('div');
+        divPhoto.classList.add('photo');
+        divPhoto.textContent = text;
+        return divPhoto;
+    }
+
+    const initStatePhoto = {
+        money:  generateNodeInitial('Деньги'),
+        hobbies: generateNodeInitial('Хобби'),
+        health: generateNodeInitial('Здоровье'),
+        love: generateNodeInitial('Любовь'),
+        left: generateNodeInitial('Семья'),
+        right: generateNodeInitial('Дети'),
+        one: generateNodeInitial('Путешествие'),
+        two: generateNodeInitial('Путешествие'),
+        three: generateNodeInitial('Путешествие'),
+    };
 
     btnPasteText.addEventListener('click', () => {
         inputLabel.style.display = 'block'
@@ -123,17 +142,16 @@ window.onload = function () {
 
     const searchOpaAndDelete = () => {
         Array.from(photoDashboard.children)
-        .filter(child => !child.classList.contains('opa'))
-        .forEach(child => photoDashboard.append(child))
+            .filter(child => !child.classList.contains('opa'))
+            .forEach(child => photoDashboard.append(child))
     }
 
     inpPhoto.addEventListener('change', function() {
         const photo = inpPhoto.files[0];
         if (photo) {
             const reader = new FileReader();
-            
             reader.addEventListener('load', function() {
-                if (currentNode.className === "photo-board-dasboard") {
+                if (currentNode.classList.contains("photo-board-dasboard")) {
                     searchOpaAndDelete();
                     const div = document.createElement('div');
                     div.style = `
@@ -147,7 +165,8 @@ window.onload = function () {
                         background-size: cover;
                     `
                     div.classList.add('opa');
-                    photoDashboard.appendChild(div)
+                  
+                    photoDashboard.appendChild(div);
                 } else {
                     clearBackground(previewPhoto, reader.result, true);
                     clearBackground(currentNode, reader.result, true);
@@ -162,8 +181,9 @@ window.onload = function () {
     });
 
     simplePhotoOne.addEventListener('click', function() {
-        const backgrpundImage = window.getComputedStyle(simplePhotoOne).getPropertyValue('background-image');
-        if (currentNode.className === "photo-board-dasboard") {
+        const backgrpundImage = window.getComputedStyle(simplePhotoOne)
+                .getPropertyValue('background-image');
+        if (currentNode.classList.contains("photo-board-dasboard")) {
             searchOpaAndDelete();
             const div = document.createElement('div');
             div.style = `
@@ -185,8 +205,9 @@ window.onload = function () {
     });
 
     simplePhotoTwo.addEventListener('click', function() {
-        const backgrpundImage = window.getComputedStyle(simplePhotoTwo).getPropertyValue('background-image');
-        if (currentNode.className === "photo-board-dasboard") {
+        const backgrpundImage = window.getComputedStyle(simplePhotoTwo)
+                    .getPropertyValue('background-image');
+        if (currentNode.classList.contains("photo-board-dasboard")) {
             const div = document.createElement('div');
             searchOpaAndDelete();
             div.style = `
@@ -210,7 +231,7 @@ window.onload = function () {
     simplePhotoThree.addEventListener('click', function() {
         const backgrpundImage = window.getComputedStyle(simplePhotoThree)
             .getPropertyValue('background-image');
-        if (currentNode.className === "photo-board-dasboard") {
+        if (currentNode.classList.contains("photo-board-dasboard")) {
             const div = document.createElement('div');
             searchOpaAndDelete();
             div.style = `
@@ -234,7 +255,7 @@ window.onload = function () {
     simplePhotoFour.addEventListener('click', function() {
         const backgrpundImage = window.getComputedStyle(simplePhotoFour)
             .getPropertyValue('background-image');
-        if (currentNode.className === "photo-board-dasboard") {
+        if (currentNode.classList.contains("photo-board-dasboard")) {
             const div = document.createElement('div');
             searchOpaAndDelete();
             div.style = `
@@ -258,7 +279,7 @@ window.onload = function () {
     simplePhotoFive.addEventListener('click', function() {
         const backgrpundImage = window.getComputedStyle(simplePhotoFive)
         .getPropertyValue('background-image');
-        if (currentNode.className === "photo-board-dasboard") {
+        if (currentNode.classList.contains("photo-board-dasboard")) {
             const div = document.createElement('div');
             searchOpaAndDelete();
             div.style = `
@@ -284,20 +305,15 @@ window.onload = function () {
     });
 
 
-    // target elements with the "draggable" class
     interact('.draggable')
     .draggable({
-    // enable inertial throwing
     inertia: true,
-    // keep the element within the area of it's parent
     modifiers: [
         interact.modifiers.restrictRect({
         restriction: 'parent',
         endOnly: true
         })
     ],
-    // enable autoScroll
-    autoScroll: true,
     listeners: {
         start(e) {
             // emojiKeyboard.style.maxWidth =
@@ -306,7 +322,6 @@ window.onload = function () {
             element.style.zIndex = '1000';
             element.style.position = 'absolute';
             photoBoardDashboard.classList.add('draggable');
-            photoBoardDashboard.classList.add('emoji');
             photoBoardDashboard.appendChild(element); 
         },
         move: dragMoveListener,
@@ -329,7 +344,6 @@ window.onload = function () {
         target.style.transform =
             'translate(' + x + 'px, ' + y + 'px)'
 
-        // update the posiion attributes
         target.setAttribute('data-x', x)
         target.setAttribute('data-y', y)
     }
@@ -382,8 +396,43 @@ window.onload = function () {
     })   
 
     photoBucket.addEventListener('click', () => {
-        Array.from(photoBoardDashboard.children)
-            .filter(child => (!child.classList.contains('emoji')))
-            .forEach(child => photoBoardDashboard.append(child))
+        const newChild = Array
+            .from(photoBoardDashboard.children)
+            .filter(child => !child.classList.contains('draggable'))
+            .map(child => {
+                if (child.className === 'family') {
+                     Array.from(child.children)
+                        .forEach(childInner => { 
+                            const newNodeInner = initStatePhoto[childInner.className]
+                            removeAllChildNodes(childInner);
+                            childInner.appendChild(newNodeInner)
+                        });
+                } 
+                else if (child.className === 'travel') {
+                    Array.from(child.children)
+                        .forEach(childInner => { 
+                            const newNodeInner = initStatePhoto[childInner.className]
+                            removeAllChildNodes(childInner);
+                            childInner.appendChild(newNodeInner)
+                        });
+                }
+                else {
+                    const newNode = initStatePhoto[child.className];
+                    removeAllChildNodes(child);
+                    child.appendChild(newNode);
+                }
+                return child;
+            });
+        removeAllChildNodes(photoBoardDashboard);
+        newChild.forEach(child => {
+            photoBoardDashboard.appendChild(child);
+        })
+        photoDashboard.removeChild(document.querySelector('.opa'));
     });
+
+    function removeAllChildNodes(parent) {
+        while (parent.firstChild) {
+            parent.removeChild(parent.firstChild);
+        }
+    }
 }

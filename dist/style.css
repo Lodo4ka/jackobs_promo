@@ -734,7 +734,8 @@ template {
               font-family: "Gotham Pro Medium";
               font-size: 26px;
               font-weight: 400;
-              line-height: 21.85px; }
+              line-height: 21.85px;
+              font-size: 16px; }
           .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .family .right {
             border: 10px solid white;
             width: 125px;
@@ -757,12 +758,14 @@ template {
               font-family: "Gotham Pro Medium";
               font-size: 26px;
               font-weight: 400;
-              line-height: 21.85px; }
+              line-height: 21.85px;
+              font-size: 16px; }
         .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .travel {
           top: 230px;
           z-index: 3;
           right: 178px;
-          position: relative; }
+          position: relative;
+          font-size: 12px; }
           .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .travel .one {
             width: 120px;
             height: 120px;
@@ -786,7 +789,8 @@ template {
               font-family: "Gotham Pro Medium";
               font-size: 26px;
               font-weight: 400;
-              line-height: 21.85px; }
+              line-height: 21.85px;
+              font-size: 12px; }
           .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .travel .two {
             width: 120px;
             height: 120px;
@@ -810,7 +814,8 @@ template {
               font-family: "Gotham Pro Medium";
               font-size: 26px;
               font-weight: 400;
-              line-height: 21.85px; }
+              line-height: 21.85px;
+              font-size: 12px; }
           .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .travel .three {
             width: 120px;
             height: 120px;
@@ -834,7 +839,8 @@ template {
               font-family: "Gotham Pro Medium";
               font-size: 26px;
               font-weight: 400;
-              line-height: 21.85px; }
+              line-height: 21.85px;
+              font-size: 12px; }
         .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .love {
           right: 115px;
           width: 282px;
