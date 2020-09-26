@@ -52,7 +52,6 @@ img {
 *::after,
 *::before {
   box-sizing: border-box;
-  // color: $font-color;
 }
 
 body {
@@ -61,7 +60,6 @@ body {
   background-repeat: no-repeat;
   background-position: 51% 56%;
   background-origin: content-box;
-  // overflow-x: hidden;
 }
 
 .container {

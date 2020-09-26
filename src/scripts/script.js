@@ -316,13 +316,12 @@ window.onload = function () {
     ],
     listeners: {
         start(e) {
-            // emojiKeyboard.style.maxWidth =
             const element = e.target;
             element.style.maxHeight = '3rem';
             element.style.zIndex = '1000';
             element.style.position = 'absolute';
             photoBoardDashboard.classList.add('draggable');
-            photoBoardDashboard.appendChild(element); 
+            photoBoardDashboard.appendChild(element);
         },
         move: dragMoveListener,
         // call this function on every dragend event
@@ -336,11 +335,14 @@ window.onload = function () {
     function dragMoveListener (event) {
         var target = event.target
         // keep the dragged position in the data-x/data-y attributes
-        var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
-        var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
-
+        var x = (parseFloat(target.getAttribute('data-x')) || 460) 
+        + (event.dx) 
+        //  ;
+        var y = (parseFloat(target.getAttribute('data-y')) || -20)
+         + (event.dy)
+        //   ;
         // translate the element
-        target.style.webkitTransform =
+        // target.style.webkitTransform =
         target.style.transform =
             'translate(' + x + 'px, ' + y + 'px)'
 
@@ -355,10 +357,13 @@ window.onload = function () {
         html2canvas(photoBoardDashboard, {
             ignoreElements: (element) => {
                if(element.classList.contains('before')) {
-                   return element.classList.remove('before')
+                    element.classList.remove('before')
+               } else if (element.classList.contains('after')) {
+                    element.classList.remove('after')
                }
+               return element;
             },
-            imageTimeout: 0,
+            y: 300,
         })
         .then(canvas => {
             saveAs(canvas.toDataURL(), 'screen.png')

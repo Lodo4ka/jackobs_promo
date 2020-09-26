@@ -499,6 +499,18 @@ template {
         background-position: center;
         width: 100%;
         height: 100%; }
+      .main .photo-board .photo-board-dasboard::after {
+        content: '';
+        background-image: url(./img/right-light.png);
+        position: absolute;
+        background-size: cover;
+        background-position: center;
+        width: 404px;
+        mix-blend-mode: screen;
+        height: 329px;
+        top: -106px;
+        background-repeat: no-repeat;
+        right: -100px; }
       .main .photo-board .photo-board-dasboard .emoji-keyboard {
         max-width: 400px;
         max-height: 200px;
@@ -612,16 +624,14 @@ template {
             font-size: 26px;
             font-weight: 400;
             line-height: 21.85px; }
-      .main .photo-board .photo-board-dasboard::after {
-        content: '';
+      .main .photo-board .photo-board-dasboard .logo {
         min-width: 80px;
         min-height: 45px;
         position: absolute;
-        background-image: url("./img/Jacobs_logo.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        bottom: 30px;
-        right: 25px; }
+        bottom: 145px;
+        right: 25px;
+        z-index: 100;
+        height: 2rem; }
       .main .photo-board .photo-board-dasboard .photo-board-dasboard-input {
         font-family: 'Gotham Pro Bold';
         color: #ffffff;
@@ -658,6 +668,18 @@ template {
           top: -184px;
           left: -72px;
           z-index: -1; }
+        .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos.after::after {
+          content: '';
+          position: absolute;
+          background-image: url("./img/left-light.png");
+          width: 466px;
+          height: 377px;
+          mix-blend-mode: screen;
+          top: 285px;
+          left: -178px;
+          z-index: 1;
+          background-repeat: no-repeat;
+          mix-blend-mode: screen; }
         .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos > div {
           position: absolute; }
         .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .health {
@@ -668,6 +690,12 @@ template {
           border: 10px solid white;
           transform: rotate(10deg);
           z-index: 2; }
+          .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .health .red_1 {
+            height: 3rem;
+            left: 85px;
+            position: absolute;
+            top: -24px;
+            z-index: 1; }
           .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .health .photo {
             background-color: black;
             background-size: cover;
@@ -691,6 +719,18 @@ template {
           height: 172px;
           border: 10px solid white;
           z-index: 1; }
+          .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .hobbies .red_3 {
+            height: 5rem;
+            left: -27px;
+            position: absolute;
+            top: -24px;
+            z-index: 1; }
+          .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .hobbies .red_4 {
+            height: 5rem;
+            left: 340px;
+            position: absolute;
+            top: 124px;
+            z-index: 1; }
           .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .hobbies .photo {
             background-color: black;
             background-size: cover;
@@ -713,6 +753,12 @@ template {
           width: 300px;
           height: 183px;
           z-index: 10; }
+          .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .family .clip {
+            height: 2rem;
+            left: 102px;
+            position: absolute;
+            top: -15px;
+            z-index: 1; }
           .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .family .left {
             border: 10px solid white;
             width: 125px;
@@ -774,6 +820,12 @@ template {
             position: absolute;
             right: 224px;
             top: 59px; }
+            .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .travel .one .blue_1 {
+              height: 5rem;
+              left: -18px;
+              position: absolute;
+              top: -20px;
+              z-index: 1; }
             .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .travel .one .photo {
               background-color: black;
               background-size: cover;
@@ -799,6 +851,12 @@ template {
             position: absolute;
             right: 115px;
             top: 59px; }
+            .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .travel .two .violet_1 {
+              height: 2rem;
+              left: 20px;
+              position: absolute;
+              top: -15px;
+              z-index: 1; }
             .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .travel .two .photo {
               background-color: black;
               background-size: cover;
@@ -824,6 +882,13 @@ template {
             position: absolute;
             right: 4px;
             top: 59px; }
+            .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .travel .three .red_1 {
+              height: 2rem;
+              left: 30px;
+              position: absolute;
+              top: -21px;
+              z-index: 1;
+              transform: rotate(14deg); }
             .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .travel .three .photo {
               background-color: black;
               background-size: cover;
@@ -847,7 +912,19 @@ template {
           height: 206px;
           border: 10px solid white;
           transform: rotate(-7deg);
-          z-index: 2; }
+          z-index: 3; }
+          .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .love .yellow_2 {
+            height: 5rem;
+            left: -31px;
+            position: absolute;
+            top: -24px;
+            z-index: 1; }
+          .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .love .yellow_3 {
+            height: 5rem;
+            left: 234px;
+            position: absolute;
+            top: -24px;
+            z-index: 1; }
           .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .love .photo {
             background-color: black;
             background-size: cover;
@@ -871,6 +948,12 @@ template {
           height: 237px;
           transform: rotate(-7deg);
           z-index: 1; }
+          .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .money .yellow_1 {
+            height: 3rem;
+            left: 140px;
+            position: absolute;
+            top: -24px;
+            z-index: 1; }
           .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .money .photo {
             background-color: black;
             background-size: cover;

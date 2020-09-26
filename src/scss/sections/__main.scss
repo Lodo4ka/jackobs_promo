@@ -151,16 +151,20 @@
         height: 100%;
       }
 
+      &::after {
+        content: '';
+        background-image: url(./img/right-light.png);
+        position: absolute;
+        background-size: cover;
+        background-position: center;
+        width: 404px;
+        mix-blend-mode: screen;
+        height: 329px;
+        top: -106px;
+        background-repeat: no-repeat;
+        right: -100px;
+      }
 
-      //   content: '';
-      //   position: absolute;
-      //   background-image: url('./img/left-light.png');
-      //   width: 466px;
-      //   height: 377px;
-      //   mix-blend-mode: color-dodge;
-      //   bottom: -149px;
-      //   left: -180px;
-      
 
       .emoji-keyboard {
         max-width: 400px;
@@ -308,16 +312,14 @@
       //   left: -180px;
       // }
       
-      &::after {
-        content: '';
+      .logo {
         min-width: 80px;
         min-height: 45px;
         position: absolute;
-        background-image: url('./img/Jacobs_logo.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        bottom: 30px;
+        bottom: 145px;
         right: 25px;
+        z-index: 100;
+        height: 2rem;
       }
 
       .photo-board-dasboard-input {
@@ -363,6 +365,20 @@
           z-index: -1;
         }
 
+        &.after::after {
+          content: '';
+          position: absolute;
+          background-image: url('./img/left-light.png');
+          width: 466px;
+          height: 377px;
+          mix-blend-mode: screen;
+          top: 285px;
+          left: -178px;
+          z-index: 1;
+          background-repeat: no-repeat;
+          mix-blend-mode: screen;            
+        }
+
         & > div {
           position: absolute;
         }
@@ -375,6 +391,14 @@
           border: 10px solid white;
           transform: rotate(10deg);
           z-index: 2;
+
+          .red_1 {
+            height: 3rem;
+            left: 85px;
+            position: absolute;
+            top: -24px;
+            z-index: 1;            
+          }
 
           .photo {
             background-color: black; 
@@ -404,6 +428,28 @@
           border: 10px solid white;
           z-index: 1;
 
+          .red_3 {
+            height: 5rem;
+            left: -27px;
+            position: absolute;
+            top: -24px;
+            z-index: 1;
+          }
+
+          .red_4 {
+            height: 5rem;
+            left: 340px;
+            position: absolute;
+            top: 124px;
+            z-index: 1;
+          }
+
+          // height: 5rem;
+          // left: 340px;
+          // position: absolute;
+          // top: 124px;
+          // z-index: 1;
+
           .photo {
             background-color: black; 
             background-size: cover; 
@@ -430,13 +476,20 @@
           height: 183px;
           z-index: 10;
 
+          .clip {
+            height: 2rem;
+            left: 102px;
+            position: absolute;
+            top: -15px;
+            z-index: 1;
+          }
+
           .left {
             border: 10px solid white;
             width: 125px;
             height: 120px;
             transform: rotate(-9deg);
             position: absolute;
-            // z-index: 200;
 
             .photo {
               background-color: black; 
@@ -503,6 +556,13 @@
             right: 224px;
             top: 59px;
 
+            .blue_1 {
+              height: 5rem;
+              left: -18px;
+              position: absolute;
+              top: -20px;
+              z-index: 1;
+            }
 
             .photo {
               background-color: black; 
@@ -533,6 +593,14 @@
             right: 115px;
             top: 59px;
 
+            .violet_1 {
+              height: 2rem;
+              left: 20px;
+              position: absolute;
+              top: -15px;
+              z-index: 1;
+            }
+
             .photo {
               background-color: black; 
               background-size: cover; 
@@ -561,6 +629,15 @@
             position: absolute;
             right: 4px;
             top: 59px;
+
+            .red_1 {
+              height: 2rem;
+              left: 30px;
+              position: absolute;
+              top: -21px;
+              z-index: 1;
+              transform: rotate(14deg);
+            }
 
             .photo {
               background-color: black; 
@@ -591,7 +668,23 @@
           height: 206px;
           border: 10px solid white;
           transform: rotate(-7deg);
-          z-index: 2;
+          z-index: 3;
+
+          .yellow_2 {
+            height: 5rem;
+            left: -31px;
+            position: absolute;
+            top: -24px;
+            z-index: 1;
+          }
+
+          .yellow_3 {
+            height: 5rem;
+            left: 234px;
+            position: absolute;
+            top: -24px;
+            z-index: 1;
+          }
 
           .photo {
             background-color: black; 
@@ -619,6 +712,14 @@
           height: 237px;
           transform: rotate(-7deg);
           z-index: 1;
+
+          .yellow_1 {
+            height: 3rem;
+            left: 140px;
+            position: absolute;
+            top: -24px;
+            z-index: 1;
+          }
 
           .photo {
             background-color: black; 
