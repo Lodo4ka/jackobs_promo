@@ -1,16 +1,75 @@
  .main {
    display: flex;
+   height: 100%;
 
    .dream-board {
+     min-width: 513px;
      max-width: 550px;
-     margin-right: 65px;
+
      .create-your-board {
-        background-image: url('./img/3-layers.png');
-        width: 513px;
-        height: 169px;
-        mix-blend-mode: screen;
+        background-color: transparent;
+        -webkit-font-smoothing: antialiased;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-image: linear-gradient(94.68deg, #9D8531 30.5%, #E9C96E 76.19%);
+        background-clip: text;
+        color: #E9C96E;
+        font-family: "Gotham Pro";
+        font-size: 60px;
+        font-weight: 700;
+        line-height: 68.18px;
+        text-transform: uppercase;
         margin-bottom: 70px;
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          background-image: url('./img/Vector_Smart_Object_copy_24.png');
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 104px;
+          height: 104px;
+          mix-blend-mode: screen;
+          top: -38px;
+          left: 257px;
+        }
+
+        .dream {
+          position: relative;
+          background-color: transparent;
+          -webkit-font-smoothing: antialiased;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          // background-image: rgba(157, 133, 49, 1)
+          // rgba(233, 201, 110, 1);
+          background-image: linear-gradient(94.68deg, #9D8531 30.5%, #E9C96E 76.19%);
+          // background-image: linear-gradient(-269deg, #c77c1f 0%, #ebd49d 67%, #cf8f3a 94%, #cf8f3a 100%);
+          background-clip: text;
+          color: #E9C96E;
+          font-family: "Gotham Pro";
+          font-size: 60px;
+          font-weight: 700;
+          line-height: 68.18px;
+          text-transform: uppercase;
+          margin-bottom: 70px;
+          position: relative;
+
+          &::after {
+            position: absolute;
+            content: '';
+            background-image: url('./img/Vector_Smart_Object_copy_24.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 104px;
+            height: 104px;
+            mix-blend-mode: screen;
+            top: -39px;
+            left: 13px;
+          }
+        }
      }
+
      .dream-description {
       font-size: 2.1rem;
       max-width: 400px;
@@ -22,6 +81,8 @@
 
       .your-dream {
         font-family: 'Gotham Pro Bold';
+        margin-bottom: 6px;
+        display: inline-block;
 
         &::before {
           content: '';
@@ -34,7 +95,7 @@
         }
 
         .unique {
-          color: #b9993e;
+          color: #E9C96E;
         }
       }
       .change-world {
@@ -62,6 +123,7 @@
 
       .desc {
         color: white;
+        display: inline-block;
 
         &.star {
           position: relative;
@@ -79,7 +141,7 @@
 
       .dream {
         font-family: 'Gotham Pro Bold';
-        color: #b9993e;
+        color: #E9C96E;
         position: relative;
 
         &.star::before {
@@ -99,13 +161,27 @@
         background-color: transparent;
         min-width: 300px;
         height: 80px;
+        background-repeat: no-repeat;
+        background-position: center;
      }
+   }
+
+   @media screen and (max-width: 800px) {
+    .dream-board {
+      min-width: auto;
+      max-width: none;
+    }
    }
 
    .photo-board {
      margin-bottom: 25px;
+     width: 100%;
+     height: 100%;
+
     .photo-board-btns {
       display: flex;
+      flex-wrap: wrap;
+
 
       & > li {
         display: block;
@@ -113,57 +189,81 @@
       }
 
       .photo-board-btn-change-back {
-        min-width: 210px;
-        height: 69px;
         background-image: url('./img/change-background.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        max-width: 210px;
+        max-height: 69px;
+        height: 69px;
+        width: 200px;
       }
 
       .photo-board-btn-paste-text {
-        min-width: 210px;
+        background-image: url('./img/change-background.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        max-width: 210px;
+        max-height: 69px;
         height: 69px;
+        width: 200px;
         background-image: url('./img/paste-text.png');
       }
 
       .photo-board-btn-add-smile {
-        min-width: 210px;
+        background-image: url('./img/change-background.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        max-width: 210px;
+        max-height: 69px;
         height: 69px;
+        width: 200px;
         background-image: url('./img/add-smile.png');
       }
       .photo-board-btn-bucket {
-        min-width: 210px;
+        background-image: url('./img/change-background.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        max-width: 210px;
+        max-height: 69px;
         height: 69px;
+        width: 200px;
         background-image: url('./img/bucket.png');
       }
     }
 
     .photo-board-dasboard {
-      min-width: 1024px;
-      height: 650px;
+      width: 100%;
+      min-height: 650px;
       position: relative;
 
       &::before {
         content: '';
         background-image: url('./img/photo-border.png');
         position: absolute;
-        background-size: cover;
+        background-size: contain;
+        background-repeat: no-repeat;
         background-position: center;
         width: 100%;
         height: 100%;
       }
 
-      &::after {
-        content: '';
-        background-image: url(./img/right-light.png);
-        position: absolute;
-        background-size: cover;
-        background-position: center;
-        width: 404px;
-        mix-blend-mode: screen;
-        height: 329px;
-        top: -106px;
-        background-repeat: no-repeat;
-        right: -100px;
-      }
+      // &::after {
+      //   content: '';
+      //   background-image: url(./img/right-light.png);
+      //   position: absolute;
+      //   background-size: cover;
+      //   background-position: center;
+      //   width: 404px;
+      //   mix-blend-mode: screen;
+      //   height: 329px;
+      //   top: -106px;
+      //   background-repeat: no-repeat;
+      //   right: -100px;
+      // }
 
 
       .emoji-keyboard {
@@ -315,13 +415,11 @@
       // }
 
       .logo {
-        min-width: 80px;
-        min-height: 45px;
         position: absolute;
-        bottom: 145px;
+        top: 400px;
         right: 25px;
         z-index: 100;
-        min-height: 2rem;
+        max-height: 4rem;
       }
 
       .photo-board-dasboard-input {
@@ -349,37 +447,45 @@
         }
       }
 
+      @media screen and (max-width: 800px) {
+        .photo-board-dasboard-input {
+          max-width: 300px;
+          right: 0;
+        }
+      }
+
       .photo-board-dasboard-photos {
         position: relative;
         bottom: -115px;
         height: 100%;
         width: 100%;
+        transform: scale(0.9);
 
-        &.before::before {
-          content: '';
-          position: absolute;
-          background-image: url('./img/left-stars.png');
-          width: 1131px;
-          height: 797px;
-          mix-blend-mode: screen;
-          top: -184px;
-          left: -72px;
-          z-index: -1;
-        }
+        // &.before::before {
+        //   content: '';
+        //   position: absolute;
+        //   background-image: url('./img/left-stars.png');
+        //   width: 1131px;
+        //   height: 797px;
+        //   mix-blend-mode: screen;
+        //   top: -184px;
+        //   left: -72px;
+        //   z-index: -1;
+        // }
 
-        &.after::after {
-          content: '';
-          position: absolute;
-          background-image: url('./img/left-light.png');
-          width: 466px;
-          height: 377px;
-          mix-blend-mode: screen;
-          top: 285px;
-          left: -178px;
-          z-index: 1;
-          background-repeat: no-repeat;
-          mix-blend-mode: screen;
-        }
+        // &.after::after {
+        //   content: '';
+        //   position: absolute;
+        //   background-image: url('./img/left-light.png');
+        //   width: 466px;
+        //   height: 377px;
+        //   mix-blend-mode: screen;
+        //   top: 285px;
+        //   left: -178px;
+        //   z-index: 1;
+        //   background-repeat: no-repeat;
+        //   mix-blend-mode: screen;
+        // }
 
         & > div {
           position: absolute;
@@ -741,7 +847,95 @@
             line-height: 21.85px;
           }
         }
+
+      }
+    }
+
+    @media screen and (max-width: 800px) {
+      .photo-board-dasboard {
+        min-height: 100%;
+        position: static;
       }
     }
    }
+ }
+
+ @media screen and (max-width: 1100px) {
+   .main {
+     flex-wrap: wrap;
+     .dream-board {
+       max-width: none;
+       width: 100%;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+
+       .create-your-board {
+         max-width: 513px;
+         width: 100%;
+         margin: auto;
+         text-align: center;
+       }
+
+       .change-world {
+          max-width: 376px;
+          display: inline-block;
+       }
+
+      .dream-description {
+         text-align: center;
+         width: 100%;
+         max-width: none;
+      }
+
+      .dream-install-board {
+        text-align: center;
+
+        margin-bottom: 10px;
+
+        .desc {
+          margin-bottom: 6px;
+        }
+
+        .comp {
+          font-style: normal;
+          font-weight: bold;
+          font-size: 14px;
+          line-height: 118.7%;
+        }
+      }
+     }
+   }
+ }
+
+ @media screen and (max-width: 800px) {
+  .download-dream {
+      display: none;
+    }
+    .photo-board-btn-change-back, .photo-board-btn-paste-text,
+    .photo-board-btn-add-smile, .photo-board-btn-bucket {
+      background-image: none !important;
+      border-radius: 50%;
+      background-color: white;
+      width: 44px !important;
+      height: 44px !important;
+    }
+
+    .photo-board-btns {
+      justify-content: space-around;
+      margin-top: 50px;
+      padding: 0 20px;
+    }
+
+    .photo-board-btn-change-back {
+      &::after {
+        content: '';
+        background-color: rgba(2, 70, 23, 1);
+        background-position: center;
+        background-size: cover;
+        border-radius: 50%;
+        width: 26px;
+        height: 26px;
+      }
+    }
  }

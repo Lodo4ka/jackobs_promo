@@ -76,9 +76,7 @@ gulp.task('javascript', function () {
 
 gulp.task('javascript-vendor', function () {
     // 'src/vendorScripts/jquery-3.5.1.js',
-    return gulp.src('src/vendorScripts/config.js',
-    'src/vendorScripts/util.js', 'src/vendorScripts/jquery.emojiarea.js',
-    'src/vendorScripts/emoji-picker.js')
+    return gulp.src('src/vendorScripts/config.js', 'src/vendorScripts/util.js')
 	.pipe(plumber())
 	.pipe(sourcemaps.init())
 	.pipe(babel({
@@ -95,7 +93,8 @@ gulp.task('watch', function() {
     gulp.watch('src/scripts/**/*.js', gulp.series('javascript'))
     gulp.watch('src/img/*', gulp.series('copy:img'))
     gulp.watch('src/*.html', gulp.series('copy:html'))
-    gulp.watch(['src/scss/**/*.scss', 'src/*.html','src/img/**/*.{png,jpg,jpeg,gif,svg}', 'src/scripts/**/*.js']).on('change', bs.reload)
+    gulp.watch(['src/scss/**/*.scss', 'src/*.html','src/img/**/*.{png,jpg,jpeg,gif,svg}', 'src/scripts/**/*.js'])
+    .on('change', bs.reload)
 })
 // , 'src/scripts/**/*.js'
 gulp.task('bs', function() {

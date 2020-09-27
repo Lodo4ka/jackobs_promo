@@ -16,12 +16,21 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        color: #b9993e; 
+        color: #b9993e;
       }
 
       &:first-child {
         margin-right: 55px;
       }
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    .logo {
+      margin: auto;
+    }
+    .menu {
+      display: none;
     }
   }
 }
