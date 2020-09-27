@@ -34,7 +34,7 @@
         }
 
         .unique {
-          color: #b9993e; 
+          color: #b9993e;
         }
       }
       .change-world {
@@ -62,7 +62,7 @@
 
       .desc {
         color: white;
-        
+
         &.star {
           position: relative;
           &::before {
@@ -74,14 +74,14 @@
             left: -38px;
             top: -9px;
           }
-        }      
+        }
       }
 
       .dream {
         font-family: 'Gotham Pro Bold';
         color: #b9993e;
         position: relative;
-        
+
         &.star::before {
           content: '';
           position: absolute;
@@ -123,7 +123,7 @@
         height: 69px;
         background-image: url('./img/paste-text.png');
       }
-      
+
       .photo-board-btn-add-smile {
         min-width: 210px;
         height: 69px;
@@ -213,7 +213,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        
+
         .download-photo {
           width: 143px;
           height: 143px;
@@ -230,6 +230,7 @@
           justify-content: center;
           align-items: center;
           text-align: center;
+          cursor: pointer;
           /* Text style for "+" */
           .plus {
             font-size: 25px;
@@ -244,8 +245,9 @@
           position: absolute;
           background-position: center;
           background-size: cover;
+          cursor: pointer;
         }
-        
+
         .simple-photo-one {
           top: 173px;
           right: 0;
@@ -280,12 +282,12 @@
           top: 70px;
 
           .photo {
-            background-color: black; 
-            background-size: cover; 
-            background-position: center; 
-            width: 100%; 
-            height: 100%; 
-            color: white; 
+            background-color: black;
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            color: white;
             margin: auto;
             display: flex;
             justify-content: center;
@@ -299,7 +301,7 @@
         }
       }
 
-      
+
 
       // &::before {
       //   content: '';
@@ -311,7 +313,7 @@
       //   bottom: -149px;
       //   left: -180px;
       // }
-      
+
       .logo {
         min-width: 80px;
         min-height: 45px;
@@ -319,7 +321,7 @@
         bottom: 145px;
         right: 25px;
         z-index: 100;
-        height: 2rem;
+        min-height: 2rem;
       }
 
       .photo-board-dasboard-input {
@@ -376,13 +378,13 @@
           left: -178px;
           z-index: 1;
           background-repeat: no-repeat;
-          mix-blend-mode: screen;            
+          mix-blend-mode: screen;
         }
 
         & > div {
           position: absolute;
         }
-        
+
         .health {
           right: 360px;
           top: -43px;
@@ -397,16 +399,16 @@
             left: 85px;
             position: absolute;
             top: -24px;
-            z-index: 1;            
+            z-index: 1;
           }
 
           .photo {
-            background-color: black; 
-            background-size: cover; 
-            background-position: center; 
-            width: 100%; 
-            height: 100%; 
-            color: white; 
+            background-color: black;
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            color: white;
             margin: auto;
             display: flex;
             justify-content: center;
@@ -451,12 +453,12 @@
           // z-index: 1;
 
           .photo {
-            background-color: black; 
-            background-size: cover; 
-            background-position: center; 
-            width: 100%; 
-            height: 100%; 
-            color: white; 
+            background-color: black;
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            color: white;
             margin: auto;
             display: flex;
             justify-content: center;
@@ -492,12 +494,12 @@
             position: absolute;
 
             .photo {
-              background-color: black; 
-              background-size: cover; 
-              background-position: center; 
-              width: 100%; 
-              height: 100%; 
-              color: white; 
+              background-color: black;
+              background-size: cover;
+              background-position: center;
+              width: 100%;
+              height: 100%;
+              color: white;
               margin: auto;
               display: flex;
               justify-content: center;
@@ -520,12 +522,12 @@
             // z-index: 2;
 
             .photo {
-              background-color: black; 
-              background-size: cover; 
-              background-position: center; 
-              width: 100%; 
-              height: 100%; 
-              color: white; 
+              background-color: black;
+              background-size: cover;
+              background-position: center;
+              width: 100%;
+              height: 100%;
+              color: white;
               margin: auto;
               display: flex;
               justify-content: center;
@@ -565,12 +567,12 @@
             }
 
             .photo {
-              background-color: black; 
-              background-size: cover; 
-              background-position: center; 
-              width: 100%; 
-              height: 100%; 
-              color: white; 
+              background-color: black;
+              background-size: cover;
+              background-position: center;
+              width: 100%;
+              height: 100%;
+              color: white;
               margin: auto;
               display: flex;
               justify-content: center;
@@ -602,12 +604,12 @@
             }
 
             .photo {
-              background-color: black; 
-              background-size: cover; 
-              background-position: center; 
-              width: 100%; 
-              height: 100%; 
-              color: white; 
+              background-color: black;
+              background-size: cover;
+              background-position: center;
+              width: 100%;
+              height: 100%;
+              color: white;
               margin: auto;
               display: flex;
               justify-content: center;
@@ -640,12 +642,12 @@
             }
 
             .photo {
-              background-color: black; 
-              background-size: cover; 
-              background-position: center; 
-              width: 100%; 
-              height: 100%; 
-              color: white; 
+              background-color: black;
+              background-size: cover;
+              background-position: center;
+              width: 100%;
+              height: 100%;
+              color: white;
               margin: auto;
               display: flex;
               justify-content: center;
@@ -659,7 +661,7 @@
             }
           }
 
-          
+
         }
 
         .love {
@@ -687,12 +689,12 @@
           }
 
           .photo {
-            background-color: black; 
-            background-size: cover; 
-            background-position: center; 
-            width: 100%; 
-            height: 100%; 
-            color: white; 
+            background-color: black;
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            color: white;
             margin: auto;
             display: flex;
             justify-content: center;
@@ -722,12 +724,12 @@
           }
 
           .photo {
-            background-color: black; 
-            background-size: cover; 
-            background-position: center; 
-            width: 100%; 
-            height: 100%; 
-            color: white; 
+            background-color: black;
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            color: white;
             margin: auto;
             display: flex;
             justify-content: center;

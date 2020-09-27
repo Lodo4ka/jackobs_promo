@@ -3,7 +3,7 @@ window.onload = function () {
     const photoDashboard = document.querySelector('.photo-board-dasboard');
     const inputLabel = document.querySelector('.photo-board-dasboard-input');
     const btnAddSmile= document.querySelector('.photo-board-btn-add-smile');
-    const changeBAckgoundBtn= document.querySelector('.photo-board-btn-change-back');
+    const changeBAckgoundBtn = document.querySelector('.photo-board-btn-change-back');
     const photoBucket= document.querySelector('.photo-board-btn-bucket');
     const inpPhoto= document.getElementById('inpPhoto');
     const downloadPhoto= document.querySelector('.download-photo');
@@ -17,24 +17,24 @@ window.onload = function () {
     const emojiKeyboard= document.querySelector('.emoji-keyboard');
     const emojiKeyboardClose= document.querySelector('.emoji-keyboard-close');
 
-    const previewPhoto = document.querySelector('.preview-photo .photo');
     const modalAddPhoto = document.querySelector('.modal-add-photo');
+    const addPhotoInterface = document.querySelector('.add-photo-interface');
 
     const moneyPhoto = document.querySelector('.money');
     const hobbiesPhoto = document.querySelector('.hobbies');
     const healthPhoto = document.querySelector('.health');
     const lovePhoto = document.querySelector('.love');
+    const family = document.querySelector('.family');
     const familyLeft = document.querySelector('.family .left');
     const familyRight = document.querySelector('.family .right');
+    const travel = document.querySelector('.travel');
     const travelOne = document.querySelector('.travel .one');
     const travelTwo = document.querySelector('.travel .two');
     const travelThree = document.querySelector('.travel .three');
     const photoBoardDashboard = document.querySelector(".photo-board-dasboard-photos");
 
-    // const initBody = document.querySelector('body').outerHTML; 
-
     let currentNode = null;
-    
+
     const generateNodeInitial = (text) => {
         const divPhoto = document.createElement('div');
         divPhoto.classList.add('photo');
@@ -55,7 +55,7 @@ window.onload = function () {
     };
 
     btnPasteText.addEventListener('click', () => {
-        inputLabel.style.display = 'block'
+        inputLabel.style.visibility = 'visible';
         inputLabel.focus();
     })
 
@@ -63,72 +63,109 @@ window.onload = function () {
         node.style = `
             background-image: ${ reader ? `url(${pathImg})` : pathImg};
             background-repeat: no-repeat;
-            background-size: cover; 
-            background-position: center; 
+            background-size: cover;
+            background-position: center;
         `;
         node.textContent = '';
     }
 
-    moneyPhoto.addEventListener('click', () => {
+    const addPreviewPhoto = (node, top, left) => {
         modalAddPhoto.style = `
             display: block;
         `;
+        addPhotoInterface.style = `
+            display: block;
+            top: ${top};
+            left: ${left};
+        `;
+        if (node.classList.contains('one')
+            || node.classList.contains('two')
+            || node.classList.contains('three')) {
+            travel.style.zIndex = '100';
+        }
+        else if(node.classList.contains('left')
+            || node.classList.contains('right')) {
+            family.style.zIndex = '100';
+        }
+        else if (node.classList.contains('photo-board-dasboard')) {
+            addPhotoInterface.style.zIndex = '100';
+        }
+        else {
+            node.style.zIndex = '100';
+        }
+        node.appendChild(addPhotoInterface);
+    }
+
+    const clearPhotoPreview = (node) => {
+        if (node.classList.contains('one')
+            || node.classList.contains('two')
+            || node.classList.contains('three')) {
+            travel.style.zIndex = null;
+        }
+        else if(node.classList.contains('left')
+            || node.classList.contains('right')) {
+            family.style.zIndex = null;
+        }
+        else if (node.classList.contains('photo-board-dasboard')) {
+            addPhotoInterface.style.zIndex = null;
+        }
+        else {
+            node.style.zIndex = null;
+        }
+
+        addPhotoInterface.style = `
+            display: none;
+            top: 0;
+            left: 0;
+        `;
+
+        modalAddPhoto.style = `
+            display: none;
+        `;
+    }
+
+    moneyPhoto.addEventListener('click', function() {
+        addPreviewPhoto(moneyPhoto, '-65px', '170px');
         currentNode = moneyPhoto;
     });
 
     hobbiesPhoto.addEventListener('click', () => {
-        modalAddPhoto.style = `
-            display: block;
-        `;
+        addPreviewPhoto(hobbiesPhoto, '-140px', '158px');
         currentNode = hobbiesPhoto;
     });
 
     healthPhoto.addEventListener('click', () => {
-        modalAddPhoto.style = `
-            display: block;
-        `;
+        addPreviewPhoto(healthPhoto, '10px', '213px');
         currentNode = healthPhoto;
     });
 
     lovePhoto.addEventListener('click', () => {
-        modalAddPhoto.style = `
-            display: block;
-        `;
+        addPreviewPhoto(lovePhoto, '-108px', '213px');
         currentNode = lovePhoto;
     });
 
     familyLeft.addEventListener('click', () => {
-        modalAddPhoto.style = `
-            display: block;
-        `;
+        addPreviewPhoto(familyLeft, '-161px', '323px');
         currentNode = familyLeft;
     });
-    
+
     familyRight.addEventListener('click', () => {
-        modalAddPhoto.style = `
-            display: block;
-        `;
+        addPreviewPhoto(familyRight, '-161px', '235px');
         currentNode = familyRight;
     });
 
     travelOne.addEventListener('click', () => {
-        modalAddPhoto.style = `
-            display: block;
-        `;
+        addPreviewPhoto(travelOne, '-147px', '400px');
         currentNode = travelOne;
     });
 
     travelTwo.addEventListener('click', () => {
-        modalAddPhoto.style = `
-            display: block;
-        `;
+        addPreviewPhoto(travelTwo, '-147px', '297px');
         currentNode = travelTwo;
     });
 
     travelThree.addEventListener('click', () => {
-        modalAddPhoto.style = `
-            display: block;
-        `;
+        addPreviewPhoto(travelThree, '-147px', '180px');
         currentNode = travelThree;
     });
 
@@ -138,6 +175,7 @@ window.onload = function () {
 
     modalAddPhoto.addEventListener('click', () => {
         modalAddPhoto.style = `display: none;`
+        clearPhotoPreview(currentNode);
     })
 
     const searchOpaAndDelete = () => {
@@ -163,13 +201,12 @@ window.onload = function () {
                         background-image: url(${reader.result});
                         background-repeat: no-repeat;
                         background-size: cover;
-                    `
+                    `;
                     div.classList.add('opa');
-                  
                     photoDashboard.appendChild(div);
                 } else {
-                    clearBackground(previewPhoto, reader.result, true);
                     clearBackground(currentNode, reader.result, true);
+                    clearPhotoPreview(currentNode);
                 }
             })
             reader.readAsDataURL(photo);
@@ -180,7 +217,8 @@ window.onload = function () {
         inpPhoto.click();
     });
 
-    simplePhotoOne.addEventListener('click', function() {
+    simplePhotoOne.addEventListener('click', function(event) {
+        event.stopPropagation()
         const backgrpundImage = window.getComputedStyle(simplePhotoOne)
                 .getPropertyValue('background-image');
         if (currentNode.classList.contains("photo-board-dasboard")) {
@@ -199,12 +237,13 @@ window.onload = function () {
             div.classList.add('opa');
             photoDashboard.appendChild(div)
         } else {
-            clearBackground(previewPhoto, backgrpundImage);
             clearBackground(currentNode, backgrpundImage);
+            clearPhotoPreview(currentNode);
         }
     });
 
-    simplePhotoTwo.addEventListener('click', function() {
+    simplePhotoTwo.addEventListener('click', function(event) {
+        event.stopPropagation();
         const backgrpundImage = window.getComputedStyle(simplePhotoTwo)
                     .getPropertyValue('background-image');
         if (currentNode.classList.contains("photo-board-dasboard")) {
@@ -223,12 +262,13 @@ window.onload = function () {
             div.classList.add('opa');
             photoDashboard.appendChild(div)
         } else {
-            clearBackground(previewPhoto, backgrpundImage);
             clearBackground(currentNode, backgrpundImage);
+            clearPhotoPreview(currentNode);
         }
     });
 
-    simplePhotoThree.addEventListener('click', function() {
+    simplePhotoThree.addEventListener('click', function(event) {
+        event.stopPropagation();
         const backgrpundImage = window.getComputedStyle(simplePhotoThree)
             .getPropertyValue('background-image');
         if (currentNode.classList.contains("photo-board-dasboard")) {
@@ -247,12 +287,13 @@ window.onload = function () {
             div.classList.add('opa');
             photoDashboard.appendChild(div);
         } else {
-            clearBackground(previewPhoto, backgrpundImage);
             clearBackground(currentNode, backgrpundImage);
+            clearPhotoPreview(currentNode);
         }
     });
 
-    simplePhotoFour.addEventListener('click', function() {
+    simplePhotoFour.addEventListener('click', function(event) {
+        event.stopPropagation();
         const backgrpundImage = window.getComputedStyle(simplePhotoFour)
             .getPropertyValue('background-image');
         if (currentNode.classList.contains("photo-board-dasboard")) {
@@ -271,12 +312,13 @@ window.onload = function () {
             div.classList.add('opa');
             photoDashboard.appendChild(div);
         } else {
-            clearBackground(previewPhoto, backgrpundImage);
             clearBackground(currentNode, backgrpundImage);
+            clearPhotoPreview(currentNode);
         }
     });
 
-    simplePhotoFive.addEventListener('click', function() {
+    simplePhotoFive.addEventListener('click', function(event) {
+        event.stopPropagation();
         const backgrpundImage = window.getComputedStyle(simplePhotoFive)
         .getPropertyValue('background-image');
         if (currentNode.classList.contains("photo-board-dasboard")) {
@@ -295,15 +337,14 @@ window.onload = function () {
             div.classList.add('opa');
             photoDashboard.appendChild(div);
         } else {
-            clearBackground(previewPhoto, backgrpundImage);
             clearBackground(currentNode, backgrpundImage);
+            clearPhotoPreview(currentNode);
         }
     });
 
     btnAddSmile.addEventListener('click', () => {
         emojiKeyboard.style.display = 'block';
     });
-
 
     interact('.draggable')
     .draggable({
@@ -329,14 +370,14 @@ window.onload = function () {
             emojiKeyboard.style.display = 'none';
             photoBoardDashboard.classList.remove('draggable')
         }
-    }
+      }
     })
 
     function dragMoveListener (event) {
         var target = event.target
         // keep the dragged position in the data-x/data-y attributes
-        var x = (parseFloat(target.getAttribute('data-x')) || 460) 
-        + (event.dx) 
+        var x = (parseFloat(target.getAttribute('data-x')) || 460)
+        + (event.dx)
         //  ;
         var y = (parseFloat(target.getAttribute('data-y')) || -20)
          + (event.dy)
@@ -368,19 +409,19 @@ window.onload = function () {
         .then(canvas => {
             saveAs(canvas.toDataURL(), 'screen.png')
         });
-    
+
         function saveAs(uri, filename) {
             var link = document.createElement('a');
             if (typeof link.download === 'string') {
             link.href = uri;
             link.download = filename;
-        
+
             //Firefox requires the link to be in the body
             document.body.appendChild(link);
-        
+
             //simulate click
             link.click();
-        
+
             //remove the link when done
             document.body.removeChild(link);
             } else {
@@ -390,15 +431,13 @@ window.onload = function () {
     })
 
     changeBAckgoundBtn.addEventListener('click', () => {
-        modalAddPhoto.style = `
-            display: block;
-        `;
-        currentNode = photoDashboard;
+        addPreviewPhoto(photoDashboard, '110px', '-170px');
+        currentNode = addPhotoInterface;
     });
 
     emojiKeyboardClose.addEventListener('click', () => {
         emojiKeyboard.style.display = 'none';
-    })   
+    })
 
     photoBucket.addEventListener('click', () => {
         const newChild = Array
@@ -407,15 +446,15 @@ window.onload = function () {
             .map(child => {
                 if (child.className === 'family') {
                      Array.from(child.children)
-                        .forEach(childInner => { 
+                        .forEach(childInner => {
                             const newNodeInner = initStatePhoto[childInner.className]
                             removeAllChildNodes(childInner);
                             childInner.appendChild(newNodeInner)
                         });
-                } 
+                }
                 else if (child.className === 'travel') {
                     Array.from(child.children)
-                        .forEach(childInner => { 
+                        .forEach(childInner => {
                             const newNodeInner = initStatePhoto[childInner.className]
                             removeAllChildNodes(childInner);
                             childInner.appendChild(newNodeInner)

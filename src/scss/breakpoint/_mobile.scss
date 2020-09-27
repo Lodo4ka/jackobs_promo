@@ -1,0 +1,54 @@
+/*Mobile*/
+
+@media only screen and (max-width : 1024px) {
+  .mobile {
+    display: block;
+    text-align: center;
+  }
+
+  .desktop {
+    display: none;
+  }
+
+  body {
+    background: url("./img/mobile/bg.jpg") center center;
+    background-size: cover;
+  }
+
+  .btn-download {
+    position: relative;
+    display: inline-block;
+  }
+
+  .arrow {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+  }
+
+  .rules {
+    margin-top: 25px;
+    font-family: "Gotham Pro Regular";
+    /* Правила акции и политика конфиденциальности */
+    font-size: 10px;
+    text-align: center;
+    text-decoration-line: underline;
+    color: #FFFFFF;
+  }
+
+  .copyright {
+    /* ©2020. Jacobs Douwe Egberts de GMBh. All rights reserved */
+
+    font-family: "Gotham Pro Regular";
+
+    font-size: 9px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+    opacity: 0.5;
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+  }
+}

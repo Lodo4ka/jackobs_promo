@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: 'Gotham Pro Medium';
   font-weight: 700;
@@ -575,6 +576,7 @@ template {
           justify-content: center;
           align-items: center;
           text-align: center;
+          cursor: pointer;
           /* Text style for "+" */ }
           .main .photo-board .photo-board-dasboard .add-photo-interface .download-photo .plus {
             font-size: 25px; }
@@ -585,7 +587,8 @@ template {
           background-image: url("http://placekitten.com/g/250/250");
           position: absolute;
           background-position: center;
-          background-size: cover; }
+          background-size: cover;
+          cursor: pointer; }
         .main .photo-board .photo-board-dasboard .add-photo-interface .simple-photo-one {
           top: 173px;
           right: 0; }
@@ -631,7 +634,7 @@ template {
         bottom: 145px;
         right: 25px;
         z-index: 100;
-        height: 2rem; }
+        min-height: 2rem; }
       .main .photo-board .photo-board-dasboard .photo-board-dasboard-input {
         font-family: 'Gotham Pro Bold';
         color: #ffffff;
@@ -993,3 +996,38 @@ template {
     padding: 47rem 15rem; }
   .header .people {
     top: 600px; } }
+
+/*Mobile*/
+@media only screen and (max-width: 1024px) {
+  .mobile {
+    display: block;
+    text-align: center; }
+  .desktop {
+    display: none; }
+  body {
+    background: url("./img/mobile/bg.jpg") center center;
+    background-size: cover; }
+  .btn-download {
+    position: relative;
+    display: inline-block; }
+  .arrow {
+    position: absolute;
+    top: -50px;
+    left: -50px; }
+  .rules {
+    margin-top: 25px;
+    font-family: "Gotham Pro Regular";
+    /* Правила акции и политика конфиденциальности */
+    font-size: 10px;
+    text-align: center;
+    text-decoration-line: underline;
+    color: #FFFFFF; }
+  .copyright {
+    /* ©2020. Jacobs Douwe Egberts de GMBh. All rights reserved */
+    font-family: "Gotham Pro Regular";
+    font-size: 9px;
+    text-align: center;
+    color: #FFFFFF;
+    opacity: 0.5;
+    margin-top: 25px;
+    margin-bottom: 25px; } }
