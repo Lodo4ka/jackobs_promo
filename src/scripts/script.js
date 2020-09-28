@@ -378,7 +378,6 @@ window.onload = function () {
         // keep the dragged position in the data-x/data-y attributes
         var x = (parseFloat(target.getAttribute('data-x')) || 460)
         + (event.dx)
-        //  ;
         var y = (parseFloat(target.getAttribute('data-y')) || -20)
          + (event.dy)
         //   ;

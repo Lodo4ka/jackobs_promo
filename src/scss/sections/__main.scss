@@ -3,8 +3,9 @@
    height: 100%;
 
    .dream-board {
-     min-width: 513px;
-     max-width: 550px;
+   min-width: 513px;
+   max-width: 550px;
+
 
      .create-your-board {
         background-color: transparent;
@@ -68,6 +69,12 @@
             left: 13px;
           }
         }
+     }
+
+     @media screen and (max-width: 1600px){
+      .create-your-board, .create-your-board > * {
+         font-size: 5rem !important;
+       }
      }
 
      .dream-description {
@@ -175,7 +182,6 @@
 
    .photo-board {
      margin-bottom: 25px;
-     width: 100%;
      height: 100%;
 
     .photo-board-btns {
@@ -186,53 +192,58 @@
       & > li {
         display: block;
         cursor: pointer;
+        flex: 1;
       }
 
-      .photo-board-btn-change-back {
-        background-image: url('./img/change-background.png');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        max-width: 210px;
-        max-height: 69px;
-        height: 69px;
-        width: 200px;
+      .photo-board-btn-change-back, .photo-board-btn-paste-text,
+      .photo-board-btn-add-smile, .photo-board-btn-bucket {
+        img {
+          max-width: 100%;
+          height: auto;
+        }
       }
+      // .photo-board-btn-change-back {
+      //   background-image: url('./img/change-background.png');
+      //   background-position: center;
+      //   background-repeat: no-repeat;
+      //   background-size: contain;
+      //   max-width: 210px;
+      //   max-height: 69px;
+      //   height: 69px;
+      //   width: 200px;
+      // }
 
-      .photo-board-btn-paste-text {
-        background-image: url('./img/change-background.png');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        max-width: 210px;
-        max-height: 69px;
-        height: 69px;
-        width: 200px;
-        background-image: url('./img/paste-text.png');
-      }
+      // .photo-board-btn-paste-text {
+      //   background-position: center;
+      //   background-repeat: no-repeat;
+      //   background-size: contain;
+      //   max-width: 210px;
+      //   max-height: 69px;
+      //   height: 69px;
+      //   width: 200px;
+      //   background-image: url('./img/paste-text.png');
+      // }
 
-      .photo-board-btn-add-smile {
-        background-image: url('./img/change-background.png');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        max-width: 210px;
-        max-height: 69px;
-        height: 69px;
-        width: 200px;
-        background-image: url('./img/add-smile.png');
-      }
-      .photo-board-btn-bucket {
-        background-image: url('./img/change-background.png');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        max-width: 210px;
-        max-height: 69px;
-        height: 69px;
-        width: 200px;
-        background-image: url('./img/bucket.png');
-      }
+      // .photo-board-btn-add-smile {
+      //   background-position: center;
+      //   background-repeat: no-repeat;
+      //   background-size: contain;
+      //   max-width: 210px;
+      //   max-height: 69px;
+      //   height: 69px;
+      //   width: 200px;
+      //   background-image: url('./img/add-smile.png');
+      // }
+      // .photo-board-btn-bucket {
+      //   background-position: center;
+      //   background-repeat: no-repeat;
+      //   background-size: contain;
+      //   max-width: 210px;
+      //   max-height: 69px;
+      //   height: 69px;
+      //   width: 200px;
+      //   background-image: url('./img/bucket.png');
+      // }
     }
 
     .photo-board-dasboard {
@@ -240,33 +251,53 @@
       min-height: 650px;
       position: relative;
 
-      &::before {
-        content: '';
-        background-image: url('./img/photo-border.png');
+      .photo-border {
         position: absolute;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
         width: 100%;
         height: 100%;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
       }
 
-      // &::after {
-      //   content: '';
-      //   background-image: url(./img/right-light.png);
-      //   position: absolute;
-      //   background-size: cover;
-      //   background-position: center;
-      //   width: 404px;
-      //   mix-blend-mode: screen;
-      //   height: 329px;
-      //   top: -106px;
-      //   background-repeat: no-repeat;
-      //   right: -100px;
-      // }
+      .right-light {
+        position: absolute;
+        mix-blend-mode: color-dodge;
+        top: -106px;
+        right: -40px;
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+      }
 
+      .left-light {
+        position: absolute;
+        top: 400px;
+        left: -178px;
+        mix-blend-mode: color-dodge;
+        max-width: 953px;
+        max-height: 771px;
+        height: auto;
+      }
 
-      .emoji-keyboard {
+      .all-stars {
+        position: absolute;
+        bottom: -78px;
+        left: -18px;
+        mix-blend-mode: screen;
+        z-index: 1;
+      }
+
+      @media screen and (max-width: 1100px) {
+        .right-light {
+          right: 0px;
+          // max-height: 279px;
+          // max-width: 354px;
+        }
+      }
+
+      .emoji54-keyboard {
         max-width: 400px;
         max-height: 200px;
         overflow: auto;
@@ -331,7 +362,6 @@
           align-items: center;
           text-align: center;
           cursor: pointer;
-          /* Text style for "+" */
           .plus {
             font-size: 25px;
           }
@@ -401,23 +431,10 @@
         }
       }
 
-
-
-      // &::before {
-      //   content: '';
-      //   position: absolute;
-      //   background-image: url('./img/left-light.png');
-      //   width: 466px;
-      //   height: 377px;
-      //   mix-blend-mode: color-dodge;
-      //   bottom: -149px;
-      //   left: -180px;
-      // }
-
       .logo {
         position: absolute;
-        top: 400px;
-        right: 25px;
+        top: 565px;
+        right: 30px;
         z-index: 100;
         max-height: 4rem;
       }
@@ -434,17 +451,6 @@
         z-index: 1000;
         background-color: transparent;
         border: none;
-
-        &::after {
-          content: '';
-          position: absolute;
-          background-image: url('./img/right-light.png');
-          width: 466px;
-          height: 377px;
-          mix-blend-mode: color-dodge;
-          right: -229px;
-          top: -170px;
-        }
       }
 
       @media screen and (max-width: 800px) {
@@ -460,32 +466,6 @@
         height: 100%;
         width: 100%;
         transform: scale(0.9);
-
-        // &.before::before {
-        //   content: '';
-        //   position: absolute;
-        //   background-image: url('./img/left-stars.png');
-        //   width: 1131px;
-        //   height: 797px;
-        //   mix-blend-mode: screen;
-        //   top: -184px;
-        //   left: -72px;
-        //   z-index: -1;
-        // }
-
-        // &.after::after {
-        //   content: '';
-        //   position: absolute;
-        //   background-image: url('./img/left-light.png');
-        //   width: 466px;
-        //   height: 377px;
-        //   mix-blend-mode: screen;
-        //   top: 285px;
-        //   left: -178px;
-        //   z-index: 1;
-        //   background-repeat: no-repeat;
-        //   mix-blend-mode: screen;
-        // }
 
         & > div {
           position: absolute;
@@ -527,6 +507,11 @@
           }
         }
 
+        @media only screen and (min-width: 1100px) and (max-width: 1600px) {
+          .health {
+
+          }
+        }
 
         .hobbies {
           top: 300px;
@@ -645,6 +630,12 @@
               line-height: 21.85px;
               font-size: 16px;
             }
+          }
+        }
+
+        @media only screen and (min-width: 1100px) and (max-width: 1600px) {
+          .family {
+
           }
         }
 
@@ -770,6 +761,12 @@
 
         }
 
+        @media only screen and (min-width: 1100px) and (max-width: 1600px) {
+          .travel {
+            top: 400px;
+          }
+        }
+
         .love {
           right: 115px;
           width: 282px;
@@ -813,6 +810,13 @@
           }
         }
 
+        @media only screen and (min-width: 1100px) and (max-width: 1600px){
+            .love {
+              right: -28px;
+              bottom: -67px;
+            }
+        }
+
         .money {
           left: 85px;
           border: 10px solid white;
@@ -849,6 +853,12 @@
         }
 
       }
+
+      @media screen and (max-width: 1600px) {
+        .photo-board-dasboard-photos {
+          transform: scale(0.8);
+        }
+      }
     }
 
     @media screen and (max-width: 800px) {
@@ -856,6 +866,12 @@
         min-height: 100%;
         position: static;
       }
+    }
+   }
+
+   @media screen and (max-width: 1100px) {
+    .photo-board {
+      max-width: 100%;
     }
    }
  }
@@ -886,6 +902,10 @@
          text-align: center;
          width: 100%;
          max-width: none;
+
+         .your-dream::before {
+            left: 251px;
+         }
       }
 
       .dream-install-board {

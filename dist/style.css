@@ -61,11 +61,19 @@ body {
     background-position: 51% 59%; } }
 
 .cont {
-  max-width: 1500px;
+  max-width: 1600px;
   margin: auto;
   height: 100%;
   padding-top: 47px;
   margin-bottom: 166px; }
+
+@media screen and (max-width: 1600px) {
+  .cont {
+    max-width: 1100px; } }
+
+@media screen and (max-width: 1100px) {
+  .cont {
+    max-width: 900px; } }
 
 textarea:focus, button:focus, input:focus {
   outline: none !important; }
@@ -457,6 +465,9 @@ template {
           mix-blend-mode: screen;
           top: -39px;
           left: 13px; }
+    @media screen and (max-width: 1600px) {
+      .main .dream-board .create-your-board, .main .dream-board .create-your-board > * {
+        font-size: 5rem !important; } }
     .main .dream-board .dream-description {
       font-size: 2.1rem;
       max-width: 400px;
@@ -535,67 +546,56 @@ template {
       max-width: none; } }
   .main .photo-board {
     margin-bottom: 25px;
-    width: 100%;
     height: 100%; }
     .main .photo-board .photo-board-btns {
       display: flex;
       flex-wrap: wrap; }
       .main .photo-board .photo-board-btns > li {
         display: block;
-        cursor: pointer; }
-      .main .photo-board .photo-board-btns .photo-board-btn-change-back {
-        background-image: url("./img/change-background.png");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        max-width: 210px;
-        max-height: 69px;
-        height: 69px;
-        width: 200px; }
-      .main .photo-board .photo-board-btns .photo-board-btn-paste-text {
-        background-image: url("./img/change-background.png");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        max-width: 210px;
-        max-height: 69px;
-        height: 69px;
-        width: 200px;
-        background-image: url("./img/paste-text.png"); }
-      .main .photo-board .photo-board-btns .photo-board-btn-add-smile {
-        background-image: url("./img/change-background.png");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        max-width: 210px;
-        max-height: 69px;
-        height: 69px;
-        width: 200px;
-        background-image: url("./img/add-smile.png"); }
-      .main .photo-board .photo-board-btns .photo-board-btn-bucket {
-        background-image: url("./img/change-background.png");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        max-width: 210px;
-        max-height: 69px;
-        height: 69px;
-        width: 200px;
-        background-image: url("./img/bucket.png"); }
+        cursor: pointer;
+        flex: 1; }
+      .main .photo-board .photo-board-btns .photo-board-btn-change-back img, .main .photo-board .photo-board-btns .photo-board-btn-paste-text img,
+      .main .photo-board .photo-board-btns .photo-board-btn-add-smile img, .main .photo-board .photo-board-btns .photo-board-btn-bucket img {
+        max-width: 100%;
+        height: auto; }
     .main .photo-board .photo-board-dasboard {
       width: 100%;
       min-height: 650px;
       position: relative; }
-      .main .photo-board .photo-board-dasboard::before {
-        content: '';
-        background-image: url("./img/photo-border.png");
+      .main .photo-board .photo-board-dasboard .photo-border {
         position: absolute;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
         width: 100%;
-        height: 100%; }
-      .main .photo-board .photo-board-dasboard .emoji-keyboard {
+        height: 100%;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0; }
+      .main .photo-board .photo-board-dasboard .right-light {
+        position: absolute;
+        mix-blend-mode: color-dodge;
+        top: -106px;
+        right: -40px;
+        width: 100%;
+        max-width: 400px;
+        height: auto; }
+      .main .photo-board .photo-board-dasboard .left-light {
+        position: absolute;
+        top: 400px;
+        left: -178px;
+        mix-blend-mode: color-dodge;
+        max-width: 953px;
+        max-height: 771px;
+        height: auto; }
+      .main .photo-board .photo-board-dasboard .all-stars {
+        position: absolute;
+        bottom: -78px;
+        left: -18px;
+        mix-blend-mode: screen;
+        z-index: 1; }
+      @media screen and (max-width: 1100px) {
+        .main .photo-board .photo-board-dasboard .right-light {
+          right: 0px; } }
+      .main .photo-board .photo-board-dasboard .emoji54-keyboard {
         max-width: 400px;
         max-height: 200px;
         overflow: auto;
@@ -605,14 +605,14 @@ template {
         background-color: white;
         right: 300px;
         text-align: right; }
-        .main .photo-board .photo-board-dasboard .emoji-keyboard-close {
+        .main .photo-board .photo-board-dasboard .emoji54-keyboard-close {
           cursor: pointer; }
-          .main .photo-board .photo-board-dasboard .emoji-keyboard-close::after {
+          .main .photo-board .photo-board-dasboard .emoji54-keyboard-close::after {
             display: inline-block;
             content: "\00d7";
             /* This will render the 'X' */
             font-size: 3rem; }
-        .main .photo-board .photo-board-dasboard .emoji-keyboard img {
+        .main .photo-board .photo-board-dasboard .emoji54-keyboard img {
           height: 3rem; }
       .main .photo-board .photo-board-dasboard .modal-add-photo {
         position: absolute;
@@ -659,8 +659,7 @@ template {
           justify-content: center;
           align-items: center;
           text-align: center;
-          cursor: pointer;
-          /* Text style for "+" */ }
+          cursor: pointer; }
           .main .photo-board .photo-board-dasboard .add-photo-interface .download-photo .plus {
             font-size: 25px; }
         .main .photo-board .photo-board-dasboard .add-photo-interface .simple-photo-one, .main .photo-board .photo-board-dasboard .add-photo-interface .simple-photo-two, .main .photo-board .photo-board-dasboard .add-photo-interface .simple-photo-three, .main .photo-board .photo-board-dasboard .add-photo-interface .simple-photo-four, .main .photo-board .photo-board-dasboard .add-photo-interface .simple-photo-five {
@@ -712,8 +711,8 @@ template {
             line-height: 21.85px; }
       .main .photo-board .photo-board-dasboard .logo {
         position: absolute;
-        top: 400px;
-        right: 25px;
+        top: 565px;
+        right: 30px;
         z-index: 100;
         max-height: 4rem; }
       .main .photo-board .photo-board-dasboard .photo-board-dasboard-input {
@@ -728,15 +727,6 @@ template {
         z-index: 1000;
         background-color: transparent;
         border: none; }
-        .main .photo-board .photo-board-dasboard .photo-board-dasboard-input::after {
-          content: '';
-          position: absolute;
-          background-image: url("./img/right-light.png");
-          width: 466px;
-          height: 377px;
-          mix-blend-mode: color-dodge;
-          right: -229px;
-          top: -170px; }
       @media screen and (max-width: 800px) {
         .main .photo-board .photo-board-dasboard .photo-board-dasboard-input {
           max-width: 300px;
@@ -973,6 +963,9 @@ template {
               font-weight: 400;
               line-height: 21.85px;
               font-size: 12px; }
+        @media only screen and (min-width: 1100px) and (max-width: 1600px) {
+          .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .travel {
+            top: 400px; } }
         .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .love {
           right: 115px;
           width: 282px;
@@ -1008,6 +1001,10 @@ template {
             font-size: 26px;
             font-weight: 400;
             line-height: 21.85px; }
+        @media only screen and (min-width: 1100px) and (max-width: 1600px) {
+          .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .love {
+            right: -28px;
+            bottom: -67px; } }
         .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .money {
           left: 85px;
           border: 10px solid white;
@@ -1037,10 +1034,16 @@ template {
             font-size: 26px;
             font-weight: 400;
             line-height: 21.85px; }
+      @media screen and (max-width: 1600px) {
+        .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos {
+          transform: scale(0.8); } }
     @media screen and (max-width: 800px) {
       .main .photo-board .photo-board-dasboard {
         min-height: 100%;
         position: static; } }
+  @media screen and (max-width: 1100px) {
+    .main .photo-board {
+      max-width: 100%; } }
 
 @media screen and (max-width: 1100px) {
   .main {
@@ -1063,6 +1066,8 @@ template {
         text-align: center;
         width: 100%;
         max-width: none; }
+        .main .dream-board .dream-description .your-dream::before {
+          left: 251px; }
       .main .dream-board .dream-install-board {
         text-align: center;
         margin-bottom: 10px; }
