@@ -183,6 +183,7 @@
    .photo-board {
      margin-bottom: 25px;
      height: 100%;
+     width: 100%;
 
     .photo-board-btns {
       display: flex;
@@ -200,6 +201,9 @@
         img {
           max-width: 100%;
           height: auto;
+        }
+        .round {
+          display: none;
         }
       }
       // .photo-board-btn-change-back {
@@ -509,7 +513,7 @@
 
         @media only screen and (min-width: 1100px) and (max-width: 1600px) {
           .health {
-
+            top: -130px;
           }
         }
 
@@ -635,7 +639,7 @@
 
         @media only screen and (min-width: 1100px) and (max-width: 1600px) {
           .family {
-
+            left: 400px;
           }
         }
 
@@ -852,6 +856,12 @@
           }
         }
 
+        @media only screen and (min-width: 1100px) and (max-width: 1600px){
+            .money {
+              top: 58px;
+              z-index: 2;
+            }
+        }
       }
 
       @media screen and (max-width: 1600px) {
@@ -934,28 +944,49 @@
     }
     .photo-board-btn-change-back, .photo-board-btn-paste-text,
     .photo-board-btn-add-smile, .photo-board-btn-bucket {
-      background-image: none !important;
-      border-radius: 50%;
-      background-color: white;
-      width: 44px !important;
-      height: 44px !important;
-    }
 
+      img {
+        display: none;
+      }
+
+      .round {
+        display: block !important;
+        border-radius: 50%;
+        background-color: white;
+        width: 44px;
+        height: 44px;
+        margin: auto;
+        position: relative;
+
+        &::before {
+          content: '';
+          border-radius: 50%;
+          width: 26px;
+          height: 26px;
+          position: absolute;
+          top: 20%;
+          left: 20%;
+        }
+
+        &.green::before {
+          background-color: #024617;
+        }
+
+        &.smile::before {
+          background-image: url('img/emoji_eye.png');
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+        &.bucket::before {
+          background-image: url('img/bucket_icon.png');
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+    }
     .photo-board-btns {
       justify-content: space-around;
       margin-top: 50px;
       padding: 0 20px;
-    }
-
-    .photo-board-btn-change-back {
-      &::after {
-        content: '';
-        background-color: rgba(2, 70, 23, 1);
-        background-position: center;
-        background-size: cover;
-        border-radius: 50%;
-        width: 26px;
-        height: 26px;
-      }
     }
  }

@@ -546,7 +546,8 @@ template {
       max-width: none; } }
   .main .photo-board {
     margin-bottom: 25px;
-    height: 100%; }
+    height: 100%;
+    width: 100%; }
     .main .photo-board .photo-board-btns {
       display: flex;
       flex-wrap: wrap; }
@@ -558,6 +559,9 @@ template {
       .main .photo-board .photo-board-btns .photo-board-btn-add-smile img, .main .photo-board .photo-board-btns .photo-board-btn-bucket img {
         max-width: 100%;
         height: auto; }
+      .main .photo-board .photo-board-btns .photo-board-btn-change-back .round, .main .photo-board .photo-board-btns .photo-board-btn-paste-text .round,
+      .main .photo-board .photo-board-btns .photo-board-btn-add-smile .round, .main .photo-board .photo-board-btns .photo-board-btn-bucket .round {
+        display: none; }
     .main .photo-board .photo-board-dasboard {
       width: 100%;
       min-height: 650px;
@@ -769,6 +773,9 @@ template {
             font-size: 26px;
             font-weight: 400;
             line-height: 21.85px; }
+        @media only screen and (min-width: 1100px) and (max-width: 1600px) {
+          .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .health {
+            top: -130px; } }
         .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .hobbies {
           top: 300px;
           left: 138px;
@@ -863,6 +870,9 @@ template {
               font-weight: 400;
               line-height: 21.85px;
               font-size: 16px; }
+        @media only screen and (min-width: 1100px) and (max-width: 1600px) {
+          .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .family {
+            left: 400px; } }
         .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .travel {
           top: 230px;
           z-index: 3;
@@ -1034,6 +1044,10 @@ template {
             font-size: 26px;
             font-weight: 400;
             line-height: 21.85px; }
+        @media only screen and (min-width: 1100px) and (max-width: 1600px) {
+          .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .money {
+            top: 58px;
+            z-index: 2; } }
       @media screen and (max-width: 1600px) {
         .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos {
           transform: scale(0.8); } }
@@ -1082,25 +1096,44 @@ template {
 @media screen and (max-width: 800px) {
   .download-dream {
     display: none; }
-  .photo-board-btn-change-back, .photo-board-btn-paste-text,
-  .photo-board-btn-add-smile, .photo-board-btn-bucket {
-    background-image: none !important;
+  .photo-board-btn-change-back img, .photo-board-btn-paste-text img,
+  .photo-board-btn-add-smile img, .photo-board-btn-bucket img {
+    display: none; }
+  .photo-board-btn-change-back .round, .photo-board-btn-paste-text .round,
+  .photo-board-btn-add-smile .round, .photo-board-btn-bucket .round {
+    display: block !important;
     border-radius: 50%;
     background-color: white;
-    width: 44px !important;
-    height: 44px !important; }
+    width: 44px;
+    height: 44px;
+    margin: auto;
+    position: relative; }
+    .photo-board-btn-change-back .round::before, .photo-board-btn-paste-text .round::before,
+    .photo-board-btn-add-smile .round::before, .photo-board-btn-bucket .round::before {
+      content: '';
+      border-radius: 50%;
+      width: 26px;
+      height: 26px;
+      position: absolute;
+      top: 20%;
+      left: 20%; }
+    .photo-board-btn-change-back .round.green::before, .photo-board-btn-paste-text .round.green::before,
+    .photo-board-btn-add-smile .round.green::before, .photo-board-btn-bucket .round.green::before {
+      background-color: #024617; }
+    .photo-board-btn-change-back .round.smile::before, .photo-board-btn-paste-text .round.smile::before,
+    .photo-board-btn-add-smile .round.smile::before, .photo-board-btn-bucket .round.smile::before {
+      background-image: url("img/emoji_eye.png");
+      background-repeat: no-repeat;
+      background-position: center; }
+    .photo-board-btn-change-back .round.bucket::before, .photo-board-btn-paste-text .round.bucket::before,
+    .photo-board-btn-add-smile .round.bucket::before, .photo-board-btn-bucket .round.bucket::before {
+      background-image: url("img/bucket_icon.png");
+      background-repeat: no-repeat;
+      background-position: center; }
   .photo-board-btns {
     justify-content: space-around;
     margin-top: 50px;
-    padding: 0 20px; }
-  .photo-board-btn-change-back::after {
-    content: '';
-    background-color: #024617;
-    background-position: center;
-    background-size: cover;
-    border-radius: 50%;
-    width: 26px;
-    height: 26px; } }
+    padding: 0 20px; } }
 
 .footer-link {
   display: block;
