@@ -395,10 +395,11 @@ window.onload = function () {
     window.dragMoveListener = dragMoveListener
 
     downloadDream.addEventListener('click', () => {
-        html2canvas(photoBoardDashboard,
-        //      {
-        //     y: 300,
-        // }
+        html2canvas(moneyPhoto,
+             {
+            y: 300,
+            useCORS: true
+        }
         )
         .then(canvas => {
             saveAs(canvas.toDataURL(), 'screen.png')
@@ -415,7 +416,7 @@ window.onload = function () {
 
             //simulate click
             link.click();
-
+            debugger;
             //remove the link when done
             document.body.removeChild(link);
             } else {

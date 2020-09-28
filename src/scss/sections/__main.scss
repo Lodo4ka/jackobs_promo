@@ -225,6 +225,32 @@
       min-height: 650px;
       position: relative;
 
+      .emoji-keyboard {
+        max-width: 400px;
+        max-height: 200px;
+        overflow: auto;
+        position: absolute;
+        z-index: 100;
+        top: 0px;
+        background-color: white;
+        right: 300px;
+        z-index: 200;
+        text-align: right;
+
+        &-close {
+          cursor: pointer;
+          &::after {
+            display: inline-block;
+            content: "\00d7"; /* This will render the 'X' */
+            font-size: 3rem;
+          }
+        }
+
+        img {
+          height: 3rem;
+        }
+      }
+
       .photo-border {
         position: absolute;
         width: 100%;
