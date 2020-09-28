@@ -75,6 +75,10 @@ body {
   .cont {
     max-width: 900px; } }
 
+@media screen and (max-width: 1100px) {
+  .cont {
+    padding: 0 20px; } }
+
 textarea:focus, button:focus, input:focus {
   outline: none !important; }
 
@@ -427,6 +431,8 @@ template {
       text-transform: uppercase;
       margin-bottom: 70px;
       position: relative; }
+      .main .dream-board .create-your-board .br-create {
+        display: none; }
       .main .dream-board .create-your-board::after {
         content: '';
         position: absolute;
@@ -465,9 +471,9 @@ template {
           mix-blend-mode: screen;
           top: -39px;
           left: 13px; }
-    @media screen and (max-width: 1600px) {
+    @media screen and (max-width: 800px) {
       .main .dream-board .create-your-board, .main .dream-board .create-your-board > * {
-        font-size: 5rem !important; } }
+        font-size: 25px; } }
     .main .dream-board .dream-description {
       font-size: 2.1rem;
       max-width: 400px;
@@ -550,7 +556,10 @@ template {
     width: 100%; }
     .main .photo-board .photo-board-btns {
       display: flex;
-      flex-wrap: wrap; }
+      flex-wrap: wrap;
+      position: relative;
+      top: 20px;
+      z-index: 1; }
       .main .photo-board .photo-board-btns > li {
         display: block;
         cursor: pointer;
@@ -574,6 +583,16 @@ template {
         bottom: 0;
         right: 0;
         left: 0; }
+      @media screen and (max-width: 800px) {
+        .main .photo-board .photo-board-dasboard .photo-border {
+          position: relative; }
+          .main .photo-board .photo-board-dasboard .photo-border::after {
+            content: '';
+            background-color: black;
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            background-size: contain; } }
       .main .photo-board .photo-board-dasboard .right-light {
         position: absolute;
         mix-blend-mode: color-dodge;
@@ -1054,7 +1073,17 @@ template {
     @media screen and (max-width: 800px) {
       .main .photo-board .photo-board-dasboard {
         min-height: 100%;
-        position: static; } }
+        position: relative; }
+        .main .photo-board .photo-board-dasboard::before {
+          position: absolute;
+          display: block;
+          content: '';
+          width: 100%;
+          height: 85%;
+          opacity: 0.2;
+          background-color: #000000;
+          background-position: center;
+          background-size: contain; } }
   @media screen and (max-width: 1100px) {
     .main .photo-board {
       max-width: 100%; } }
@@ -1094,6 +1123,11 @@ template {
           line-height: 118.7%; } }
 
 @media screen and (max-width: 800px) {
+  .create-your-board, .create-your-board > * {
+    font-size: 25px !important;
+    line-height: 30px !important; }
+    .create-your-board .br-create, .create-your-board > * .br-create {
+      display: inline; }
   .download-dream {
     display: none; }
   .photo-board-btn-change-back img, .photo-board-btn-paste-text img,
@@ -1120,6 +1154,11 @@ template {
     .photo-board-btn-change-back .round.green::before, .photo-board-btn-paste-text .round.green::before,
     .photo-board-btn-add-smile .round.green::before, .photo-board-btn-bucket .round.green::before {
       background-color: #024617; }
+    .photo-board-btn-change-back .round.text::before, .photo-board-btn-paste-text .round.text::before,
+    .photo-board-btn-add-smile .round.text::before, .photo-board-btn-bucket .round.text::before {
+      background-image: url("img/Vector 1.png");
+      background-repeat: no-repeat;
+      background-position: center; }
     .photo-board-btn-change-back .round.smile::before, .photo-board-btn-paste-text .round.smile::before,
     .photo-board-btn-add-smile .round.smile::before, .photo-board-btn-bucket .round.smile::before {
       background-image: url("img/emoji_eye.png");
