@@ -200,6 +200,7 @@
       position: relative;
       top: 20px;
       z-index: 1;
+      margin-bottom: 20px;
 
       & > li {
         display: block;
@@ -454,6 +455,7 @@
         height: 100%;
         width: 100%;
         transform: scale(0.9);
+        z-index: 100;
 
         & > div {
           position: absolute;

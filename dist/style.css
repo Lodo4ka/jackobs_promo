@@ -559,7 +559,8 @@ template {
       flex-wrap: wrap;
       position: relative;
       top: 20px;
-      z-index: 1; }
+      z-index: 1;
+      margin-bottom: 20px; }
       .main .photo-board .photo-board-btns > li {
         display: block;
         cursor: pointer;
@@ -759,7 +760,8 @@ template {
         bottom: -115px;
         height: 100%;
         width: 100%;
-        transform: scale(0.9); }
+        transform: scale(0.9);
+        z-index: 100; }
         .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos > div {
           position: absolute; }
         .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos .health {

@@ -72,6 +72,7 @@ window.onload = function () {
     const addPreviewPhoto = (node, top, left) => {
         modalAddPhoto.style = `
             display: block;
+            transform: rotate(0deg)
         `;
         addPhotoInterface.style = `
             display: block;
@@ -394,17 +395,11 @@ window.onload = function () {
     window.dragMoveListener = dragMoveListener
 
     downloadDream.addEventListener('click', () => {
-        html2canvas(photoBoardDashboard, {
-            ignoreElements: (element) => {
-               if(element.classList.contains('before')) {
-                    element.classList.remove('before')
-               } else if (element.classList.contains('after')) {
-                    element.classList.remove('after')
-               }
-               return element;
-            },
-            y: 300,
-        })
+        html2canvas(photoBoardDashboard,
+        //      {
+        //     y: 300,
+        // }
+        )
         .then(canvas => {
             saveAs(canvas.toDataURL(), 'screen.png')
         });
