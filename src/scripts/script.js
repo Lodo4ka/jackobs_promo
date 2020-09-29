@@ -453,8 +453,10 @@ window.onload = function () {
     })
 
     changeBAckgoundBtn.addEventListener('click', (event) => {
-        const round = changeBAckgoundBtn.querySelector('.round');
-        if(round.style.display === 'block') {
+        const round = event.currentTarget.querySelector('.round');
+        const checkRound = window.getComputedStyle(round).getPropertyValue('display') === 'block' 
+        if(checkRound) {
+            debugger;
                 overlayMobile.style = `
                 position: absolute;
                 background-color: black;
