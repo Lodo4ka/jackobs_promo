@@ -9,6 +9,8 @@ window.onload = function () {
     const downloadPhoto= document.querySelector('.download-photo');
     const downloadDream = document.querySelector('body .download-dream');
     const overlayMobile = document.querySelector('.overlay-mobile');
+    const laoder = document.querySelector('.loader-container');
+    const background = document.querySelector('.background ');
 
     const simplePhotoOne= document.querySelector('.simple-photo-one');
     const simplePhotoTwo= document.querySelector('.simple-photo-two');
@@ -42,6 +44,12 @@ window.onload = function () {
         divPhoto.textContent = text;
         return divPhoto;
     }
+
+    simplePhotoOne.style.backgroundImage = `url('img/250.jpeg')`
+    simplePhotoTwo.style.backgroundImage = `url('img/250.jpeg')`
+    simplePhotoThree.style.backgroundImage = `url('img/250.jpeg')`
+    simplePhotoFour.style.backgroundImage = `url('img/250.jpeg')`
+    simplePhotoFive.style.backgroundImage = `url('img/250.jpeg')`
 
     const initStatePhoto = {
         money:  generateNodeInitial('Деньги'),
@@ -195,15 +203,16 @@ window.onload = function () {
                     searchOpaAndDelete();
                     const img = document.createElement('img');
                     img.style = `
-                        height: 94%;
-                        width: 97%;
+                        height: 100%;
+                        width: 100%%;
                         position: absolute;
-                        top: 20px;
-                        right: 15px;
+                        top: 0%;
                     `;
                     img.src = reader.result;
                     img.classList.add('opa');
-                    photoBoardDashboard.appendChild(img);
+                    const opa = document.querySelector('.opa');
+                    if(opa) photoDashboard.removeChild(opa);
+                    photoDashboard.appendChild(img);
                     clearPhotoPreview(currentNode);
                 } else {
                     clearBackground(currentNode, reader.result, true);
@@ -226,17 +235,19 @@ window.onload = function () {
             searchOpaAndDelete();
             const div = document.createElement('div');
             div.style = `
-                height: 94%;
-                width: 97%;
+                height: 100%;
+                width: 100%;
                 position: absolute;
-                top: 20px;
-                right: 15px;
+                z-index: -8;
+                top: 0%;
                 background-image: ${backgrpundImage};
                 background-repeat: no-repeat;
                 background-size: cover;
             `
             div.classList.add('opa');
-            photoDashboard.appendChild(div)
+            const opa = document.querySelector('.opa');
+            if(opa) photoDashboard.removeChild(opa);
+            photoDashboard.appendChild(div);
         } else {
             clearBackground(currentNode, backgrpundImage);
             clearPhotoPreview(currentNode);
@@ -251,16 +262,18 @@ window.onload = function () {
             const div = document.createElement('div');
             searchOpaAndDelete();
             div.style = `
-                height: 94%;
-                width: 97%;
+                height: 100%;
+                width: 100%;
                 position: absolute;
-                top: 20px;
-                right: 15px;
+                z-index: -8;
+                top: 0%;
                 background-image: ${backgrpundImage};
                 background-repeat: no-repeat;
                 background-size: cover;
             `
             div.classList.add('opa');
+            const opa = document.querySelector('.opa');
+            if(opa) photoDashboard.removeChild(opa);
             photoDashboard.appendChild(div)
             clearPhotoPreview(currentNode);
         } else {
@@ -277,16 +290,18 @@ window.onload = function () {
             const div = document.createElement('div');
             searchOpaAndDelete();
             div.style = `
-                height: 94%;
-                width: 97%;
+                height: 100%;
+                width: 100%;
                 position: absolute;
-                top: 20px;
-                right: 15px;
+                z-index: -8;
+                top: 0%;
                 background-image: ${backgrpundImage};
                 background-repeat: no-repeat;
                 background-size: cover;
             `
             div.classList.add('opa');
+            const opa = document.querySelector('.opa');
+            if(opa) photoDashboard.removeChild(opa);
             photoDashboard.appendChild(div);
             clearPhotoPreview(currentNode);
         } else {
@@ -303,16 +318,18 @@ window.onload = function () {
             const div = document.createElement('div');
             searchOpaAndDelete();
             div.style = `
-                height: 94%;
-                width: 97%;
+                height: 100%;
+                width: 100%;
                 position: absolute;
-                top: 20px;
-                right: 15px;
+                z-index: -8;
+                top: 0%;
                 background-image: ${backgrpundImage};
                 background-repeat: no-repeat;
                 background-size: cover;
-            `
+                `
             div.classList.add('opa');
+            const opa = document.querySelector('.opa');
+            if(opa) photoDashboard.removeChild(opa);
             photoDashboard.appendChild(div);
             clearPhotoPreview(currentNode);
         } else {
@@ -329,16 +346,18 @@ window.onload = function () {
             const div = document.createElement('div');
             searchOpaAndDelete();
             div.style = `
-                height: 94%;
-                width: 97%;
+                height: 100%;
+                width: 100%;
                 position: absolute;
-                top: 20px;
-                right: 15px;
+                z-index: -8;
+                top: 0%;
                 background-image: ${backgrpundImage};
                 background-repeat: no-repeat;
                 background-size: cover;
             `;
             div.classList.add('opa');
+            const opa = document.querySelector('.opa');
+            if(opa) photoDashboard.removeChild(opa);
             photoDashboard.appendChild(div);
             clearPhotoPreview(currentNode);
         } else {
@@ -399,17 +418,19 @@ window.onload = function () {
     window.dragMoveListener = dragMoveListener
 
     downloadDream.addEventListener('click', () => {
- 
+        laoder.style.display = 'flex';
+        background.style.opacity = '1';
         html2canvas(photoDashboard,
             {
                 y: 300,
             }
         )
         .then(canvas => {
+            background.style.opacity = null;
             saveAs(canvas.toDataURL(), 'screen.png')
         })
-        .catch((err) => {
-            debugger;
+        .finally(() => {
+            laoder.style.display = 'none';
         });
 
         function saveAs(uri, filename) {
@@ -433,8 +454,8 @@ window.onload = function () {
 
     changeBAckgoundBtn.addEventListener('click', (event) => {
         const round = changeBAckgoundBtn.querySelector('.round');
-        if (round) {
-            overlayMobile.style = `
+        if(round.style.display === 'block') {
+                overlayMobile.style = `
                 position: absolute;
                 background-color: black;
                 top: 0;
