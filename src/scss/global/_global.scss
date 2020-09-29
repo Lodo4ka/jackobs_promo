@@ -102,6 +102,12 @@ body {
   }
 }
 
+@media screen and (max-width:800px) {
+  .cont {
+    margin-bottom: 0;
+  }
+}
+
 textarea:focus, button:focus,  input:focus{
   outline: none !important;
 }

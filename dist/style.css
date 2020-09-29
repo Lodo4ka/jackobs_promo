@@ -80,6 +80,10 @@ body {
   .cont {
     padding: 0 20px; } }
 
+@media screen and (max-width: 800px) {
+  .cont {
+    margin-bottom: 0; } }
+
 textarea:focus, button:focus, input:focus {
   outline: none !important; }
 
@@ -1291,7 +1295,9 @@ template {
   left: 0;
   top: 0;
   right: 0;
-  z-index: 100; }
+  z-index: 100;
+  opacity: 0.8;
+  margin: 100%; }
 
 .footer-link {
   display: block;
