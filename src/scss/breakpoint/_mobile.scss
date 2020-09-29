@@ -1,17 +1,4 @@
 @media only screen and (max-width : 1024px) {
-  .mobile {
-    display: block;
-    text-align: center;
-  }
-
-  .desktop {
-    display: none;
-  }
-
-  body {
-    background: url("./img/mobile/bg.jpg") center center;
-    background-size: cover;
-  }
 
   .btn-download {
     position: relative;
@@ -48,5 +35,198 @@
     margin-top: 25px;
     margin-bottom: 25px;
 
+  }
+  .main .photo-board .photo-board-dasboard::before {
+    display: none;
+  }
+  .main .dream-board .create-your-board{
+    font-size: 3rem;
+    font-family: 'Gotham Pro Bold';
+    background-image: linear-gradient(-269deg, #c77c1f 0%, #ebd49d 67%, #cf8f3a 94%, #cf8f3a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #b9993e;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+  .main .dream-board .create-your-board .dream {
+    font-size: 3rem;
+    font-family: 'Gotham Pro Bold';
+    background-image: linear-gradient(-269deg, #c77c1f 0%, #ebd49d 67%, #cf8f3a 94%, #cf8f3a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #b9993e;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .main .dream-board .create-your-board .br-create {
+    display: block;
+  }
+  .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos {
+    position: absolute;
+    top: 60px;
+    bottom: auto;
+  }
+  .main .photo-board .photo-board-dasboard .all-stars {
+    display: none;
+  }
+  .main .photo-board .photo-board-dasboard .left-light {
+    display: none;
+  }
+  .main .photo-board .photo-board-dasboard .right-light {
+    right: -50px;
+    width: 140px;
+    top: -40px;
+  }
+  .main .photo-board .photo-board-btns {
+    margin-bottom: -5px;
+  }
+  .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    bottom: auto;
+    transform: scale(1);
+  }
+  .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos {
+    .money,.family,.hobbies,.health{
+      position: relative;
+      top: 0;
+      left: 0;
+      height: auto;
+    }
+    .money {
+      border: 10px solid white;
+      width: 45vw;
+      margin-left: 5vw;
+      margin-top: 5vw;
+      height: 25vw;
+      transform: rotate(-7deg);
+      z-index: 3;
+    }
+    .family {
+      width: 100vw;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      z-index: 10;
+      .left, .right{
+        position: relative;
+        left: 0;
+        top: 0;
+        font-size: 26px;
+        .photo{
+          font-size: 26px;
+        }
+      }
+      .right{
+        width: 20vw;
+        height: 20vw;
+      }
+      .left{
+        width: 35vw;
+        height: 30vw;
+        transform: rotate(9deg);
+      }
+    }
+    .travel{
+      position: absolute;
+      right: 0;
+      top: 0;
+      left: auto;
+      margin-top: 5vw;
+      margin-right: 5vw;
+      .one,.two,.three{
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 30vw;
+        height: 20vw;
+        .photo{
+          font-size: 26px;
+        }
+      }
+      .three{
+        width: 25vw;
+        height: 35vw;
+        margin-left: auto;
+      }
+    }
+    .hobbies{
+      width: 30vw;
+      height: 20vw;
+    }
+    .health{
+      width: 20vw;
+      height: 20vw;
+      left: 20vw;
+    }
+    .love{
+      position: absolute;
+      bottom: 0;
+      top: auto;
+      right: 20vw;
+      left: auto;
+      width: 20vw;
+      height: 20vw;
+    }
+  }
+  .main .photo-board .photo-board-dasboard .logo {
+    position: absolute;
+    top: auto;
+    right: 30px;
+    z-index: 100;
+    width: 50px;
+    bottom: 30px;
+    height: auto;
+  }
+  .main .dream-board .dream-description .your-dream {
+    position: relative;
+  }
+  .main .dream-board .dream-description .your-dream::before {
+    left: -50px;
+    top: -3px;
+  }
+}
+@media only screen and (max-width : 724px) {
+  .main .dream-board .create-your-board {
+    font-size: 2rem !important;
+  }
+  .main .dream-board .create-your-board .dream {
+    font-size: 2rem !important;
+  }
+  .main .dream-board .dream-description {
+    font-size: 1.6rem !important;
+  }
+  .main .photo-board .photo-board-dasboard .photo-board-dasboard-photos {
+    .money, .hobbies, .health, .love {
+      border: 5px solid #fff;
+      .photo{
+        font-size: 13px;
+      }
+    }
+    .family{
+      .left, .right{
+        border: 5px solid #fff;
+        .photo{
+          font-size: 13px;
+        }
+      }
+    }
+    .travel{
+      .one, .two, .three{
+        border: 5px solid #fff;
+        .photo{
+          font-size: 13px;
+        }
+      }
+    }
+    .love{
+      z-index: 4;
+    }
   }
 }

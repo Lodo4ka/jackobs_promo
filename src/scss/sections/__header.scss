@@ -1,12 +1,19 @@
 .header {
   display: flex;
   align-items: center;
-  margin-bottom: 61px;
-
+  padding: 0 100px;
+  @media screen and (max-width: 1230px){
+    position: absolute;
+    width: 100%;
+    top: 40px;
+    left: 0;
+  }
   .menu {
-    margin-left: auto;
+     margin-left: auto;
      display: flex;
-
+    @media screen and (max-width: 1230px){
+      display: none;
+    }
     .menu-item {
 
       a {
@@ -24,13 +31,12 @@
       }
     }
   }
-
-  @media screen and (max-width: 800px) {
-    .logo {
-      margin: auto;
+  .logo{
+    @media screen and (max-width: 1230px){
+     margin: auto;
     }
-    .menu {
-      display: none;
+    @media screen and (max-width: 500px){
+      width: 115px;
     }
   }
 }

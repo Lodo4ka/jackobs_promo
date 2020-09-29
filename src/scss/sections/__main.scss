@@ -1,13 +1,39 @@
- .main {
+.wrapper{
+  overflow: hidden;
+  width: 100%;
+}
+.mobile-br{
+  display: none;
+}
+.main {
    display: flex;
+   justify-content: space-between;
    height: 100%;
-
+    @media screen and (max-width: 1230px){
+      flex-direction: column;
+    }
    .dream-board {
-   min-width: 513px;
-   max-width: 550px;
-
-
-     .create-your-board {
+     flex: 1;
+     padding: 100px 0 0 120px;
+     background: url("./img/mobile_nimbus.png")no-repeat;
+     background-size: cover;
+     @media screen and (max-width: 1600px){
+       padding: 50px 0 0 120px;
+     }
+     @media screen and (max-width: 1230px){
+       padding: 230px 0 0;
+       .mobile__wrapper{
+         width: 450px;
+         margin: 0 auto;
+         @media screen and (max-width: 500px){
+           width: 300px;
+         }
+       }
+     }
+     @media screen and (max-width: 500px){
+       padding: 150px 0 0;
+     }
+     &--title {
         background-color: transparent;
         -webkit-font-smoothing: antialiased;
         -webkit-background-clip: text;
@@ -15,18 +41,32 @@
         background-image: linear-gradient(94.68deg, #9D8531 30.5%, #E9C96E 76.19%);
         background-clip: text;
         color: #E9C96E;
-        font-family: "Gotham Pro";
+        font-family: "Gotham Pro Bold";
         font-size: 60px;
         font-weight: 700;
         line-height: 68.18px;
         text-transform: uppercase;
         margin-bottom: 70px;
         position: relative;
-
-        .br-create {
-          display: none;
-        }
-
+        transition: font-size .3s;
+       @media screen and (max-width: 1700px){
+         font-size: 40px;
+         line-height: 50px;
+         margin-bottom: 30px;
+       }
+       @media screen and (max-width: 1230px){
+         text-align: center;
+         br{
+           display: none;
+           &.mobile-br{
+             display: block;
+           }
+         }
+       }
+       @media screen and (max-width: 500px){
+         font-size: 25px;
+         line-height: 30px;
+       }
         &::after {
           content: '';
           position: absolute;
@@ -38,96 +78,93 @@
           mix-blend-mode: screen;
           top: -38px;
           left: 257px;
-        }
-
-        .dream {
-          position: relative;
-          background-color: transparent;
-          -webkit-font-smoothing: antialiased;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          // background-image: rgba(157, 133, 49, 1)
-          // rgba(233, 201, 110, 1);
-          background-image: linear-gradient(94.68deg, #9D8531 30.5%, #E9C96E 76.19%);
-          // background-image: linear-gradient(-269deg, #c77c1f 0%, #ebd49d 67%, #cf8f3a 94%, #cf8f3a 100%);
-          background-clip: text;
-          color: #E9C96E;
-          font-family: "Gotham Pro";
-          font-size: 60px;
-          font-weight: 700;
-          line-height: 68.18px;
-          text-transform: uppercase;
-          margin-bottom: 70px;
-          position: relative;
-
-          &::after {
-            position: absolute;
-            content: '';
-            background-image: url('./img/Vector_Smart_Object_copy_24.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            width: 104px;
-            height: 104px;
-            mix-blend-mode: screen;
-            top: -39px;
-            left: 13px;
+          transition: left .3s;
+          @media screen and (max-width: 1730px){
+            left: 147px;
           }
         }
-     }
-
-    //  @media screen and (max-width: 1600px){
-    //   .create-your-board, .create-your-board > * {
-    //      font-size: 5rem !important;
-    //    }
-     @media screen and (max-width: 800px){
-      .create-your-board, .create-your-board > * {
-         font-size: 25px;
+        &::before {
+         content: '';
+         position: absolute;
+         background-image: url('./img/Vector_Smart_Object_copy_24.png');
+         background-repeat: no-repeat;
+         background-position: center;
+         width: 104px;
+         height: 104px;
+         mix-blend-mode: screen;
+         top: 30px;
+         left: 22px;
+         transition: left, top .3s;
+         @media screen and (max-width: 1730px){
+           left: 0;
+           top: 10px;
+         }
+         @media screen and (max-width: 500px){
+           left: -25px;
+           top: -18px;
+         }
        }
      }
-
-     .dream-description {
-      font-size: 2.1rem;
-      max-width: 400px;
-      font-family: 'Gotham Pro Medium';
-      line-height: 25.94px;
-      margin-bottom: 72px;
-      color: white;
-      position: relative;
-
-      .your-dream {
-        font-family: 'Gotham Pro Bold';
-        margin-bottom: 6px;
-        display: inline-block;
-
-        &::before {
-          content: '';
-          position: absolute;
-          background-image: url('./img/star.png');
-          height: 30px;
-          width: 29px;
-          left: -38px;
-          top: -9px;
-        }
-
-        .unique {
-          color: #E9C96E;
-        }
-      }
-      .change-world {
-        font-family: 'Gotham Pro Regular';
-        position: relative;
-
-        &::before {
-          content: '';
-          position: absolute;
-          background-image: url('./img/arrow_small.png');
-          height: 87px;
-          width: 45px;
-          background-repeat: no-repeat;
-          left: -85px;
-          top: 11px;
-        }
-      }
+     &--steps{
+       @media screen and (max-width: 1230px){
+         width: 300px;
+         margin: 0 auto;
+       }
+       .item {
+         margin-bottom: 72px;
+         position: relative;
+         font-size: 20px;
+         transition: .3s font-size;
+         @media screen and (max-width: 1230px){
+           br{
+             display: none;
+           }
+         }
+         @media screen and (max-width: 500px){
+           font-size: 16px;
+         }
+         &::before {
+           content: '';
+           position: absolute;
+           background-image: url('./img/star.png');
+           background-size: cover;
+           height: 20px;
+           width: 20px;
+           left: -30px;
+           top: 0;
+         }
+         &::after {
+           content: '';
+           position: absolute;
+           background-image: url('./img/arrow_small.png');
+           height: 87px;
+           width: 45px;
+           background-repeat: no-repeat;
+           left: -85px;
+           top: 11px;
+           @media screen and (max-width: 1230px){
+             display: none;
+           }
+         }
+         @media screen and (max-width: 1600px){
+           font-size: 15px;
+           margin-bottom: 30px;
+         }
+         &--title {
+           font-family: 'Gotham Pro Bold';
+           margin:6px 0;
+           display: inline-block;
+           text-transform: uppercase;
+           color: #fff;
+           span{
+             color: #E9C96E;
+           }
+         }
+         &--text{
+           font-family: 'Gotham Pro Regular';
+           color: #fff;
+         }
+       }
      }
 
      .dream-install-board {
@@ -171,29 +208,21 @@
         }
       }
      }
-     .download-dream {
-        background-image: url('./img/download.png');
-        background-color: transparent;
-        min-width: 300px;
-        height: 80px;
-        background-repeat: no-repeat;
-        background-position: center;
-     }
    }
-
-   @media screen and (max-width: 800px) {
-
-    .dream-board {
-      min-width: auto;
-      max-width: none;
-    }
-   }
-
    .photo-board {
+     margin-right: 30px;
      margin-bottom: 25px;
      height: 100%;
-     width: 100%;
-
+     width: 1000px;
+     @media screen and (max-width: 1600px){
+       width: 700px;
+     }
+     @media screen and (max-width: 1230px){
+       margin: 0 auto 30px;
+     }
+     @media screen and (max-width: 800px){
+       width: 280px;
+     }
     .photo-board-btns {
       display: flex;
       flex-wrap: wrap;
@@ -201,11 +230,51 @@
       top: 20px;
       z-index: 1;
       margin-bottom: 20px;
-
+      .round{
+        display: none;
+        @media screen and (max-width: 800px){
+          display: block;
+        }
+      }
+      @media screen and (max-width: 800px){
+       justify-content: center;
+      }
       & > li {
         display: block;
         cursor: pointer;
         flex: 1;
+        @media screen and (max-width: 800px){
+          width: 44px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          max-width: 44px;
+          height: 44px;
+          background: #fff;
+          border-radius: 50px;
+          margin: 0 10px;
+          .round{
+            display: block!important;
+            width: 26px;
+            height: 26px;
+            img{
+              width: 100%;
+              height: auto;
+              max-height: 100%;
+            }
+            svg{
+              width: 100%;
+              height: auto;
+              max-height: 100%;
+            }
+          }
+          img{
+            display: none;
+            &.smile{
+              display: block;
+            }
+          }
+        }
       }
 
       .photo-board-btn-change-back, .photo-board-btn-paste-text,
@@ -219,819 +288,784 @@
         }
       }
     }
-
     .photo-board-dasboard {
-      width: 100%;
-      min-height: 650px;
-      position: relative;
-
-      .emoji-keyboard {
-        max-width: 400px;
-        max-height: 200px;
-        overflow: auto;
-        position: absolute;
-        z-index: 100;
-        top: 0px;
-        background-color: white;
-        right: 300px;
-        z-index: 200;
-        text-align: right;
-
-        &-close {
-          cursor: pointer;
-          &::after {
-            display: inline-block;
-            content: "\00d7"; /* This will render the 'X' */
-            font-size: 3rem;
-          }
-        }
-
-        img {
-          height: 3rem;
-        }
-      }
-
-      .photo-border {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-      }
-
-      @media screen and (max-width: 800px) {
-        .photo-border {
-          position: relative;
-
-          &::after {
-            content: '';
-            background-color: black;
-            width: 100%;
-            height: 100%;
-            background-position: center;
-            background-size: contain;
-          }
-        }
-      }
-
-      .right-light {
-        position: absolute;
-        mix-blend-mode: color-dodge;
-        top: -106px;
-        right: -40px;
-        width: 100%;
-        max-width: 400px;
-        height: auto;
-      }
-
-      .left-light {
-        position: absolute;
-        top: 400px;
-        left: -178px;
-        mix-blend-mode: color-dodge;
-        max-width: 953px;
-        max-height: 771px;
-        height: auto;
-      }
-
-      .all-stars {
-        position: absolute;
-        bottom: -78px;
-        left: -18px;
-        mix-blend-mode: screen;
-        z-index: 1;
-      }
-
-      @media screen and (max-width: 1100px) {
-        .right-light {
-          right: 0px;
-          // max-height: 279px;
-          // max-width: 354px;
-        }
-      }
-
-      .emoji54-keyboard {
-        max-width: 400px;
-        max-height: 200px;
-        overflow: auto;
-        position: absolute;
-        z-index: 100;
-        top: 0px;
-        background-color: white;
-        right: 300px;
-        text-align: right;
-
-        &-close {
-          cursor: pointer;
-          &::after {
-            display: inline-block;
-            content: "\00d7"; /* This will render the 'X' */
-            font-size: 3rem;
-          }
-        }
-
-        img {
-          height: 3rem;
-        }
-      }
-
-      .modal-add-photo {
-        position: absolute; /* Sit on top of the page content */
-        display: none; /* Hidden by default */
-        width: 100%; /* Full width (cover the whole page) */
-        height: 100%; /* Full height (cover the whole page) */
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-        z-index: 100; /* Specify a stack order in case you're using a different order for other elements */
-        cursor: pointer; /* Add a pointer on hover */
-      }
-
-      .add-photo-interface {
-        position: absolute;
-        width: 100%; /* Full width (cover the whole page) */
-        height: 100%; /* Full height (cover the whole page) */
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-
-        .download-photo {
-          width: 143px;
-          height: 143px;
-          border-radius: 10px;
-          background-color: #ffffff;
-          position: absolute;
-          right: 0;
-          color: #000000;
-          font-family: "Gotham Pro Medium";
-          font-size: 12px;
-          font-weight: 500;
-          line-height: 20.83px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-          cursor: pointer;
-          .plus {
-            font-size: 25px;
-          }
-        }
-
-        .simple-photo-one, .simple-photo-two, .simple-photo-three, .simple-photo-four, .simple-photo-five {
-          width: 143px;
-          height: 143px;
-          border-radius: 10px;
-          background-image: url('http://placekitten.com/g/250/250');
-          position: absolute;
-          background-position: center;
-          background-size: cover;
-          cursor: pointer;
-        }
-
-        .simple-photo-one {
-          top: 173px;
-          right: 0;
-        }
-
-        .simple-photo-two {
-          top: 330px;
-          right: 150px;
-        }
-
-        .simple-photo-three {
-          right: 350px;
-          top: 330px;
-        }
-
-        .simple-photo-four {
-          right: 543px;
-          top: 173px;
-        }
-
-        .simple-photo-five {
-          right: 543px;
-        }
-
-        .preview-photo {
-          width: 246px;
-          height: 177px;
-          position: absolute;
-          border: 10px solid white;
-          transform: rotate(-10deg);
-          right: 220px;
-          top: 70px;
-
-          .photo {
-            background-color: black;
-            background-size: cover;
-            background-position: center;
-            width: 100%;
-            height: 100%;
-            color: white;
-            margin: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #ffffff;
-            font-family: "Gotham Pro Medium";
-            font-size: 26px;
-            font-weight: 400;
-            line-height: 21.85px;
-          }
-        }
-      }
-
-      .logo {
-        position: absolute;
-        top: 565px;
-        right: 30px;
-        z-index: 100;
-        max-height: 4rem;
-      }
-
-      .photo-board-dasboard-input {
-        font-family: 'Gotham Pro Bold';
-        color: #ffffff;
-        font-size: 32px;
-        font-weight: 700;
-        right: -250px;
-        bottom: -35px;
-        text-align: center;
-        position: relative;
-        z-index: 1000;
-        background-color: transparent;
-        border: none;
-      }
-
-      @media screen and (max-width: 800px) {
-        .photo-board-dasboard-input {
-          max-width: 300px;
-          right: 0;
-        }
-      }
-
-      .photo-board-dasboard-photos {
-        position: relative;
-        bottom: -115px;
-        // height: 800px;
-        width: 100%;
-        transform: scale(0.9);
-        z-index: 100;
-
-        & > div {
-          position: absolute;
-        }
-
-        .health {
-          right: 360px;
-          top: -43px;
-          width: 245px;
-          height: 335px;
-          border: 10px solid white;
-          transform: rotate(10deg);
-          z-index: 2;
-
-          .red_1 {
-            height: 3rem;
-            left: 85px;
-            position: absolute;
-            top: -24px;
-            z-index: 1;
-          }
-
-          .photo {
-            background-color: black;
-            background-size: cover;
-            background-position: center;
-            width: 100%;
-            height: 100%;
-            color: white;
-            margin: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #ffffff;
-            font-family: "Gotham Pro Medium";
-            font-size: 26px;
-            font-weight: 400;
-            line-height: 21.85px;
-          }
-        }
-
-        @media only screen and (min-width: 1100px) and (max-width: 1600px) {
-          .health {
-            top: -130px;
-          }
-        }
-
-        .hobbies {
-          top: 300px;
-          left: 138px;
-          width: 389px;
-          height: 172px;
-          border: 10px solid white;
-          z-index: 1;
-
-          .red_3 {
-            height: 5rem;
-            left: -27px;
-            position: absolute;
-            top: -24px;
-            z-index: 1;
-          }
-
-          .red_4 {
-            height: 5rem;
-            left: 340px;
-            position: absolute;
-            top: 124px;
-            z-index: 1;
-          }
-
-          // height: 5rem;
-          // left: 340px;
-          // position: absolute;
-          // top: 124px;
-          // z-index: 1;
-
-          .photo {
-            background-color: black;
-            background-size: cover;
-            background-position: center;
-            width: 100%;
-            height: 100%;
-            color: white;
-            margin: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #ffffff;
-            font-family: "Gotham Pro Medium";
-            font-size: 26px;
-            font-weight: 400;
-            line-height: 21.85px;
-          }
-        }
-
-        .family {
-          top: 180px;
-          left: 200px;
-          width: 300px;
-          height: 183px;
-          z-index: 10;
-
-          .clip {
-            height: 2rem;
-            left: 102px;
-            position: absolute;
-            top: -15px;
-            z-index: 1;
-          }
-
-          .left {
-            border: 10px solid white;
-            width: 125px;
-            height: 120px;
-            transform: rotate(-9deg);
-            position: absolute;
-
-            .photo {
-              background-color: black;
-              background-size: cover;
-              background-position: center;
-              width: 100%;
-              height: 100%;
-              color: white;
-              margin: auto;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              color: #ffffff;
-              font-family: "Gotham Pro Medium";
-              font-size: 26px;
-              font-weight: 400;
-              line-height: 21.85px;
-              font-size: 16px;
-            }
-          }
-          .right {
-            border: 10px solid white;
-            width: 125px;
-            height: 120px;
-            transform: rotate(9deg);
-            position: absolute;
-            right: 70px;
-            // z-index: 2;
-
-            .photo {
-              background-color: black;
-              background-size: cover;
-              background-position: center;
-              width: 100%;
-              height: 100%;
-              color: white;
-              margin: auto;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              color: #ffffff;
-              font-family: "Gotham Pro Medium";
-              font-size: 26px;
-              font-weight: 400;
-              line-height: 21.85px;
-              font-size: 16px;
-            }
-          }
-        }
-
-        @media only screen and (min-width: 1100px) and (max-width: 1600px) {
-          .family {
-            left: 400px;
-          }
-        }
-
-        .travel {
-          top: 230px;
-          z-index: 3;
-          right: 178px;
-          position: relative;
-          font-size: 12px;
-
-          .one {
-            width: 120px;
-            height: 120px;
-            border: 10px solid white;
-            transform: rotate(-9deg);
-            position: absolute;
-            right: 224px;
-            top: 59px;
-
-            .blue_1 {
-              height: 5rem;
-              left: -18px;
-              position: absolute;
-              top: -20px;
-              z-index: 1;
-            }
-
-            .photo {
-              background-color: black;
-              background-size: cover;
-              background-position: center;
-              width: 100%;
-              height: 100%;
-              color: white;
-              margin: auto;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              color: #ffffff;
-              font-family: "Gotham Pro Medium";
-              font-size: 26px;
-              font-weight: 400;
-              line-height: 21.85px;
-              font-size: 12px;
-            }
-          }
-
-          .two {
-            width: 120px;
-            height: 120px;
-            border: 10px solid white;
-            transform: rotate(-14deg);
-            position: absolute;
-            right: 115px;
-            top: 59px;
-
-            .violet_1 {
-              height: 2rem;
-              left: 20px;
-              position: absolute;
-              top: -15px;
-              z-index: 1;
-            }
-
-            .photo {
-              background-color: black;
-              background-size: cover;
-              background-position: center;
-              width: 100%;
-              height: 100%;
-              color: white;
-              margin: auto;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              color: #ffffff;
-              font-family: "Gotham Pro Medium";
-              font-size: 26px;
-              font-weight: 400;
-              line-height: 21.85px;
-              font-size: 12px;
-            }
-          }
-
-          .three {
-            width: 120px;
-            height: 120px;
-            border: 10px solid white;
-            transform: rotate(9deg);
-            position: absolute;
-            right: 4px;
-            top: 59px;
-
-            .red_1 {
-              height: 2rem;
-              left: 30px;
-              position: absolute;
-              top: -21px;
-              z-index: 1;
-              transform: rotate(14deg);
-            }
-
-            .photo {
-              background-color: black;
-              background-size: cover;
-              background-position: center;
-              width: 100%;
-              height: 100%;
-              color: white;
-              margin: auto;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              color: #ffffff;
-              font-family: "Gotham Pro Medium";
-              font-size: 26px;
-              font-weight: 400;
-              line-height: 21.85px;
-              font-size: 12px;
-            }
-          }
-
-
-        }
-
-        @media only screen and (min-width: 1100px) and (max-width: 1600px) {
-          .travel {
-            top: 400px;
-          }
-        }
-
-        .love {
-          right: 115px;
-          width: 282px;
-          height: 206px;
-          border: 10px solid white;
-          transform: rotate(-7deg);
-          z-index: 3;
-
-          .yellow_2 {
-            height: 5rem;
-            left: -31px;
-            position: absolute;
-            top: -24px;
-            z-index: 1;
-          }
-
-          .yellow_3 {
-            height: 5rem;
-            left: 234px;
-            position: absolute;
-            top: -24px;
-            z-index: 1;
-          }
-
-          .photo {
-            background-color: black;
-            background-size: cover;
-            background-position: center;
-            width: 100%;
-            height: 100%;
-            color: white;
-            margin: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #ffffff;
-            font-family: "Gotham Pro Medium";
-            font-size: 26px;
-            font-weight: 400;
-            line-height: 21.85px;
-          }
-        }
-
-        @media only screen and (min-width: 1100px) and (max-width: 1600px){
-            .love {
-              right: -28px;
-              bottom: -67px;
-            }
-        }
-
-        .money {
-          left: 85px;
-          border: 10px solid white;
-          width: 363px;
-          height: 237px;
-          transform: rotate(-7deg);
-          z-index: 1;
-
-          .yellow_1 {
-            height: 3rem;
-            left: 140px;
-            position: absolute;
-            top: -24px;
-            z-index: 1;
-          }
-
-          .photo {
-            background-color: black;
-            background-size: cover;
-            background-position: center;
-            width: 100%;
-            height: 100%;
-            color: white;
-            margin: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #ffffff;
-            font-family: "Gotham Pro Medium";
-            font-size: 26px;
-            font-weight: 400;
-            line-height: 21.85px;
-          }
-        }
-
-        @media only screen and (min-width: 1100px) and (max-width: 1600px){
-            .money {
-              top: 58px;
-              z-index: 2;
-            }
-        }
-      }
-
-      @media screen and (max-width: 1600px) {
-        .photo-board-dasboard-photos {
-          transform: scale(0.8);
-        }
-      }
-
-      @media screen and (max-width: 800px) {
-        .photo-board-dasboard-photos {
-
-        }
-      }
-    }
-
-    @media screen and (max-width: 800px) {
-      .photo-board-dasboard {
-        min-height: 100%;
-        position: relative;
-
-        &::before {
-          position: absolute;
-          display: block;
-          content: '';
-          width: 100%;
-          height: 85%;
-          opacity: 0.2;
-          background-color: #000000;
-          background-position: center;
-          background-size: contain;
-        }
-      }
-    }
-   }
-
-   @media screen and (max-width: 1100px) {
-    .photo-board {
-      max-width: 100%;
-    }
-   }
- }
-
- @media screen and (max-width: 1100px) {
-   .main {
-     flex-wrap: wrap;
-     .dream-board {
-       max-width: none;
        width: 100%;
-       display: flex;
-       flex-direction: column;
-       justify-content: center;
+       height: 662px;
+       position: relative;
+        @media screen and (max-width: 1600px){
+          height: 390px;
+        }
+        @media screen and (max-width: 800px){
+          height: 506px;
+        }
+       .emoji-keyboard {
+         max-width: 400px;
+         max-height: 200px;
+         overflow: auto;
+         position: absolute;
+         z-index: 100;
+         top: 0px;
+         background-color: white;
+         right: 300px;
+         z-index: 200;
+         text-align: right;
 
-       .create-your-board {
-         max-width: 513px;
-         width: 100%;
-         margin: auto;
-         text-align: center;
-       }
-
-       .change-world {
-          max-width: 376px;
-          display: inline-block;
-       }
-
-      .dream-description {
-         text-align: center;
-         width: 100%;
-         max-width: none;
-
-         .your-dream::before {
-            left: 251px;
+         &-close {
+           cursor: pointer;
+           &::after {
+             display: inline-block;
+             content: "\00d7"; /* This will render the 'X' */
+             font-size: 3rem;
+           }
          }
-      }
 
-      .dream-install-board {
-        text-align: center;
+         img {
+           height: 3rem;
+         }
+       }
+       .photo-border {
+         position: absolute;
+         width: 100%;
+         height: 100%;
+         top: 0;
+         bottom: 0;
+         right: 0;
+         left: 0;
+       }
+       .right-light {
+         position: absolute;
+         mix-blend-mode: color-dodge;
+         top: -106px;
+         right: -40px;
+         width: 100%;
+         max-width: 400px;
+         height: auto;
+         pointer-events: none;
+         @media screen and (max-width: 1600px){
+           top: -105px;
+           right: -140px;
+         }
+         @media screen and (max-width: 800px){
+           top: -45px;
+           width: 140px;
+           right: -50px;
+         }
+       }
+       .left-light {
+         position: absolute;
+         top: 400px;
+         left: -178px;
+         mix-blend-mode: color-dodge;
+         max-width: 953px;
+         max-height: 771px;
+         height: auto;
+         pointer-events: none;
+         @media screen and (max-width: 1600px){
+           top: 180px;
+         }
+         @media screen and (max-width: 800px){
+          top: 430px;
+          left: -70px;
+          width: 150px;
+         }
+       }
+       .all-stars {
+         position: absolute;
+         bottom: -78px;
+         left: -18px;
+         mix-blend-mode: screen;
+         z-index: 1;
+         pointer-events: none;
+       }
+       .emoji54-keyboard {
+         max-width: 400px;
+         max-height: 200px;
+         overflow: auto;
+         position: absolute;
+         z-index: 100;
+         top: 0px;
+         background-color: white;
+         right: 300px;
+         text-align: right;
 
-        margin-bottom: 10px;
+         &-close {
+           cursor: pointer;
+           &::after {
+             display: inline-block;
+             content: "\00d7"; /* This will render the 'X' */
+             font-size: 3rem;
+           }
+         }
 
-        .desc {
-          margin-bottom: 6px;
-        }
+         img {
+           height: 3rem;
+         }
+       }
+       .modal-add-photo {
+         position: absolute; /* Sit on top of the page content */
+         display: none; /* Hidden by default */
+         width: 100%; /* Full width (cover the whole page) */
+         height: 100%; /* Full height (cover the whole page) */
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+         z-index: 100; /* Specify a stack order in case you're using a different order for other elements */
+         cursor: pointer; /* Add a pointer on hover */
+       }
+       .add-photo-interface {
+         position: absolute;
+         width: 100%; /* Full width (cover the whole page) */
+         height: 100%; /* Full height (cover the whole page) */
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
 
-        .comp {
-          font-style: normal;
-          font-weight: bold;
-          font-size: 14px;
-          line-height: 118.7%;
-        }
-      }
+         .download-photo {
+           width: 143px;
+           height: 143px;
+           border-radius: 10px;
+           background-color: #ffffff;
+           position: absolute;
+           right: 0;
+           color: #000000;
+           font-family: "Gotham Pro Medium";
+           font-size: 12px;
+           font-weight: 500;
+           line-height: 20.83px;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           text-align: center;
+           cursor: pointer;
+           .plus {
+             font-size: 25px;
+           }
+         }
+
+         .simple-photo-one, .simple-photo-two, .simple-photo-three, .simple-photo-four, .simple-photo-five {
+           width: 143px;
+           height: 143px;
+           border-radius: 10px;
+           background-image: url('http://placekitten.com/g/250/250');
+           position: absolute;
+           background-position: center;
+           background-size: cover;
+           cursor: pointer;
+         }
+
+         .simple-photo-one {
+           top: 173px;
+           right: 0;
+         }
+
+         .simple-photo-two {
+           top: 330px;
+           right: 150px;
+         }
+
+         .simple-photo-three {
+           right: 350px;
+           top: 330px;
+         }
+
+         .simple-photo-four {
+           right: 543px;
+           top: 173px;
+         }
+
+         .simple-photo-five {
+           right: 543px;
+         }
+
+         .preview-photo {
+           width: 246px;
+           height: 177px;
+           position: absolute;
+           border: 10px solid white;
+           transform: rotate(-10deg);
+           right: 220px;
+           top: 70px;
+
+           .photo {
+             background-color: black;
+             background-size: cover;
+             background-position: center;
+             width: 100%;
+             height: 100%;
+             color: white;
+             margin: auto;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             color: #ffffff;
+             font-family: "Gotham Pro Medium";
+             font-size: 26px;
+             font-weight: 400;
+             line-height: 21.85px;
+           }
+         }
+       }
+       .logo {
+         position: absolute;
+         top: 565px;
+         right: 30px;
+         z-index: 100;
+         max-height: 4rem;
+         @media screen and (max-width: 1600px){
+           top: 345px;
+           right: 20px;
+           max-height: 2rem;
+         }
+         @media screen and (max-width: 800px){
+           top: auto;
+           bottom: 20px;
+         }
+       }
+       .photo-board-dasboard-input {
+         font-family: 'Gotham Pro Bold';
+         color: #ffffff;
+         font-size: 32px;
+         font-weight: 700;
+         right: -250px;
+         bottom: -35px;
+         text-align: center;
+         position: relative;
+         z-index: 1000;
+         background-color: transparent;
+         border: none;
+       }
+       .photo-board-dasboard-photos {
+         position: relative;
+         bottom: -115px;
+         width: 100%;
+         transform: scale(0.9);
+         z-index: 100;
+         @media screen and (max-width: 1600px){
+           bottom: -15px;
+         }
+         @media screen and (max-width: 800px){
+           position: absolute;
+           top: 0;
+         }
+         & > div {
+           position: absolute;
+         }
+         .health {
+           right: 360px;
+           top: -43px;
+           width: 245px;
+           height: 335px;
+           border: 10px solid white;
+           transform: rotate(10deg);
+           z-index: 2;
+           @media screen and (max-width: 1600px){
+             right: 260px;
+             top: -40px;
+             width: 170px;
+             height: 235px;
+           }
+           @media screen and (max-width: 800px){
+             border: 6px solid #fff;
+             width: 114px;
+             height: 133px;
+             left: 10px;
+             right: auto;
+             top: 160px;
+             z-index: 12;
+           }
+           .red_1 {
+             height: 3rem;
+             left: 85px;
+             position: absolute;
+             top: -24px;
+             z-index: 1;
+             @media screen and (max-width: 800px){
+               left: 25px;
+             }
+           }
+           .photo {
+             background-color: black;
+             background-size: cover;
+             background-position: center;
+             width: 100%;
+             height: 100%;
+             margin: auto;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             color: #ffffff;
+             font-family: "Gotham Pro Medium";
+             font-size: 26px;
+             font-weight: 400;
+             line-height: 21.85px;
+             @media screen and (max-width: 800px){
+               font-size: 12px;
+             }
+           }
+         }
+         .hobbies {
+           top: 300px;
+           left: 138px;
+           width: 389px;
+           height: 172px;
+           border: 10px solid white;
+           z-index: 1;
+           @media screen and (max-width: 1600px){
+             top: 200px;
+             left: 18px;
+             width: 300px;
+             height: 130px;
+           }
+           @media screen and (max-width: 800px){
+             border: 6px solid #fff;
+             width: 137px;
+             height: 63px;
+             left: auto;
+             right: 0px;
+             top: 160px;
+             z-index: 11;
+           }
+           .red_3 {
+             height: 5rem;
+             left: -27px;
+             position: absolute;
+             top: -24px;
+             z-index: 1;
+           }
+
+           .red_4 {
+             height: 5rem;
+             left: 340px;
+             position: absolute;
+             top: 124px;
+             z-index: 1;
+             @media screen and (max-width: 1600px){
+               left: 260px;
+               top: 80px;
+             }
+             @media screen and (max-width: 800px){
+               left: 90px;
+               top: 20px;
+             }
+           }
+           .photo {
+             background-color: black;
+             background-size: cover;
+             background-position: center;
+             width: 100%;
+             height: 100%;
+             margin: auto;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             color: #ffffff;
+             font-family: "Gotham Pro Medium";
+             font-size: 26px;
+             font-weight: 400;
+             line-height: 21.85px;
+             @media screen and (max-width: 800px){
+               font-size: 12px;
+             }
+           }
+         }
+         .family {
+           top: 180px;
+           left: 200px;
+           width: 300px;
+           height: 183px;
+           z-index: 10;
+           @media screen and (max-width: 1600px){
+             top: 130px;
+             left: 100px;
+           }
+           @media screen and (max-width: 800px){
+             left: 0;
+             top: 90px;
+             width: 100%;
+           }
+           .clip {
+             height: 2rem;
+             left: 102px;
+             position: absolute;
+             top: -15px;
+             z-index: 1;
+             @media screen and (max-width: 1600px){
+              left: 80px;
+             }
+             @media screen and (max-width: 800px){
+              display: none;
+             }
+           }
+           .left {
+             border: 10px solid white;
+             width: 125px;
+             height: 120px;
+             transform: rotate(-9deg);
+             position: absolute;
+             @media screen and (max-width: 1600px){
+               width: 100px;
+               height: 100px;
+             }
+             @media screen and (max-width: 800px){
+               border: 6px solid #fff;
+               width: 112px;
+               height: 88px;
+               right: 20px;
+               top: -20px;
+             }
+             .photo {
+               background-color: black;
+               background-size: cover;
+               background-position: center;
+               width: 100%;
+               height: 100%;
+               margin: auto;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               color: #ffffff;
+               font-family: "Gotham Pro Medium";
+               font-weight: 400;
+               line-height: 21.85px;
+               font-size: 16px;
+               @media screen and (max-width: 800px){
+                 font-size: 12px;
+               }
+             }
+           }
+           .right {
+             border: 10px solid white;
+             width: 125px;
+             height: 120px;
+             transform: rotate(9deg);
+             position: absolute;
+             right: 70px;
+             @media screen and (max-width: 1600px){
+               width: 100px;
+               height: 100px;
+               right: 120px;
+             }
+             @media screen and (max-width: 800px){
+               border: 6px solid #fff;
+               width: 94px;
+               height: 74px;
+               left: 10px;
+               top: 0;
+             }
+             .photo {
+               background-color: black;
+               background-size: cover;
+               background-position: center;
+               width: 100%;
+               height: 100%;
+               margin: auto;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               color: #ffffff;
+               font-family: "Gotham Pro Medium";
+               font-weight: 400;
+               line-height: 21.85px;
+               font-size: 16px;
+               @media screen and (max-width: 800px){
+                font-size: 12px;
+               }
+             }
+           }
+         }
+         .travel {
+           top: 230px;
+           z-index: 3;
+           right: 178px;
+           position: relative;
+           font-size: 12px;
+           @media screen and (max-width: 1600px){
+             top: 150px;
+             right: 40px;
+           }
+           @media screen and (max-width: 800px){
+             top: auto;
+             width: 100%;
+             right: 40px;
+             position: absolute;
+             bottom: 200px;
+             left: 0;
+           }
+           .one {
+             width: 120px;
+             height: 120px;
+             border: 10px solid white;
+             transform: rotate(-9deg);
+             position: absolute;
+             right: 224px;
+             top: 59px;
+             @media screen and (max-width: 800px){
+               border: 6px solid #fff;
+               right: 155px;
+               top: 10px;
+             }
+             .blue_1 {
+               height: 5rem;
+               left: -18px;
+               position: absolute;
+               top: -20px;
+               z-index: 1;
+             }
+             .photo {
+               background-color: black;
+               background-size: cover;
+               background-position: center;
+               width: 100%;
+               height: 100%;
+               margin: auto;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               color: #ffffff;
+               font-family: "Gotham Pro Medium";
+               font-weight: 400;
+               line-height: 21.85px;
+               font-size: 12px;
+             }
+           }
+
+           .two {
+             width: 120px;
+             height: 120px;
+             border: 10px solid white;
+             transform: rotate(-14deg);
+             position: absolute;
+             right: 115px;
+             top: 59px;
+             @media screen and (max-width: 800px){
+               border: 6px solid #fff;
+               right: 25px;
+               top: -91px;
+             }
+             .violet_1 {
+               height: 2rem;
+               left: 20px;
+               position: absolute;
+               top: -15px;
+               z-index: 1;
+             }
+             .photo {
+               background-color: black;
+               background-size: cover;
+               background-position: center;
+               width: 100%;
+               height: 100%;
+               margin: auto;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               color: #ffffff;
+               font-family: "Gotham Pro Medium";
+               font-weight: 400;
+               line-height: 21.85px;
+               font-size: 12px;
+             }
+           }
+           .three {
+             width: 120px;
+             height: 120px;
+             border: 10px solid white;
+             transform: rotate(9deg);
+             position: absolute;
+             right: 4px;
+             top: 59px;
+             @media screen and (max-width: 800px){
+               border: 6px solid #fff;
+               right: 35px;
+               top: 20px;
+             }
+             .red_1 {
+               height: 2rem;
+               left: 30px;
+               position: absolute;
+               top: -21px;
+               z-index: 1;
+               transform: rotate(14deg);
+             }
+             .photo {
+               background-color: black;
+               background-size: cover;
+               background-position: center;
+               width: 100%;
+               height: 100%;
+               margin: auto;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               color: #ffffff;
+               font-family: "Gotham Pro Medium";
+               font-weight: 400;
+               line-height: 21.85px;
+               font-size: 12px;
+             }
+           }
+
+
+         }
+         .love {
+           right: 115px;
+           width: 282px;
+           height: 206px;
+           border: 10px solid white;
+           transform: rotate(-7deg);
+           z-index: 3;
+           @media screen and (max-width: 1600px){
+             right: 30px;
+             width: 240px;
+             height: 170px;
+           }
+           @media screen and (max-width: 800px){
+             display: none;
+           }
+           .yellow_2 {
+             height: 5rem;
+             left: -31px;
+             position: absolute;
+             top: -24px;
+             z-index: 1;
+           }
+
+           .yellow_3 {
+             height: 5rem;
+             left: 234px;
+             position: absolute;
+             top: -24px;
+             z-index: 1;
+             @media screen and (max-width: 1600px){
+               left: 195px;
+             }
+           }
+
+           .photo {
+             background-color: black;
+             background-size: cover;
+             background-position: center;
+             width: 100%;
+             height: 100%;
+             color: white;
+             margin: auto;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             color: #ffffff;
+             font-family: "Gotham Pro Medium";
+             font-size: 26px;
+             font-weight: 400;
+             line-height: 21.85px;
+           }
+         }
+         .money {
+           left: 85px;
+           border: 10px solid white;
+           width: 363px;
+           height: 237px;
+           transform: rotate(-7deg);
+           z-index: 1;
+           @media screen and (max-width: 1600px){
+             left: 35px;
+             width: 260px;
+             height: 160px;
+           }
+           @media screen and (max-width: 800px){
+               border: 6px solid #fff;
+               top: 10px;
+               width: 160px;
+               height: 95px;
+              left: 34px;
+           }
+           .yellow_1 {
+             height: 3rem;
+             left: 140px;
+             position: absolute;
+             top: -24px;
+             z-index: 1;
+             @media screen and (max-width: 1600px){
+               left: 90px;
+             }
+             @media screen and (max-width: 800px){
+              left: 30px;
+             }
+           }
+           .photo {
+             background-color: black;
+             background-size: cover;
+             background-position: center;
+             width: 100%;
+             height: 100%;
+             margin: auto;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             color: #ffffff;
+             font-family: "Gotham Pro Medium";
+             font-size: 26px;
+             font-weight: 400;
+             line-height: 21.85px;
+             @media screen and (max-width: 800px){
+                font-size: 12px;
+             }
+           }
+         }
+       }
      }
    }
- }
 
- @media screen and (max-width: 800px) {
 
-  .create-your-board, .create-your-board > * {
-    font-size: 25px !important;
-    line-height: 30px !important;
 
-    .br-create {
-      display: inline;
-    }
-  }
 
-  .download-dream {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   .download-dream {
+    background-image: url('./img/download.png');
+    background-color: transparent;
+    min-width: 300px;
+    height: 80px;
+    background-repeat: no-repeat;
+    background-position: center;
+    &.mobile{
       display: none;
     }
-    .photo-board-btn-change-back, .photo-board-btn-paste-text,
-    .photo-board-btn-add-smile, .photo-board-btn-bucket {
-
-      img {
-        display: none;
-      }
-
-      .round {
-        display: block !important;
-        border-radius: 50%;
-        background-color: white;
-        width: 44px;
-        height: 44px;
-        margin: auto;
-        position: relative;
-
-        &::before {
-          content: '';
-          border-radius: 50%;
-          width: 26px;
-          height: 26px;
-          position: absolute;
-          top: 20%;
-          left: 20%;
-        }
-
-        &.green::before {
-          background-color: #024617;
-        }
-
-        &.text::before {
-          background-image: url('img/Vector 1.png');
-          background-repeat: no-repeat;
-          background-position: center;
-        }
-        &.smile::before {
-          background-image: url('img/emoji_eye.png');
-          background-repeat: no-repeat;
-          background-position: center;
-        }
-        &.bucket::before {
-         background-image: url('img/bucket_icon.png');
-          background-repeat: no-repeat;
-          background-position: center;
-        }
+    @media screen and (max-width: 1230px){
+      display: none;
+      &.mobile{
+        display: block;
       }
     }
-    .photo-board-btns {
-      justify-content: space-around;
-      margin-top: 50px;
-      padding: 0 20px;
+  }
+    .mobile__foo-block{
+      display: none;
+      text-align: center;
+      a{
+        color: #fff;
+        font-size: 13px;
+        text-decoration: underline;
+        font-family: "Gotham Pro Regular";
+      }
+      margin: 20px 0 30px;
+      @media screen and (max-width: 1230px){
+       display: block;
+      }
     }
  }

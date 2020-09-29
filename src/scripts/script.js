@@ -220,6 +220,12 @@ window.onload = function () {
     });
 
     simplePhotoOne.addEventListener('click', function(event) {
+        if ($(window).width() < 960) {
+            alert('Less than 960');
+        }
+        else {
+            alert('More than 960');
+        }
         event.stopPropagation()
         const backgrpundImage = window.getComputedStyle(simplePhotoOne)
                 .getPropertyValue('background-image');
