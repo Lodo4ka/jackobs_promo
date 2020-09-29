@@ -190,7 +190,7 @@ window.onload = function () {
         if (photo) {
             const reader = new FileReader();
             reader.addEventListener('load', function() {
-                if (currentNode.classList.contains("photo-board-dasboard")) {
+                if (currentNode.classList.contains("add-photo-interface")) {
                     searchOpaAndDelete();
                     const div = document.createElement('div');
                     div.style = `
@@ -205,6 +205,7 @@ window.onload = function () {
                     `;
                     div.classList.add('opa');
                     photoDashboard.appendChild(div);
+                    clearPhotoPreview(currentNode);
                 } else {
                     clearBackground(currentNode, reader.result, true);
                     clearPhotoPreview(currentNode);
@@ -247,7 +248,7 @@ window.onload = function () {
         event.stopPropagation();
         const backgrpundImage = window.getComputedStyle(simplePhotoTwo)
                     .getPropertyValue('background-image');
-        if (currentNode.classList.contains("photo-board-dasboard")) {
+        if (currentNode.classList.contains("add-photo-interface")) {
             const div = document.createElement('div');
             searchOpaAndDelete();
             div.style = `
@@ -262,6 +263,7 @@ window.onload = function () {
             `
             div.classList.add('opa');
             photoDashboard.appendChild(div)
+            clearPhotoPreview(currentNode);
         } else {
             clearBackground(currentNode, backgrpundImage);
             clearPhotoPreview(currentNode);
@@ -272,7 +274,7 @@ window.onload = function () {
         event.stopPropagation();
         const backgrpundImage = window.getComputedStyle(simplePhotoThree)
             .getPropertyValue('background-image');
-        if (currentNode.classList.contains("photo-board-dasboard")) {
+        if (currentNode.classList.contains("add-photo-interface")) {
             const div = document.createElement('div');
             searchOpaAndDelete();
             div.style = `
@@ -287,6 +289,7 @@ window.onload = function () {
             `
             div.classList.add('opa');
             photoDashboard.appendChild(div);
+            clearPhotoPreview(currentNode);
         } else {
             clearBackground(currentNode, backgrpundImage);
             clearPhotoPreview(currentNode);
@@ -297,7 +300,7 @@ window.onload = function () {
         event.stopPropagation();
         const backgrpundImage = window.getComputedStyle(simplePhotoFour)
             .getPropertyValue('background-image');
-        if (currentNode.classList.contains("photo-board-dasboard")) {
+        if (currentNode.classList.contains("add-photo-interface")) {
             const div = document.createElement('div');
             searchOpaAndDelete();
             div.style = `
@@ -312,6 +315,7 @@ window.onload = function () {
             `
             div.classList.add('opa');
             photoDashboard.appendChild(div);
+            clearPhotoPreview(currentNode);
         } else {
             clearBackground(currentNode, backgrpundImage);
             clearPhotoPreview(currentNode);
@@ -322,7 +326,7 @@ window.onload = function () {
         event.stopPropagation();
         const backgrpundImage = window.getComputedStyle(simplePhotoFive)
         .getPropertyValue('background-image');
-        if (currentNode.classList.contains("photo-board-dasboard")) {
+        if (currentNode.classList.contains("add-photo-interface")) {
             const div = document.createElement('div');
             searchOpaAndDelete();
             div.style = `
@@ -337,6 +341,7 @@ window.onload = function () {
             `;
             div.classList.add('opa');
             photoDashboard.appendChild(div);
+            clearPhotoPreview(currentNode);
         } else {
             clearBackground(currentNode, backgrpundImage);
             clearPhotoPreview(currentNode);
@@ -395,13 +400,14 @@ window.onload = function () {
     window.dragMoveListener = dragMoveListener
 
     downloadDream.addEventListener('click', () => {
-        html2canvas(moneyPhoto,
-             {
-            y: 300,
-            useCORS: true
-        }
+        photoBoardDashboard.style.height = '800px'
+        html2canvas(photoBoardDashboard,
+            {
+                y: 300,
+            }
         )
         .then(canvas => {
+            photoBoardDashboard.style.height = null;
             saveAs(canvas.toDataURL(), 'screen.png')
         });
 
@@ -416,7 +422,6 @@ window.onload = function () {
 
             //simulate click
             link.click();
-            debugger;
             //remove the link when done
             document.body.removeChild(link);
             } else {
@@ -443,8 +448,10 @@ window.onload = function () {
                      Array.from(child.children)
                         .forEach(childInner => {
                             const newNodeInner = initStatePhoto[childInner.className]
-                            removeAllChildNodes(childInner);
-                            childInner.appendChild(newNodeInner)
+                            if (newNodeInner) {
+                                removeAllChildNodes(childInner);
+                                childInner.appendChild(newNodeInner)
+                            }
                         });
                 }
                 else if (child.className === 'travel') {
@@ -466,7 +473,10 @@ window.onload = function () {
         newChild.forEach(child => {
             photoBoardDashboard.appendChild(child);
         })
-        photoDashboard.removeChild(document.querySelector('.opa'));
+        const opa = document.querySelector('.opa');
+        if (opa) {
+            photoDashboard.removeChild(document.querySelector('.opa'));
+        }
     });
 
     function removeAllChildNodes(parent) {
