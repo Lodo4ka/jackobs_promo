@@ -192,19 +192,17 @@ window.onload = function () {
             reader.addEventListener('load', function() {
                 if (currentNode.classList.contains("add-photo-interface")) {
                     searchOpaAndDelete();
-                    const div = document.createElement('div');
-                    div.style = `
+                    const img = document.createElement('img');
+                    img.style = `
                         height: 94%;
                         width: 97%;
                         position: absolute;
                         top: 20px;
                         right: 15px;
-                        background-image: url(${reader.result});
-                        background-repeat: no-repeat;
-                        background-size: cover;
                     `;
-                    div.classList.add('opa');
-                    photoDashboard.appendChild(div);
+                    img.src = reader.result;
+                    img.classList.add('opa');
+                    photoBoardDashboard.appendChild(img);
                     clearPhotoPreview(currentNode);
                 } else {
                     clearBackground(currentNode, reader.result, true);
@@ -367,14 +365,14 @@ window.onload = function () {
             element.style.maxHeight = '3rem';
             element.style.zIndex = '1000';
             element.style.position = 'absolute';
-            photoBoardDashboard.classList.add('draggable');
-            photoBoardDashboard.appendChild(element);
+            photoDashboard.classList.add('draggable');
+            photoDashboard.appendChild(element);
         },
         move: dragMoveListener,
         // call this function on every dragend event
         end (event) {
             emojiKeyboard.style.display = 'none';
-            photoBoardDashboard.classList.remove('draggable')
+            photoDashboard.classList.remove('draggable')
         }
       }
     })
@@ -400,15 +398,17 @@ window.onload = function () {
     window.dragMoveListener = dragMoveListener
 
     downloadDream.addEventListener('click', () => {
-        photoBoardDashboard.style.height = '800px'
-        html2canvas(photoBoardDashboard,
+ 
+        html2canvas(photoDashboard,
             {
                 y: 300,
             }
         )
         .then(canvas => {
-            photoBoardDashboard.style.height = null;
             saveAs(canvas.toDataURL(), 'screen.png')
+        })
+        .catch((err) => {
+            debugger;
         });
 
         function saveAs(uri, filename) {
@@ -473,6 +473,9 @@ window.onload = function () {
         newChild.forEach(child => {
             photoBoardDashboard.appendChild(child);
         })
+        Array.from(photoDashboard.children).forEach(child => {
+            child.classList.contains('draggable') && photoDashboard.removeChild(child);
+        });
         const opa = document.querySelector('.opa');
         if (opa) {
             photoDashboard.removeChild(document.querySelector('.opa'));

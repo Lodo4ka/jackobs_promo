@@ -710,7 +710,7 @@ template {
           width: 143px;
           height: 143px;
           border-radius: 10px;
-          background-image: url("http://placekitten.com/g/250/250");
+          background-image: url("img/250.jpeg");
           position: absolute;
           background-position: center;
           background-size: cover;
@@ -1193,7 +1193,8 @@ template {
   .photo-board-btns {
     justify-content: space-around;
     margin-top: 50px;
-    padding: 0 20px; } }
+    padding: 0 20px;
+    top: 40px; } }
 
 .footer-link {
   display: block;
@@ -1211,7 +1212,7 @@ template {
   .desktop {
     display: none; }
   body {
-    background: url("./img/mobile/bg.jpg") center center;
+    background: url("./img/bg.jpg") center center;
     background-size: cover; }
   .btn-download {
     position: relative;
