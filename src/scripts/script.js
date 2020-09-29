@@ -8,6 +8,7 @@ window.onload = function () {
     const inpPhoto= document.getElementById('inpPhoto');
     const downloadPhoto= document.querySelector('.download-photo');
     const downloadDream = document.querySelector('body .download-dream');
+    const overlayMobile = document.querySelector('.overlay-mobile');
 
     const simplePhotoOne= document.querySelector('.simple-photo-one');
     const simplePhotoTwo= document.querySelector('.simple-photo-two');
@@ -430,9 +431,20 @@ window.onload = function () {
         }
     })
 
-    changeBAckgoundBtn.addEventListener('click', () => {
-        addPreviewPhoto(photoDashboard, '110px', '-170px');
-        currentNode = addPhotoInterface;
+    changeBAckgoundBtn.addEventListener('click', (event) => {
+        const round = changeBAckgoundBtn.querySelector('.round');
+        if (round) {
+            overlayMobile.style = `
+                position: absolute;
+                background-color: black;
+                top: 0;
+                width: 100%;
+                height: 2000px;
+            `
+        } else {
+            addPreviewPhoto(photoDashboard, '110px', '-170px');
+            currentNode = addPhotoInterface;
+        }
     });
 
     emojiKeyboardClose.addEventListener('click', () => {

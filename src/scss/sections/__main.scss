@@ -79,7 +79,7 @@
     //   .create-your-board, .create-your-board > * {
     //      font-size: 5rem !important;
     //    }
-     @media screen and (max-width: 800px){
+     @media screen and (max-width: 900px){
       .create-your-board, .create-your-board > * {
          font-size: 25px;
        }
@@ -181,7 +181,7 @@
      }
    }
 
-   @media screen and (max-width: 800px) {
+   @media screen and (max-width: 900px) {
 
     .dream-board {
       min-width: auto;
@@ -261,9 +261,9 @@
         left: 0;
       }
 
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 900px) {
         .photo-border {
-          position: relative;
+          // position: relative;
 
           &::after {
             content: '';
@@ -286,6 +286,12 @@
         height: auto;
       }
 
+      @media screen and (max-width: 900px) {
+        .right-light {
+          display: none;
+        }
+      }
+
       .left-light {
         position: absolute;
         top: 400px;
@@ -296,6 +302,12 @@
         height: auto;
       }
 
+      @media screen and (max-width: 900px) {
+        .left-light  {
+          display: none;
+        }
+      }
+
       .all-stars {
         position: absolute;
         bottom: -78px;
@@ -304,11 +316,15 @@
         z-index: 1;
       }
 
+      @media screen and (max-width: 900px) {
+        .all-stars  {
+          display: none;
+        }
+      }
+
       @media screen and (max-width: 1100px) {
         .right-light {
           right: 0px;
-          // max-height: 279px;
-          // max-width: 354px;
         }
       }
 
@@ -454,6 +470,12 @@
         max-height: 4rem;
       }
 
+      @media screen and (max-width: 900px) {
+        .logo {
+          top: 723px;
+        }
+      }
+
       .photo-board-dasboard-input {
         font-family: 'Gotham Pro Bold';
         color: #ffffff;
@@ -468,7 +490,7 @@
         border: none;
       }
 
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 900px) {
         .photo-board-dasboard-input {
           max-width: 300px;
           right: 0;
@@ -478,7 +500,7 @@
       .photo-board-dasboard-photos {
         position: relative;
         bottom: -115px;
-        // height: 800px;
+        // height: 900px;
         width: 100%;
         transform: scale(0.9);
         z-index: 100;
@@ -523,11 +545,11 @@
           }
         }
 
-        @media only screen and (min-width: 1100px) and (max-width: 1600px) {
-          .health {
-            top: -130px;
-          }
-        }
+        // @media only screen and (min-width: 1100px) and (max-width: 1600px) {
+        //   .health {
+        //     top: -130px;
+        //   }
+        // }
 
         .hobbies {
           top: 300px;
@@ -649,11 +671,11 @@
           }
         }
 
-        @media only screen and (min-width: 1100px) and (max-width: 1600px) {
-          .family {
-            left: 400px;
-          }
-        }
+        // @media only screen and (min-width: 1100px) and (max-width: 1600px) {
+        //   .family {
+        //     left: 400px;
+        //   }
+        // }
 
         .travel {
           top: 230px;
@@ -777,11 +799,11 @@
 
         }
 
-        @media only screen and (min-width: 1100px) and (max-width: 1600px) {
-          .travel {
-            top: 400px;
-          }
-        }
+        // @media only screen and (min-width: 1100px) and (max-width: 1600px) {
+        //   .travel {
+        //     top: 400px;
+        //   }
+        // }
 
         .love {
           right: 115px;
@@ -826,12 +848,12 @@
           }
         }
 
-        @media only screen and (min-width: 1100px) and (max-width: 1600px){
-            .love {
-              right: -28px;
-              bottom: -67px;
-            }
-        }
+        // @media only screen and (min-width: 1100px) and (max-width: 1600px) {
+        //     .love {
+        //       right: -28px;
+        //       bottom: -67px;
+        //     }
+        // }
 
         .money {
           left: 85px;
@@ -853,6 +875,7 @@
             background-color: black;
             background-size: cover;
             background-position: center;
+            object-fit: cover;
             width: 100%;
             height: 100%;
             color: white;
@@ -868,38 +891,191 @@
           }
         }
 
-        @media only screen and (min-width: 1100px) and (max-width: 1600px){
-            .money {
-              top: 58px;
-              z-index: 2;
+        @media only screen and (min-width: 1300px) and (max-width: 1600px) {
+          .family {
+            // transform: scale(0.7);
+          }
+          .travel {
+            // transform: scale(0.7);
+            right: 0;
+          }
+          .love {
+            // transform: rotate(-7deg) scale(0.7);
+          }
+          .hobbies {
+            // transform: scale(0.7);
+
+          }
+          .health {
+            // transform: rotate(10deg) scale(0.7);
+          }
+          .money {
+            // transform: rotate(-7deg) scale(0.7);
+            left: -40px;
+          }
+        }
+
+        @media only screen and (min-width: 1100px) and (max-width: 1300px) {
+          .family {
+            // transform: scale(0.7);
+            left: 0;
+          }
+          .travel {
+            // transform: scale(0.7);
+            right: -30px;
+          }
+          .love {
+            // transform: rotate(-7deg) scale(0.7);
+            right: -20px;
+          }
+          .hobbies {
+            // transform: scale(0.7);
+            left: 0;
+          }
+          .health {
+            // transform: rotate(10deg) scale(0.7);
+            right: 185px;
+          }
+          .money {
+            // transform: rotate(-7deg) scale(0.7);
+            left: -100px;
+          }
+        }
+
+        @media only screen and (max-width:900px) {
+          .family {
+            width: auto;
+            // transform: scale(0.7);
+            .clip {
+              display: none;
             }
+
+            .left {
+              width: 170px;
+              height: 140px;
+              transform: rotate(10deg);
+              top: -75px;
+            }
+            .right {
+              width: 150px;
+              height: 120px;
+              right: unset;
+              left: -214px;
+              transform: rotate(10deg);
+              // right: 120px;
+              // top: -75px;
+            }
+          }
+          .travel {
+            // transform: scale(0.7);
+            position: absolute;
+            right: unset;
+            left: 0;
+
+            .one {
+              width: 140px;
+              height: 140px;
+              top: 300px;
+              right: -357px;
+              transform: rotate(5deg);
+            }
+
+            .two {
+              transform: rotate(5deg);
+              width: 140px;
+              height: 140px;
+              left: 255px;
+              top: 155px;
+
+              .photo {
+                font-size: 20px;
+              }
+            }
+            .three {
+              width: 140px;
+              height: 140px;
+              z-index: 2;
+              transform: rotate(-5deg);
+              top: 345px;
+              right: -210px;
+            }
+          }
+          .love {
+            // transform: rotate(-7deg) scale(0.7);
+            display: none;
+          }
+          .hobbies {
+            // transform: scale(0.7);
+            width: 170px;
+            height: 110px;
+            left: 220px;
+            top: 250px;
+            transform: rotate(-5deg);
+
+            .red_4 {
+              right: -27px;
+              top: 68px;
+              left: unset;
+          }
+          }
+          .health {
+            // transform: rotate(10deg) scale(0.7);
+            right: 0;
+            left: 40px;
+            top: 311px;
+            height: 250px;
+            width: 190px;
+          }
+          .money {
+            left: 0;
+            width: 270px;
+            height: 160px;
+          }
         }
       }
 
       @media screen and (max-width: 1600px) {
         .photo-board-dasboard-photos {
-          transform: scale(0.8);
+          transform: scale(0.7);
+        }
+      }
+      @media screen and (max-width: 1300px) {
+        .photo-board-dasboard-photos {
+          transform: scale(0.6);
         }
       }
 
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 900px) {
         .photo-board-dasboard-photos {
+          left: 15%;
+        }
+      }
 
+      @media screen and (max-width: 500px) {
+        .photo-board-dasboard-photos {
+          left: 4%;
+        }
+      }
+
+      @media screen and (max-width: 375px) {
+        .photo-board-dasboard-photos {
+          left: unset;
         }
       }
     }
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 900px) {
       .photo-board-dasboard {
-        min-height: 100%;
-        position: relative;
+        min-height: 800px;
+        // min-height: 100%;
+        // position: relative;
 
         &::before {
           position: absolute;
           display: block;
           content: '';
           width: 100%;
-          height: 85%;
+          height: 100%;
           opacity: 0.2;
           background-color: #000000;
           background-position: center;
@@ -968,7 +1144,7 @@
    }
  }
 
- @media screen and (max-width: 800px) {
+ @media screen and (max-width: 900px) {
 
   .create-your-board, .create-your-board > * {
     font-size: 25px !important;
@@ -1035,4 +1211,15 @@
       padding: 0 20px;
       top: 40px;
     }
+ }
+
+ .overlay-mobile {
+   width: 100%;
+   height: 100%;
+   background-color: black;
+   position: absolute;
+   left: 0;
+   top: 0;
+   right: 0;
+   z-index: 100;
  }
