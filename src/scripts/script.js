@@ -126,8 +126,22 @@ window.onload = function () {
     }
 
     moneyPhoto.addEventListener('click', function() {
-        addPreviewPhoto(moneyPhoto, '-65px', '170px');
-        currentNode = moneyPhoto;
+        if( $( window ).width() > 1200){
+            addPreviewPhoto(moneyPhoto, '-65px', '170px');
+            currentNode = moneyPhoto;
+        } else{
+            $('.modal').addClass('active');
+            $('.modal__title').text('Деньги');
+        }
+    });
+
+    function clearModal(){
+        $('.modal').removeClass('active');
+        $('.modal__title').text('');
+    }
+
+    $('.close-modal').on('click', () => {
+        clearModal();
     });
 
     hobbiesPhoto.addEventListener('click', () => {
@@ -232,12 +246,12 @@ window.onload = function () {
         if (currentNode.classList.contains("photo-board-dasboard")) {
             searchOpaAndDelete();
             const div = document.createElement('div');
-            div.style = `
-                height: 94%;
-                width: 97%;
+            div.style = `  
+                height: calc(100% - 20px);
+                width: calc(100% - 20px);
                 position: absolute;
-                top: 20px;
-                right: 15px;
+                top: 10px;
+                right: 10px;
                 background-image: ${backgrpundImage};
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -258,11 +272,11 @@ window.onload = function () {
             const div = document.createElement('div');
             searchOpaAndDelete();
             div.style = `
-                height: 94%;
-                width: 97%;
+                height: calc(100% - 20px);
+                width: calc(100% - 20px);
                 position: absolute;
-                top: 20px;
-                right: 15px;
+                top: 10px;
+                right: 10px;
                 background-image: ${backgrpundImage};
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -284,11 +298,11 @@ window.onload = function () {
             const div = document.createElement('div');
             searchOpaAndDelete();
             div.style = `
-                height: 94%;
-                width: 97%;
+                height: calc(100% - 20px);
+                width: calc(100% - 20px);
                 position: absolute;
-                top: 20px;
-                right: 15px;
+                top: 10px;
+                right: 10px;
                 background-image: ${backgrpundImage};
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -310,11 +324,11 @@ window.onload = function () {
             const div = document.createElement('div');
             searchOpaAndDelete();
             div.style = `
-                height: 94%;
-                width: 97%;
+                height: calc(100% - 20px);
+                width: calc(100% - 20px);
                 position: absolute;
-                top: 20px;
-                right: 15px;
+                top: 10px;
+                right: 10px;
                 background-image: ${backgrpundImage};
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -336,11 +350,11 @@ window.onload = function () {
             const div = document.createElement('div');
             searchOpaAndDelete();
             div.style = `
-                height: 94%;
-                width: 97%;
+                height: calc(100% - 20px);
+                width: calc(100% - 20px);
                 position: absolute;
-                top: 20px;
-                right: 15px;
+                top: 10px;
+                right: 10px;
                 background-image: ${backgrpundImage};
                 background-repeat: no-repeat;
                 background-size: cover;

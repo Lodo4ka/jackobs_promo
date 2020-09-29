@@ -1069,3 +1069,93 @@
       }
     }
  }
+.modal{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background: rgba(0,0,0,.9);
+  display: none;
+  z-index: 99999;
+  &.active{
+    display: block;
+  }
+  &__body{
+    width: 300px;
+    padding: 20px;
+    height: 500px;
+    left: 50%;
+    top: 0;
+    margin-top: 50px;
+    position: absolute;
+    transform: translateX(-50%);
+    .close-modal{
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      cursor: pointer;
+      svg{
+        width: 100%;
+      }
+    }
+  }
+  &__title{
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-family: "Gotham Pro Bold";
+    text-align: center;
+    margin: 10px 0 20px;
+  }
+  &__image{
+    background: #5b5858;
+    border: 3px solid #fff;
+    width: 235px;
+    height: 140px;
+    margin: 0 auto;
+  }
+  &__images{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    .item{
+      width: 80px;
+      height: 80px;
+      background: #5b5858;
+      border: 3px solid #fff;
+      margin: 3px;
+      border-radius: 10px;
+    }
+  }
+  &__add-file{
+    label{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50px;
+      height: 40px;
+      font-size: 14px;
+      margin-top: 20px;
+      font-family: "Gotham Pro Bold";
+      cursor: pointer;
+      text-transform: uppercase;
+      border: 1px solid #fff;
+      color: #fff;
+    }
+  }
+  button{
+    background: linear-gradient(91.61deg, #D7B75C 0.46%, #E9D299 38.19%, #C3A135 89.2%, #EBD59E 100.9%);
+    width: 100%;
+    height: 44px;
+    color: #000;
+    font-family: "Gotham Pro Bold";
+    font-size: 15px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 50px;
+  }
+}
