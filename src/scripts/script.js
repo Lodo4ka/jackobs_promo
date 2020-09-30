@@ -9,6 +9,8 @@ window.onload = function () {
     const inpPhoto= document.getElementById('inpPhoto');
     const downloadPhoto= document.querySelector('.download-photo');
     const downloadDream = document.querySelector('body .download-dream');
+    const laoder = document.querySelector('.loader-container');
+    const background = document.querySelector('.background ');
 
     const simplePhotoOne= document.querySelector('.simple-photo-one');
     const simplePhotoTwo= document.querySelector('.simple-photo-two');
@@ -35,6 +37,7 @@ window.onload = function () {
     const photoBoardDashboard = document.querySelector(".photo-board-dasboard-photos");
 
     let currentNode = null;
+    inputLabel.value = 'мои мечты сбудутся'
 
     const generateNodeInitial = (text) => {
         const divPhoto = document.createElement('div');
@@ -54,6 +57,79 @@ window.onload = function () {
         two: generateNodeInitial('Путешествие'),
         three: generateNodeInitial('Путешествие'),
     };
+
+    const moneyPhotos = {
+        simplePhotoOne: `url('img/250.jpeg')`,
+        simplePhotoTwo: `url('img/250.jpeg')`,
+        simplePhotoThree: `url('img/250.jpeg')`,
+        simplePhotoFour: `url('img/250.jpeg')`,
+        simplePhotoFive: `url('img/250.jpeg')`,
+    }
+
+    const hobbiesPhotos = {
+        simplePhotoOne: `url('img/250.jpeg')`,
+        simplePhotoTwo: `url('img/250.jpeg')`,
+        simplePhotoThree: `url('img/250.jpeg')`,
+        simplePhotoFour: `url('img/250.jpeg')`,
+        simplePhotoFive: `url('img/250.jpeg')`,
+    }
+
+    const loveSetPhotos = {
+        simplePhotoOne: `url('img/250.jpeg')`,
+        simplePhotoTwo: `url('img/250.jpeg')`,
+        simplePhotoThree: `url('img/250.jpeg')`,
+        simplePhotoFour: `url('img/250.jpeg')`,
+        simplePhotoFive: `url('img/250.jpeg')`,
+    }
+
+    const familyLeftPhotos = {
+        simplePhotoOne: `url('img/250.jpeg')`,
+        simplePhotoTwo: `url('img/250.jpeg')`,
+        simplePhotoThree: `url('img/250.jpeg')`,
+        simplePhotoFour: `url('img/250.jpeg')`,
+        simplePhotoFive: `url('img/250.jpeg')`,
+    }
+
+    const familyRightPhotos = {
+        simplePhotoOne: `url('img/250.jpeg')`,
+        simplePhotoTwo: `url('img/250.jpeg')`,
+        simplePhotoThree: `url('img/250.jpeg')`,
+        simplePhotoFour: `url('img/250.jpeg')`,
+        simplePhotoFive: `url('img/250.jpeg')`,
+    }
+
+    const travelOnePhotos = {
+        simplePhotoOne: `url('img/250.jpeg')`,
+        simplePhotoTwo: `url('img/250.jpeg')`,
+        simplePhotoThree: `url('img/250.jpeg')`,
+        simplePhotoFour: `url('img/250.jpeg')`,
+        simplePhotoFive: `url('img/250.jpeg')`,
+    }
+
+    const travelTwoPhotos = {
+        simplePhotoOne: `url('img/250.jpeg')`,
+        simplePhotoTwo: `url('img/250.jpeg')`,
+        simplePhotoThree: `url('img/250.jpeg')`,
+        simplePhotoFour: `url('img/250.jpeg')`,
+        simplePhotoFive: `url('img/250.jpeg')`,
+    }
+
+    const travelThreePhotos = {
+        simplePhotoOne: `url('img/250.jpeg')`,
+        simplePhotoTwo: `url('img/250.jpeg')`,
+        simplePhotoThree: `url('img/250.jpeg')`,
+        simplePhotoFour: `url('img/250.jpeg')`,
+        simplePhotoFive: `url('img/250.jpeg')`,
+    }
+
+    const healthSetPhotos = {
+        simplePhotoOne: `url('img/250.jpeg')`,
+        simplePhotoTwo: `url('img/250.jpeg')`,
+        simplePhotoThree: `url('img/250.jpeg')`,
+        simplePhotoFour: `url('img/250.jpeg')`,
+        simplePhotoFive: `url('img/250.jpeg')`,
+    }
+
 
     btnPasteText.addEventListener('click', () => {
         inputLabel.style.visibility = 'visible';
@@ -127,6 +203,11 @@ window.onload = function () {
     }
 
     moneyPhoto.addEventListener('click', function() {
+        simplePhotoOne.style.backgroundImage = moneyPhotos['simplePhotoOne']
+        simplePhotoTwo.style.backgroundImage = moneyPhotos['simplePhotoTwo']
+        simplePhotoThree.style.backgroundImage = moneyPhotos['simplePhotoThree']
+        simplePhotoFour.style.backgroundImage = moneyPhotos['simplePhotoFour']
+        simplePhotoFive.style.backgroundImage = moneyPhotos['simplePhotoFive']
         if( $( window ).width() > 1200){
             addPreviewPhoto(moneyPhoto, '-65px', '170px');
             currentNode = moneyPhoto;
@@ -147,41 +228,81 @@ window.onload = function () {
 
     hobbiesPhoto.addEventListener('click', () => {
         addPreviewPhoto(hobbiesPhoto, '-140px', '158px');
+        simplePhotoOne.style.backgroundImage = hobbiesPhotos['simplePhotoOne']
+        simplePhotoTwo.style.backgroundImage = hobbiesPhotos['simplePhotoTwo']
+        simplePhotoThree.style.backgroundImage = hobbiesPhotos['simplePhotoThree']
+        simplePhotoFour.style.backgroundImage = hobbiesPhotos['simplePhotoFour']
+        simplePhotoFive.style.backgroundImage = hobbiesPhotos['simplePhotoFive']
         currentNode = hobbiesPhoto;
     });
 
     healthPhoto.addEventListener('click', () => {
         addPreviewPhoto(healthPhoto, '10px', '213px');
+        simplePhotoOne.style.backgroundImage = healthSetPhotos['simplePhotoOne']
+        simplePhotoTwo.style.backgroundImage = healthSetPhotos['simplePhotoTwo']
+        simplePhotoThree.style.backgroundImage = healthSetPhotos['simplePhotoThree']
+        simplePhotoFour.style.backgroundImage = healthSetPhotos['simplePhotoFour']
+        simplePhotoFive.style.backgroundImage = healthSetPhotos['simplePhotoFive']
         currentNode = healthPhoto;
     });
 
     lovePhoto.addEventListener('click', () => {
         addPreviewPhoto(lovePhoto, '-108px', '213px');
+        simplePhotoOne.style.backgroundImage = loveSetPhotos['simplePhotoOne']
+        simplePhotoTwo.style.backgroundImage = loveSetPhotos['simplePhotoTwo']
+        simplePhotoThree.style.backgroundImage = loveSetPhotos['simplePhotoThree']
+        simplePhotoFour.style.backgroundImage = loveSetPhotos['simplePhotoFour']
+        simplePhotoFive.style.backgroundImage = loveSetPhotos['simplePhotoFive']
         currentNode = lovePhoto;
     });
 
     familyLeft.addEventListener('click', () => {
         addPreviewPhoto(familyLeft, '-161px', '323px');
+        simplePhotoOne.style.backgroundImage = familyLeftPhotos['simplePhotoOne']
+        simplePhotoTwo.style.backgroundImage = familyLeftPhotos['simplePhotoTwo']
+        simplePhotoThree.style.backgroundImage = familyLeftPhotos['simplePhotoThree']
+        simplePhotoFour.style.backgroundImage = familyLeftPhotos['simplePhotoFour']
+        simplePhotoFive.style.backgroundImage = familyLeftPhotos['simplePhotoFive']
         currentNode = familyLeft;
     });
 
     familyRight.addEventListener('click', () => {
         addPreviewPhoto(familyRight, '-161px', '235px');
+        simplePhotoOne.style.backgroundImage = familyRightPhotos['simplePhotoOne']
+        simplePhotoTwo.style.backgroundImage = familyRightPhotos['simplePhotoTwo']
+        simplePhotoThree.style.backgroundImage = familyRightPhotos['simplePhotoThree']
+        simplePhotoFour.style.backgroundImage = familyRightPhotos['simplePhotoFour']
+        simplePhotoFive.style.backgroundImage = familyRightPhotos['simplePhotoFive']
         currentNode = familyRight;
     });
 
     travelOne.addEventListener('click', () => {
         addPreviewPhoto(travelOne, '-147px', '400px');
+        simplePhotoOne.style.backgroundImage = travelOnePhotos['simplePhotoOne']
+        simplePhotoTwo.style.backgroundImage = travelOnePhotos['simplePhotoTwo']
+        simplePhotoThree.style.backgroundImage = travelOnePhotos['simplePhotoThree']
+        simplePhotoFour.style.backgroundImage = travelOnePhotos['simplePhotoFour']
+        simplePhotoFive.style.backgroundImage = travelOnePhotos['simplePhotoFive']
         currentNode = travelOne;
     });
 
     travelTwo.addEventListener('click', () => {
         addPreviewPhoto(travelTwo, '-147px', '297px');
+        simplePhotoOne.style.backgroundImage = travelTwoPhotos['simplePhotoOne']
+        simplePhotoTwo.style.backgroundImage = travelTwoPhotos['simplePhotoTwo']
+        simplePhotoThree.style.backgroundImage = travelTwoPhotos['simplePhotoThree']
+        simplePhotoFour.style.backgroundImage = travelTwoPhotos['simplePhotoFour']
+        simplePhotoFive.style.backgroundImage = travelTwoPhotos['simplePhotoFive']
         currentNode = travelTwo;
     });
 
     travelThree.addEventListener('click', () => {
         addPreviewPhoto(travelThree, '-147px', '180px');
+        simplePhotoOne.style.backgroundImage = travelThreePhotos['simplePhotoOne']
+        simplePhotoTwo.style.backgroundImage = travelThreePhotos['simplePhotoTwo']
+        simplePhotoThree.style.backgroundImage = travelThreePhotos['simplePhotoThree']
+        simplePhotoFour.style.backgroundImage = travelThreePhotos['simplePhotoFour']
+        simplePhotoFive.style.backgroundImage = travelThreePhotos['simplePhotoFive']
         currentNode = travelThree;
     });
 
@@ -219,6 +340,8 @@ window.onload = function () {
                         background-size: cover;
                     `;
                     div.classList.add('opa');
+                    const opa = document.querySelector('.opa');
+                    if(opa) photoDashboard.removeChild(opa);
                     photoDashboard.appendChild(div);
                     clearPhotoPreview(currentNode);
                 } else {
@@ -258,6 +381,8 @@ window.onload = function () {
                 background-size: cover;
             `
             div.classList.add('opa');
+            const opa = document.querySelector('.opa');
+            if(opa) photoDashboard.removeChild(opa);
             photoDashboard.appendChild(div)
         } else {
             clearBackground(currentNode, backgrpundImage);
@@ -284,6 +409,8 @@ window.onload = function () {
             `
             div.classList.add('opa');
             photoDashboard.appendChild(div)
+            const opa = document.querySelector('.opa');
+            if(opa) photoDashboard.removeChild(opa);
             clearPhotoPreview(currentNode);
         } else {
             clearBackground(currentNode, backgrpundImage);
@@ -310,6 +437,8 @@ window.onload = function () {
             `
             div.classList.add('opa');
             photoDashboard.appendChild(div);
+            const opa = document.querySelector('.opa');
+            if(opa) photoDashboard.removeChild(opa);
             clearPhotoPreview(currentNode);
         } else {
             clearBackground(currentNode, backgrpundImage);
@@ -336,6 +465,8 @@ window.onload = function () {
             `
             div.classList.add('opa');
             photoDashboard.appendChild(div);
+            const opa = document.querySelector('.opa');
+            if(opa) photoDashboard.removeChild(opa);
             clearPhotoPreview(currentNode);
         } else {
             clearBackground(currentNode, backgrpundImage);
@@ -362,6 +493,8 @@ window.onload = function () {
             `;
             div.classList.add('opa');
             photoDashboard.appendChild(div);
+            const opa = document.querySelector('.opa');
+            if(opa) photoDashboard.removeChild(opa);
             clearPhotoPreview(currentNode);
         } else {
             clearBackground(currentNode, backgrpundImage);
@@ -421,6 +554,8 @@ window.onload = function () {
     window.dragMoveListener = dragMoveListener
 
     downloadDream.addEventListener('click', () => {
+        laoder.style.display = 'flex';
+        background.style.opacity = '1';
         photoBoardDashboard.style.height = '800px'
         html2canvas(photoBoardDashboard,
             {
@@ -430,6 +565,9 @@ window.onload = function () {
         .then(canvas => {
             photoBoardDashboard.style.height = null;
             saveAs(canvas.toDataURL(), 'screen.png')
+        })
+        .finally(() => {
+            laoder.style.display = 'none';
         });
 
         function saveAs(uri, filename) {

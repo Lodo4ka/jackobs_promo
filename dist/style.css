@@ -590,6 +590,12 @@ template {
           bottom: -69px;
           left: -89px;
           background-repeat: no-repeat; }
+  .main .background {
+    width: 100%;
+    height: 100%;
+    z-index: -9;
+    position: absolute;
+    opacity: 0.4; }
   .main .photo-board {
     margin-right: 30px;
     margin-bottom: 25px;
@@ -1422,6 +1428,37 @@ template {
     display: block;
     margin: 20px auto;
     border-radius: 50px; }
+
+.loader-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 100000;
+  background-color: black;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .loader-container .loader {
+    border: 16px solid #f3f3f3;
+    /* Light grey */
+    border-top: 16px solid #16320B;
+    /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    z-index: 10000; }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
 
 .footer {
   display: block;
