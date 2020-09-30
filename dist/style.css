@@ -595,7 +595,7 @@ template {
     height: 100%;
     z-index: -9;
     position: absolute;
-    opacity: 0.4; }
+    opacity: 0; }
   .main .photo-board {
     margin-right: 30px;
     margin-bottom: 25px;

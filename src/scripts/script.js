@@ -358,12 +358,12 @@ window.onload = function () {
     });
 
     simplePhotoOne.addEventListener('click', function(event) {
-        if ($(window).width() < 960) {
-            alert('Less than 960');
-        }
-        else {
-            alert('More than 960');
-        }
+        // if ($(window).width() < 960) {
+        //     alert('Less than 960');
+        // }
+        // else {
+        //     alert('More than 960');
+        // }
         event.stopPropagation()
         const backgrpundImage = window.getComputedStyle(simplePhotoOne)
                 .getPropertyValue('background-image');
@@ -519,7 +519,7 @@ window.onload = function () {
         start(e) {
             const element = e.target;
             element.style.maxHeight = '3rem';
-            element.style.zIndex = '1000';
+            element.style.zIndex = '100000000000';
             element.style.position = 'absolute';
             photoBoardDashboard.classList.add('draggable');
             photoBoardDashboard.appendChild(element);
@@ -556,8 +556,8 @@ window.onload = function () {
     downloadDream.addEventListener('click', () => {
         laoder.style.display = 'flex';
         background.style.opacity = '1';
-        photoBoardDashboard.style.height = '800px'
-        html2canvas(photoBoardDashboard,
+        photoDashboard.style.height = '800px'
+        html2canvas(photoDashboard,
             {
                 y: 300,
             }
