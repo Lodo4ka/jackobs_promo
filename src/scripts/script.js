@@ -1,5 +1,6 @@
 window.onload = function () {
     const btnPasteText = document.querySelector('.photo-board-btn-paste-text');
+    const headerLogo = document.querySelector('.header .logo');
     const photoDashboard = document.querySelector('.photo-board-dasboard');
     const inputLabel = document.querySelector('.photo-board-dasboard-input');
     const btnAddSmile= document.querySelector('.photo-board-btn-add-smile');
@@ -246,7 +247,7 @@ window.onload = function () {
         if (currentNode.classList.contains("photo-board-dasboard")) {
             searchOpaAndDelete();
             const div = document.createElement('div');
-            div.style = `  
+            div.style = `
                 height: calc(100% - 20px);
                 width: calc(100% - 20px);
                 position: absolute;
@@ -457,6 +458,12 @@ window.onload = function () {
 
     emojiKeyboardClose.addEventListener('click', () => {
         emojiKeyboard.style.display = 'none';
+    })
+
+    headerLogo.addEventListener('click', () => {
+        const logoInPhoto = document.querySelector('.photo-board-dasboard .logo');
+        const displayLogoInPhoto = window.getComputedStyle(logoInPhoto).getPropertyValue('display');
+        displayLogoInPhoto === 'block' ? (logoInPhoto.style.display = 'none') : (logoInPhoto.style.display = 'block');
     })
 
     photoBucket.addEventListener('click', () => {
